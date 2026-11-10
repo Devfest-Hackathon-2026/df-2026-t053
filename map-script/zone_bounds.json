@@ -1,0 +1,155 @@
+{
+  "C": {
+    "name": "コネクティングゾーン",
+    "name_en": "Connecting Zone",
+    "color_hex": "#00A3E0",
+    "pixel_bounds": {
+      "min_x": 1415,
+      "min_y": 1098,
+      "max_x": 2480,
+      "max_y": 1435
+    },
+    "geo_bounds": {
+      "north": 34.65208834635986,
+      "south": 34.65060119365443,
+      "west": 135.37975251674652,
+      "east": 135.38546562194824
+    }
+  },
+  "S": {
+    "name": "セービングゾーン",
+    "name_en": "Saving Zone",
+    "color_hex": "#F39800",
+    "pixel_bounds": {
+      "min_x": 1309,
+      "min_y": 1370,
+      "max_x": 1829,
+      "max_y": 2179
+    },
+    "geo_bounds": {
+      "north": 34.6508880352737,
+      "south": 34.647317889654026,
+      "west": 135.37918388843536,
+      "east": 135.38197338581085
+    }
+  },
+  "P": {
+    "name": "エンパワーリングゾーン",
+    "name_en": "Empowering Zone",
+    "color_hex": "#00A650",
+    "pixel_bounds": {
+      "min_x": 2031,
+      "min_y": 1384,
+      "max_x": 2547,
+      "max_y": 2185
+    },
+    "geo_bounds": {
+      "north": 34.65082625408572,
+      "south": 34.64729141086742,
+      "west": 135.38305699825287,
+      "east": 135.38582503795624
+    }
+  },
+  "F": {
+    "name": "静けさの森ゾーン",
+    "name_en": "Forest of Tranquility",
+    "color_hex": "#84BD00",
+    "pixel_bounds": {
+      "min_x": 1750,
+      "min_y": 1380,
+      "max_x": 2110,
+      "max_y": 1750
+    },
+    "geo_bounds": {
+      "north": 34.65084390585841,
+      "south": 34.64921110097828,
+      "west": 135.3815495967865,
+      "east": 135.38348078727722
+    }
+  },
+  "X": {
+    "name": "シグネチャーゾーン",
+    "name_en": "Signature Zone",
+    "color_hex": "#9B499A",
+    "pixel_bounds": {
+      "min_x": 1780,
+      "min_y": 1751,
+      "max_x": 2180,
+      "max_y": 2110
+    },
+    "geo_bounds": {
+      "north": 34.64920668794854,
+      "south": 34.647622395092284,
+      "west": 135.3817105293274,
+      "east": 135.3838562965393
+    }
+  },
+  "WP": {
+    "name": "ウォータープラザ",
+    "name_en": "Water Plaza",
+    "color_hex": "#38C1E8",
+    "pixel_bounds": {
+      "min_x": 1518,
+      "min_y": 2000,
+      "max_x": 2331,
+      "max_y": 2334
+    },
+    "geo_bounds": {
+      "north": 34.648107836231894,
+      "south": 34.64663385162056,
+      "west": 135.3803050518036,
+      "east": 135.3846663236618
+    }
+  },
+  "W": {
+    "name": "西ゲートゾーン",
+    "name_en": "West Gate Zone",
+    "color_hex": "#0068B7",
+    "pixel_bounds": {
+      "min_x": 412,
+      "min_y": 1050,
+      "max_x": 1449,
+      "max_y": 2250
+    },
+    "geo_bounds": {
+      "north": 34.65230016415911,
+      "south": 34.647004556803694,
+      "west": 135.37437200546265,
+      "east": 135.37993490695953
+    }
+  },
+  "E": {
+    "name": "東ゲートゾーン",
+    "name_en": "East Gate Zone",
+    "color_hex": "#E60012",
+    "pixel_bounds": {
+      "min_x": 2349,
+      "min_y": 1070,
+      "max_x": 3050,
+      "max_y": 2370
+    },
+    "geo_bounds": {
+      "north": 34.652211906808525,
+      "south": 34.64647497746325,
+      "west": 135.38476288318634,
+      "east": 135.38852334022522
+    }
+  },
+  "L": {
+    "name": "フューチャーライフゾーン",
+    "name_en": "Future Life Zone",
+    "color_hex": "#A4D233",
+    "pixel_bounds": {
+      "min_x": 161,
+      "min_y": 135,
+      "max_x": 840,
+      "max_y": 1180
+    },
+    "geo_bounds": {
+      "north": 34.65633783745545,
+      "south": 34.65172648970067,
+      "west": 135.37302553653717,
+      "east": 135.3766679763794
+    }
+  }
+}

@@ -1,0 +1,12 @@
+### 版に固定した出典表記。
+class: CreditRow
+table: credit
+serverOnly: true
+fields:
+  revisionId: int, column=revision_id, relation(parent=challenge_revision, onDelete=Cascade)
+  name: String
+  url: String?
+  sortOrder: int, column=sort_order
+indexes:
+  credit_revision_idx:
+    fields: revisionId, sortOrder

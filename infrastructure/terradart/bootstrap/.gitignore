@@ -1,0 +1,8 @@
+.dart_tool/
+.terradart/
+# terradart が生成する。provider の版は required_providers が "~> 8.0" までしか固定しないため、
+# lockfile だけはコミットして clone ごとの版を揃える（docs/infrastructure.md INF-03）。
+tf-out/*
+!tf-out/prod/
+tf-out/prod/*
+!tf-out/prod/.terraform.lock.hcl

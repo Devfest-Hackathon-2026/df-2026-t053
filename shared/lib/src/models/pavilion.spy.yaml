@@ -1,0 +1,8 @@
+### 万博パビリオンマスター。緯度経度は対で設定する。
+class: Pavilion
+fields:
+  id: int
+  sourceKey: String
+  name: String
+  latitude: double?
+  longitude: double?

@@ -1,0 +1,15 @@
+include: package:lints/recommended.yaml
+
+linter:
+  rules:
+    # Primary Constructor への移行（.agents/skills/flutter-rule/modern-dart-syntax）
+    use_primary_constructors: true
+    use_declaring_parameters: true
+    empty_container_bodies: true
+    unnecessary_primary_constructor_body: true
+    unnecessary_type_name_in_constructor: true
+    initialize_in_field_declaration: true
+
+analyzer:
+  exclude:
+    - lib/src/generated/**

@@ -1,0 +1,9 @@
+### 会場図上のパビリオン等の地点。緯度経度は対で設定する。
+class: Landmark
+fields:
+  id: int
+  name: String
+  positionX: double
+  positionZ: double
+  latitude: double?
+  longitude: double?

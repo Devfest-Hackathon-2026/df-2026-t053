@@ -1,0 +1,15 @@
+# 統合テスト（test/integration）の設定。実サーバーをこのポートで起動する。
+apiServer:
+  port: 8180
+  publicHost: localhost
+  publicPort: 8180
+  publicScheme: http
+
+database:
+  filePath: ./data/test.sqlite
+
+maxRequestSize: 524288
+
+sessionLogs:
+  persistentEnabled: false
+  consoleEnabled: false

@@ -1,0 +1,5 @@
+### 素材の出典表記。
+class: Credit
+fields:
+  name: String
+  url: String?

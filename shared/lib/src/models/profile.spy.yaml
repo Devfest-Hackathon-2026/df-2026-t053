@@ -1,0 +1,5 @@
+### プロフィール。anonymous は出力専用。
+class: Profile
+fields:
+  nickname: String
+  anonymous: bool

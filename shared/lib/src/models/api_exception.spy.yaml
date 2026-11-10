@@ -1,0 +1,8 @@
+### 業務エラー。code は gRPC 相当の分類、reason は固定の文字列定数（api_error_reasons.dart）。message は開発者向けの固定説明で、SQL・秘密・生の例外を入れない。
+exception: ApiException
+fields:
+  code: ApiErrorCode
+  reason: String
+  message: String
+  retryAfterSeconds: int?
+  fieldViolations: List<FieldViolation>?

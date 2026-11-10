@@ -1,0 +1,6 @@
+### 撮影確定時の値。同じ requestId の再送では同じ値を返す。
+class: SubmitShotResponse
+fields:
+  shot: Shot
+  reveal: Reveal
+  myRankingEntry: RankingEntry

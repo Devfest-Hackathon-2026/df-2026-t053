@@ -1,0 +1,13 @@
+name: photohunt_shared
+description: API の公開 DTO・enum・例外と、純 Dart の幾何ロジック
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  serverpod_serialization: 4.1.1
+
+dev_dependencies:
+  lints: ">=3.0.0 <7.0.0"
+  test: ^1.25.5

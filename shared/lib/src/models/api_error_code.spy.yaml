@@ -1,0 +1,14 @@
+### API の誤りの分類（gRPC の code に対応）。未知の値は unknown として受け取る。
+enum: ApiErrorCode
+serialized: byName
+default: unknown
+values:
+  - unknown
+  - invalidArgument
+  - notFound
+  - alreadyExists
+  - permissionDenied
+  - failedPrecondition
+  - resourceExhausted
+  - unavailable
+  - internal

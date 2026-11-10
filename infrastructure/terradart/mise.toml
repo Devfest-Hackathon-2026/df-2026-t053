@@ -1,0 +1,83 @@
+[tools]
+# TerraDart のパッケージ（bootstrap/・stack/）を動かす Dart。api と同じ版にする。
+# OpenTofu は mise では入れない。各パッケージの pubspec.yaml の terradart.opentofu_version で固定し、
+# terradart が SHA-256 を確かめてダウンロードする（docs/infrastructure.md 5.4）。
+dart = "3.13.7"
+
+[env]
+# 2 つのパッケージと CI で provider のダウンロードを共有する。
+TF_PLUGIN_CACHE_DIR = "{{env.HOME}}/.cache/terradart-plugins"
+
+[tasks.setup]
+description = "bootstrap と stack の依存を取得する"
+run = ["cd bootstrap && dart pub get", "cd stack && dart pub get"]
+
+[tasks.lint]
+description = "bootstrap と stack の analyze（警告なし）と format の検査"
+run = [
+  "cd bootstrap && dart analyze --fatal-infos && dart format --output=none --set-exit-if-changed bin lib test",
+  "cd stack && dart analyze --fatal-infos && dart format --output=none --set-exit-if-changed bin lib test",
+]
+
+[tasks.test]
+description = "synth した構成と配備スクリプトの検査（資格情報・ネットワーク不要）"
+run = ["cd bootstrap && dart test", "cd stack && dart test", "bash scripts/test-deploy.sh"]
+
+[tasks.engine-check]
+description = "terradart が使う OpenTofu が pubspec.yaml の opentofu_version と同じ版か確かめる"
+# 本体は scripts/engine-check.sh（deploy.sh も同じものを使う）。
+run = "scripts/engine-check.sh"
+
+[tasks.validate]
+description = "terradart validate（資格情報不要。初回は OpenTofu と provider をダウンロードする）"
+depends = ["engine-check"]
+env = { PHOTOHUNT_SYNTH_PLACEHOLDER = "1" }
+run = [
+  "mkdir -p \"$TF_PLUGIN_CACHE_DIR\"",
+  "cd bootstrap && dart run terradart_cli:terradart validate --no-input",
+  "cd stack && dart run terradart_cli:terradart validate --no-input",
+]
+
+[tasks.plan]
+description = "plan する。stack は環境変数 API_IMAGE・RELEASE_ID（と MAINTENANCE_MODE）が要る"
+depends = ["engine-check"]
+usage = 'arg "<package>" help="bootstrap か stack" { choices "bootstrap" "stack" }'
+env = { PHOTOHUNT_SYNTH_PLACEHOLDER = "" }
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p "$TF_PLUGIN_CACHE_DIR"
+cd "${usage_package:?}"
+dart run terradart_cli:terradart plan
+'''
+
+[tasks.apply]
+description = "apply する（plan を表示して確認を求める）。stack の配備は保守経由の手順で行う（#34）"
+depends = ["engine-check"]
+usage = 'arg "<package>" help="bootstrap か stack" { choices "bootstrap" "stack" }'
+env = { PHOTOHUNT_SYNTH_PLACEHOLDER = "" }
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p "$TF_PLUGIN_CACHE_DIR"
+if [ "${usage_package:?}" = bootstrap ] && [ -z "${GOOGLE_BILLING_PROJECT:-}" ]; then
+  echo "GOOGLE_BILLING_PROJECT に対象のプロジェクト ID を入れてから実行する（予算 API の quota project）" >&2
+  exit 64
+fi
+cd "$usage_package"
+dart run terradart_cli:terradart apply
+'''
+
+[tasks.outputs]
+description = "stack の出力から .terradart/dart_defines.prod.json（API_BASE_URL・ASSET_BASE_URL）を書く"
+depends = ["engine-check"]
+env = { PHOTOHUNT_SYNTH_PLACEHOLDER = "1" }
+run = [
+  "mkdir -p \"$TF_PLUGIN_CACHE_DIR\"",
+  "cd stack && dart run terradart_cli:terradart outputs --no-input",
+]
+
+[tasks.deploy]
+description = "保守経由のデプロイ（scripts/deploy.sh。--help で段階と使い方）。CI の deploy.yml も同じものを使う"
+raw = true
+run = "scripts/deploy.sh"

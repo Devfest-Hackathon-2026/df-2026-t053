@@ -1,0 +1,17 @@
+### 1 回のプレイ。id はサーバーが生成する UUID（認証の代わりにはならない）。
+class: PlaySessionRow
+table: play_session
+serverOnly: true
+fields:
+  id: UuidValue?, defaultPersist=random_v7
+  requestId: UuidValue, column=request_id
+  revisionId: int, column=revision_id, relation(parent=challenge_revision, onDelete=Restrict)
+  mode: PlayMode
+  spawnPointId: int, column=spawn_point_id, relation(parent=spawn_point, onDelete=Restrict)
+  userProfileId: int, column=user_profile_id, relation(parent=user_profile, onDelete=Restrict)
+  startedAt: DateTime, column=started_at
+  expiresAt: DateTime, column=expires_at
+indexes:
+  play_session_profile_request_uk:
+    fields: userProfileId, requestId
+    unique: true

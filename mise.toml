@@ -1,0 +1,18 @@
+min_version = "2026.11.0"
+monorepo_root = true
+
+[monorepo]
+lockfile = true
+config_roots = ["api", "app", "shared", "infrastructure/local", "infrastructure/terradart"]
+
+[tasks.setup]
+description = "全プロジェクトの依存を取得する"
+depends = ["//...:setup"]
+
+[tasks.check]
+description = "全プロジェクトの lint と test"
+depends = ["//...:lint", "//...:test"]
+
+[tasks.doctor]
+description = "mise の Dart と api/Dockerfile の Dart の版が一致しているか確認する"
+run = "scripts/doctor.sh"

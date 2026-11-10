@@ -1,0 +1,4 @@
+### challenge.getChallengeRevision の引数。
+class: GetChallengeRevisionRequest
+fields:
+  revisionId: int

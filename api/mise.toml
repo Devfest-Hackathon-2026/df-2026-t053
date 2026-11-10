@@ -1,0 +1,93 @@
+[tools]
+# このプロジェクトで使う Dart の版（app は Flutter 同梱の Dart を使う）
+dart = "3.13.7"
+
+[tasks.setup]
+description = "依存取得と serverpod_cli の導入"
+run = [
+  "cd ../shared && dart pub get",
+  "cd client && dart pub get",
+  "dart pub get",
+  "dart pub global activate serverpod_cli 4.1.1",
+]
+
+[tasks.generate]
+description = "shared と api の .spy.yaml・endpoint から client / protocol を生成する"
+run = "dart pub global run serverpod_cli:serverpod_cli generate"
+
+[tasks."migration:create"]
+description = "DB の変更から migration を作る（結果をレビューする）"
+run = "dart pub global run serverpod_cli:serverpod_cli create-migration"
+
+[tasks.lint]
+description = "analyze（警告なし）と format の検査"
+run = [
+  "dart analyze --fatal-infos",
+  "cd client && dart analyze --fatal-infos",
+  "dart format --output=none --set-exit-if-changed bin lib test",
+  "cd client && dart format --output=none --set-exit-if-changed lib",
+]
+
+[tasks.test]
+description = "unit テスト"
+run = "dart test test/unit"
+
+[tasks."test:integration"]
+description = "サーバーを test モード（SQLite）で起動し、生成 client から呼ぶ"
+run = "dart test test/integration"
+
+[tasks."test:persistence"]
+description = "永続化の実証を compose で自動実行する（Docker が要る。ローカル環境を作り直す）"
+depends = ["docker:build"]
+env = { PERSISTENCE_E2E = "1" }
+run = "dart test test/integration/replication/persistence_e2e_test.dart"
+
+[tasks."docker:build"]
+description = "api image をビルドする。build context はリポジトリのルート"
+run = "docker build -t photohunt-api:local -f Dockerfile .."
+
+# --- CI でも手元でも同じものを実行する検査（.github/workflows/api.yml） ---
+
+[tasks."check:dart-version"]
+description = "mise の Dart と api/Dockerfile の DART_VERSION が一致するか検査する（Flutter 不要）"
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+want="$(sed -n 's/^ARG DART_VERSION=//p' Dockerfile | head -n1)"
+got="$(dart --version 2>&1 | sed -n 's/^Dart SDK version: \([0-9][0-9.]*\).*/\1/p')"
+if [ "$want" != "$got" ]; then
+  echo "api/mise.toml の dart（${got:-不明}）と api/Dockerfile の DART_VERSION（${want:-なし}）が違う" >&2
+  exit 1
+fi
+echo "ok: Dart $got"
+'''
+
+[tasks."check:generated"]
+description = "generate し直して、コミット済みの生成物と差分がないか検査する"
+depends = ["generate"]
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+paths=(lib/src/generated client/lib test/integration/test_tools ../shared/lib/src/generated)
+if [ -n "$(git status --porcelain -- "${paths[@]}")" ]; then
+  echo "生成物がコミットと一致しない。mise //api:generate を実行し、.spy.yaml と生成差分を同じコミットに入れる:" >&2
+  git status --short -- "${paths[@]}" >&2
+  exit 1
+fi
+echo "ok: 生成物は最新"
+'''
+
+[tasks."check:migration"]
+description = "テーブル定義の変更に対応する migration がコミットされているか検査する"
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+dart pub global run serverpod_cli:serverpod_cli create-migration
+if [ -n "$(git status --porcelain -- migrations)" ]; then
+  echo "テーブル定義の変更に対応する migration がない。mise //api:migration:create で作り、" >&2
+  echo "生成 SQL をレビュー（手書きの制約を引き継ぐ）してからコミットする:" >&2
+  git status --short -- migrations >&2
+  exit 1
+fi
+echo "ok: migration は最新"
+'''

@@ -1,0 +1,11 @@
+### ガイド用の構造物資料。
+class: SeedStructureInput
+serverOnly: true
+fields:
+  name: String
+  pavilionKey: String?
+  positionX: double
+  positionZ: double
+  facts: String
+  fallbackText: String
+  sources: List<GuideSource>

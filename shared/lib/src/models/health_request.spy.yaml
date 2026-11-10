@@ -1,0 +1,3 @@
+### health.ping の引数。項目は持たない。
+class: HealthRequest
+fields: {}

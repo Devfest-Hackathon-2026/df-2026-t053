@@ -1,0 +1,9 @@
+### 音声が利用できない理由。未知の値は UNKNOWN（汎用の音声利用不可）として扱う。
+enum: GuideAudioUnavailableReason
+serialized: byName
+default: UNKNOWN
+values:
+  - UNKNOWN
+  - TTS_FAILED
+  - AUDIO_TIMEOUT
+  - TEXT_FALLBACK

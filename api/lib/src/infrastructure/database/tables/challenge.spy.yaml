@@ -1,0 +1,13 @@
+### 出題。slug は一意。未公開のあいだ current_revision_id は null。
+class: ChallengeRow
+table: challenge
+serverOnly: true
+fields:
+  slug: String
+  title: String
+  currentRevisionId: int?, column=current_revision_id, relation(parent=challenge_revision, onDelete=Restrict)
+  createdAt: DateTime, column=created_at
+indexes:
+  challenge_slug_uk:
+    fields: slug
+    unique: true

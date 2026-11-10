@@ -1,0 +1,12 @@
+### 版ごとのモード設定。walkable は WalkableArea の JSON 文字列。
+class: ModeConfigRow
+table: mode_config
+serverOnly: true
+fields:
+  revisionId: int, column=revision_id, relation(parent=challenge_revision, onDelete=Cascade)
+  mode: PlayMode
+  walkable: String
+indexes:
+  mode_config_revision_mode_uk:
+    fields: revisionId, mode
+    unique: true

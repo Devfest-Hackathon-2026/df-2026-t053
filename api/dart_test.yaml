@@ -1,0 +1,6 @@
+# 統合テストは test モードの設定どおり同じポート（apiServer 8180 など）でサーバーを
+# 起動するため、ファイルを並列に実行しない。
+concurrency: 1
+
+tags:
+  integration:

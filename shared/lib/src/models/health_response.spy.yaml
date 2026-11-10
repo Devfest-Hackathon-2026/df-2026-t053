@@ -1,0 +1,5 @@
+### health.ping の結果。業務の値や秘密は含めない。
+class: HealthResponse
+fields:
+  releaseId: String
+  time: DateTime

@@ -1,0 +1,20 @@
+# 本番の Litestream 設定。値は環境変数（Litestream が展開する）から読む。
+# ローカルの差分は infrastructure/local/litestream/litestream.yml。
+# 終了時の同期（補助）を諦めるまでの時間。成功応答した変更は各要求の中で複製済み。
+# start.sh の停止待ち（LITESTREAM_STOP_TIMEOUT_SECONDS=5）より短くし、Cloud Run の
+# 終了猶予（10 秒）内に Litestream が自分で終わって、所有権を解放できるようにする。
+# 起動直後（複製位置がまだない）に SIGTERM を受けると、既定値では再試行が続いて止まらない。
+shutdown-sync-timeout: 4s
+
+socket:
+  enabled: true
+  path: ${LITESTREAM_SOCKET_PATH}
+  permissions: 0600
+
+dbs:
+  - path: /data/db.sqlite
+    replica:
+      # GCS。Cloud Run では実行 SA のメタデータサーバー資格情報を使う。
+      type: gs
+      bucket: ${DB_REPLICA_BUCKET}
+      path: ${DB_REPLICA_PREFIX}

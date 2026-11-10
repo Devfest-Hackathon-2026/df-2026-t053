@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc"><title id="title">かさね旅 — 写真の向こうを、歩こう。</title><desc id="desc">重なる写真のフレームと建築の線画で、写真の視点を探す旅を表現したコンセプトビジュアル。実際のゲーム画面ではありません。</desc><style>text { font-family: 'Hiragino Sans','Noto Sans JP',sans-serif; fill:#194e52 } .small {font-size:18px} .body {font-size:21px} .heading {font-size:27px;font-weight:700}</style>
+<rect width="1200" height="500" rx="24" fill="#f6f7ef"/>
+<circle cx="1040" cy="70" r="220" fill="#dcece5"/>
+<path d="M610 500 Q780 280 1200 350 L1200 500Z" fill="#b8d9cc"/>
+<text x="65" y="88" font-size="17" letter-spacing="4">KASANE TABI / EXPO 2025</text>
+<text x="60" y="197" font-size="82" font-weight="700">かさね旅</text>
+<text x="65" y="263" font-size="31" font-weight="600">写真の向こうを、歩こう。</text>
+<text x="65" y="320" class="body">一枚の写真を手がかりに、</text>
+<text x="65" y="355" class="body">誰かが見た景色を、あなたの視点で。</text>
+<rect x="65" y="401" width="244" height="43" rx="21" fill="#194e52"/>
+<text x="187" y="429" text-anchor="middle" style="fill:#fff;font-size:17px">3D探索 × 写真 × 音声ガイド</text>
+<g transform="translate(720 74) rotate(9 160 150)"><rect width="345" height="300" rx="10" fill="#d0b087"/><rect x="12" y="12" width="321" height="246" fill="#efe5d3"/></g>
+<g transform="translate(650 121) rotate(-7 185 150)">
+<rect width="390" height="302" rx="12" fill="#fff" stroke="#194e52" stroke-width="2"/>
+<rect x="17" y="17" width="356" height="235" fill="#e6f1eb"/>
+<path d="M17 210 L373 210 M34 193 L188 90 L356 170 M62 175 L62 210 M103 149 L103 210 M145 120 L145 210 M188 92 L188 210 M230 113 L230 210 M272 133 L272 210 M314 153 L314 210" fill="none" stroke="#3b7371" stroke-width="4"/>
+<path d="M17 231 L373 231 M153 252 L188 210 L226 252" fill="none" stroke="#9fc3b4" stroke-width="2"/>
+<path d="M48 62 V42 H68 M322 42 H342 V62 M48 207 V227 H68 M322 227 H342 V207" fill="none" stroke="#c47c51" stroke-width="3"/>
+<circle cx="190" cy="140" r="25" fill="none" stroke="#c47c51" stroke-width="2"/>
+<text x="195" y="282" text-anchor="middle" font-size="16" letter-spacing="3">FIND THE SAME VIEW</text></g>
+</svg>

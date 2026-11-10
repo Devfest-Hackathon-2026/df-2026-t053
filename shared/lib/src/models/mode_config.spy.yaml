@@ -1,0 +1,6 @@
+### モードごとの歩行可能領域。entrances は自由探索の入口（id と表示名だけ）。
+class: ModeConfig
+fields:
+  mode: PlayMode
+  walkable: WalkableArea
+  entrances: List<SpawnEntrance>

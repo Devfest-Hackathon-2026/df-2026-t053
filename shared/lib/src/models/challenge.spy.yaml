@@ -1,0 +1,6 @@
+### 出題。公開終了なら currentRevisionId は null。
+class: Challenge
+fields:
+  id: int
+  title: String
+  currentRevisionId: int?

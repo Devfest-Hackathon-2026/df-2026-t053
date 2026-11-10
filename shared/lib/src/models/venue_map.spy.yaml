@@ -1,0 +1,6 @@
+### 会場図。bounds は画像全体に対応するモデルローカルの範囲。
+class: VenueMap
+fields:
+  image: AssetRef
+  bounds: MapBounds
+  landmarks: List<Landmark>

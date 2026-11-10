@@ -1,0 +1,14 @@
+### 内容アドレスの素材。sha256 は小文字の 16 進 64 桁、byte_length は 1 以上。
+class: AssetRow
+table: asset
+serverOnly: true
+fields:
+  sha256: String
+  objectPath: String, column=object_path
+  contentType: String, column=content_type
+  byteLength: int, column=byte_length
+  createdAt: DateTime, column=created_at
+indexes:
+  asset_sha256_uk:
+    fields: sha256
+    unique: true

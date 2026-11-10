@@ -1,0 +1,13 @@
+### 万博 seed の参照用マスター。出題・採点はパビリオン種別に依存しない。
+class: PavilionRow
+table: pavilion
+serverOnly: true
+fields:
+  sourceKey: String, column=source_key
+  name: String
+  lat: double?
+  lon: double?
+indexes:
+  pavilion_source_key_uk:
+    fields: sourceKey
+    unique: true

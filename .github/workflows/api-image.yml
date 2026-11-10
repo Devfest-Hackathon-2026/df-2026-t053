@@ -1,0 +1,64 @@
+# 本番と同じ api image をビルドし、ローカル環境（fake-gcs-server）で起動できるか確かめる。
+# Docker のビルドは数分かかるので、image・起動・設定に関係するファイルが変わった PR だけで実行する。
+# アプリのコードだけを変えた PR では実行しない。気になるときは Actions 画面から手動で実行する。
+name: api-image
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "api/Dockerfile"
+      - ".dockerignore"
+      - "api/bin/**"
+      - "api/config/**"
+      - "api/scripts/**"
+      - "api/migrations/**"
+      - "api/lib/server.dart"
+      - "api/pubspec.yaml"
+      - "api/pubspec.lock"
+      - "shared/pubspec.yaml"
+      - "shared/pubspec.lock"
+      - "infrastructure/local/**"
+      - ".github/workflows/api-image.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: api-image-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  MISE_TRUSTED_CONFIG_PATHS: ${{ github.workspace }}
+
+jobs:
+  image:
+    name: image
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # このジョブはツールを使わない（ビルドは Docker の中で行う）。
+      - uses: jdx/mise-action@b44d12e7d0d8ee7461bb893e1b1993500433185b # v5.2.7
+        with:
+          version: 2026.11.3
+          install: false
+
+      - run: cp infrastructure/local/.env.example infrastructure/local/.env.local
+      # 本番と同じ api/Dockerfile の image をビルドし、fake-gcs-server と一緒に起動して
+      # compose の healthcheck（health.ping）が通るまで待つ。
+      - run: mise //infrastructure/local:up
+      # ホストへ公開したポートからも届くか（アプリが使う経路）を確かめる。
+      - run: >-
+          curl -fsS -X POST -H 'Content-Type: application/json'
+          -d '{"request":{}}' http://localhost:8080/health/ping
+
+      - name: compose logs
+        if: failure()
+        working-directory: infrastructure/local
+        run: docker compose --env-file .env.local logs --no-color

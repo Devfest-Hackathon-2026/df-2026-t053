@@ -1,0 +1,70 @@
+# API（api / shared / api/client）の生成物・lint・テスト。手順はすべて mise のタスクで、手元でも同じコマンドで再現できる。
+# Actions の無料枠（Free プラン・private で月 2,000 分）を節約するため、次の方針にしている。
+# - PR だけで実行する（main への push では再実行しない）。下書きの PR では実行しない。
+# - 1 ジョブにまとめる（ジョブごとに分単位で切り上げて課金されるため）。安い検査から先に実行し、早く落とす。
+# - image のビルドと起動は別ワークフロー（api-image.yml）で、関係するファイルが変わったときだけ実行する。
+name: api
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "api/**"
+      - "shared/**"
+      # seed の unit テストはサンプル出題（content/seeds/）を基準にする。
+      - "content/seeds/**"
+      - "mise.toml"
+      - "mise.lock"
+      - ".github/workflows/api.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: api-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # CI では `mise trust --all` の代わりにリポジトリ全体を信頼する。
+  MISE_TRUSTED_CONFIG_PATHS: ${{ github.workspace }}
+
+jobs:
+  check:
+    name: check
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # api の config root の Dart だけを mise.lock どおりに入れる。
+      # monorepo: false にしないと全 config root（Flutter 約 1GB）を入れてしまう。
+      - uses: jdx/mise-action@b44d12e7d0d8ee7461bb893e1b1993500433185b # v5.2.7
+        with:
+          version: 2026.11.3
+          working_directory: api
+          monorepo: false
+
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.pub-cache
+          key: pub-${{ runner.os }}-${{ hashFiles('api/pubspec.lock', 'api/client/pubspec.lock', 'shared/pubspec.lock', 'api/mise.toml') }}
+          restore-keys: pub-${{ runner.os }}-
+
+      - run: mise //api:setup
+      # 速く終わる検査から順に実行する。
+      - run: mise //api:check:dart-version
+      - run: mise //api:check:generated
+      - run: mise //api:check:migration
+      - run: mise //shared:lint
+      - run: mise //api:lint
+      - run: mise //shared:test
+      - run: mise //api:test
+      - run: mise //api:test:integration
+        env:
+          # test モード専用のダミー値（秘密ではない）。passwords.yaml の代わりに環境変数で渡す。
+          SERVERPOD_PASSWORD_jwtHmacSha512PrivateKey: ci-only-jwt-hmac-sha512-private-key-0123456789
+          SERVERPOD_PASSWORD_jwtRefreshTokenHashPepper: ci-only-jwt-refresh-token-hash-pepper-0123456789

@@ -1,0 +1,28 @@
+# ローカルの Litestream 設定。api/config/litestream.yml との差分は複製先だけ。
+#
+# 複製先を GCS（fake-gcs-server）にしない理由:
+# Litestream の GCS クライアントは、オブジェクトを `/<バケット>/<名前>`（名前の `/` は %2F）で
+# 読む。fake-gcs-server 1.56.1 は、この形式を Host が `-public-host` と一致する要求にしか
+# 返さない。コンテナ内の接続先（gcs:4443）と、端末から使う素材 URL（localhost:4443）の
+# 両方を満たせないため、復元（restore）が 404 になる。書き込み（replicate）と POST /sync は
+# fake-gcs-server でも動く。詳細は infrastructure/local/README.md。
+#
+# 代わりに Docker volume（/replica）へ複製する。コンテナを捨てても volume は残るので、
+# 「成功応答した記録はコンテナを捨てても復元される」ことは同じように確かめられる。
+
+# 終了時の同期（補助）を諦めるまでの時間。成功応答した変更は各要求の中で複製済み。
+# start.sh の停止待ち（LITESTREAM_STOP_TIMEOUT_SECONDS=5）より短くし、Cloud Run の
+# 終了猶予（10 秒）内に Litestream が自分で終わって、所有権を解放できるようにする。
+# 起動直後（複製位置がまだない）に SIGTERM を受けると、既定値では再試行が続いて止まらない。
+shutdown-sync-timeout: 4s
+
+socket:
+  enabled: true
+  path: ${LITESTREAM_SOCKET_PATH}
+  permissions: 0600
+
+dbs:
+  - path: /data/db.sqlite
+    replica:
+      type: file
+      path: /replica/${DB_REPLICA_PREFIX}

@@ -1,0 +1,3 @@
+### profile.getMyProfile の引数。項目は持たない。
+class: GetMyProfileRequest
+fields: {}

@@ -1,0 +1,5 @@
+### 不正な項目の名前と固定の理由。値そのものは入れない。
+class: FieldViolation
+fields:
+  field: String
+  reason: String

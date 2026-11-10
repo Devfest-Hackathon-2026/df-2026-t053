@@ -1,0 +1,4 @@
+### challenge.getChallenge の引数。
+class: GetChallengeRequest
+fields:
+  challengeId: int

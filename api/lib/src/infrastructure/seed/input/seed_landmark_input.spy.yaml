@@ -1,0 +1,10 @@
+### 会場図上の地点。pavilionKey は pavilions.yaml の sourceKey。緯度経度は対で設定する。
+class: SeedLandmarkInput
+serverOnly: true
+fields:
+  pavilionKey: String
+  displayName: String
+  positionX: double
+  positionZ: double
+  latitude: double?
+  longitude: double?

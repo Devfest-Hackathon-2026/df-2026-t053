@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+#MISE description="ローカル API につないでアプリを起動する（target: ios / android / device）"
+#USAGE arg "[target]" default="ios" help="接続先。ios=iOS シミュレーター, android=Android エミュレーター, device=実機（LAN の IP）"
+#USAGE arg "[lan_ip]" default="" help="device のときの LAN IP。省略すると en0 の IP を使う"
+#USAGE flag "--device-id <id>" help="flutter run -d に渡す端末 ID"
+set -euo pipefail
+
+target="${usage_target:-ios}"
+api_port="${API_HOST_PORT:-8080}"
+gcs_port="${GCS_HOST_PORT:-4443}"
+
+asset_bucket="photohunt-media-local"
+
+# API_HOST_PORT / GCS_HOST_PORT / ASSET_BUCKET は infrastructure/local/.env.local から読む
+# （無ければ既定値）。Compose と同じく、値を "..." / '...' で囲んでも、行末の ` # コメント` があっても読める。
+env_file="$MISE_MONOREPO_ROOT/infrastructure/local/.env.local"
+read_env() {
+  local v
+  v="$(sed -n "s/^$1=//p" "$env_file" | tail -n1 | tr -d '\r')"
+  v="${v#"${v%%[![:space:]]*}"}"
+  # 引用符で始まる値は閉じ引用符まで。それ以外は ` #` 以降をコメントとして落とす。
+  case "$v" in
+    \"*) v="${v#\"}"; v="${v%%\"*}" ;;
+    \'*) v="${v#\'}"; v="${v%%\'*}" ;;
+    *) v="${v%%[[:space:]]#*}" ;;
+  esac
+  v="${v%"${v##*[![:space:]]}"}"
+  printf '%s' "$v"
+}
+if [[ -f "$env_file" ]]; then
+  api_port="$(read_env API_HOST_PORT)"; api_port="${api_port:-8080}"
+  gcs_port="$(read_env GCS_HOST_PORT)"; gcs_port="${gcs_port:-4443}"
+  asset_bucket="$(read_env ASSET_BUCKET)"; asset_bucket="${asset_bucket:-photohunt-media-local}"
+fi
+
+case "$target" in
+  ios) host="localhost" ;;
+  android) host="10.0.2.2" ;;
+  device)
+    host="${usage_lan_ip:-}"
+    [[ -n "$host" ]] || host="$(ipconfig getifaddr en0 2>/dev/null || true)"
+    if [[ -z "$host" ]]; then
+      echo "LAN の IP を取得できません。第2引数で指定してください（例: mise //app:run:local device 192.168.0.10）" >&2
+      exit 1
+    fi
+    ;;
+  *)
+    echo "target は ios / android / device のどれかです: $target" >&2
+    exit 1
+    ;;
+esac
+
+api_base_url="http://${host}:${api_port}/"
+asset_base_url="http://${host}:${gcs_port}/${asset_bucket}/"
+
+# サーバーが返す AssetRef.url は、API 側の ASSET_BASE_URL で作られる。
+# 端末から届かないホストだと素材を取れないので、食い違っていれば知らせる。
+# 注意: 全角文字の直前の変数は必ず ${...} で囲む。UTF-8 ロケールの macOS 標準 Bash（3.2）は、
+# `$name）` の全角括弧の一部を変数名と読み、`set -u` で unbound variable になる。
+if [[ -f "$env_file" ]]; then
+  server_asset_url="$(read_env ASSET_BASE_URL)"
+  if [[ "$server_asset_url" != "$asset_base_url" ]]; then
+    echo "注意: .env.local の ASSET_BASE_URL（${server_asset_url}）が、端末から使う値（${asset_base_url}）と違います。" >&2
+    echo "      素材を取得できないときは、ASSET_BASE_URL と GCS_PUBLIC_HOST を揃えて up し直してください。" >&2
+  fi
+fi
+
+echo "API_BASE_URL=$api_base_url"
+echo "ASSET_BASE_URL=$asset_base_url"
+
+args=(run "--dart-define=ALLOW_LOCAL_ASSET_HTTP=true" "--dart-define=API_BASE_URL=$api_base_url" "--dart-define=ASSET_BASE_URL=$asset_base_url")
+[[ -n "${usage_device_id:-}" ]] && args+=(-d "$usage_device_id")
+exec flutter "${args[@]}"

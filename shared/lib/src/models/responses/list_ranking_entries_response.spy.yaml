@@ -1,0 +1,4 @@
+### 版・モード別の上位 100 件。空なら空配列。
+class: ListRankingEntriesResponse
+fields:
+  entries: List<RankingEntry>

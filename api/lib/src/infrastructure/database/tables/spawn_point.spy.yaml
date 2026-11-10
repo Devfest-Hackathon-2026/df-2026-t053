@@ -1,0 +1,17 @@
+### モードごとの開始点。free は 2〜32 行、near は 1 行（行数の検証は #26）。
+class: SpawnPointRow
+table: spawn_point
+serverOnly: true
+fields:
+  modeConfigId: int, column=mode_config_id, relation(parent=mode_config, onDelete=Cascade)
+  x: double
+  y: double
+  z: double
+  yawDeg: double, column=yaw_deg
+  sortOrder: int, column=sort_order
+  ### 自由探索の入口名。null は周辺探索の開始点で、公開しない。
+  label: String?
+indexes:
+  spawn_point_mode_config_order_uk:
+    fields: modeConfigId, sortOrder
+    unique: true

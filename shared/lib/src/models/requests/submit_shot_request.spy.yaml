@@ -1,0 +1,6 @@
+### play.submitShot の引数。requestId は撮影ごとに発行する UUID v4。
+class: SubmitShotRequest
+fields:
+  playSessionId: UuidValue
+  camera: ShotInput
+  requestId: UuidValue

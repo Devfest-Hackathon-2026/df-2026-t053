@@ -1,0 +1,6 @@
+### 出題。slug は英小文字・数字・ハイフン。
+class: SeedChallengeInput
+serverOnly: true
+fields:
+  slug: String
+  title: String

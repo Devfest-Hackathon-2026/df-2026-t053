@@ -1,0 +1,5 @@
+### 音声を送れないことの通知。本文は保持する。
+class: GuideAudioUnavailable
+extends: NearbyGuideEvent
+fields:
+  reason: GuideAudioUnavailableReason

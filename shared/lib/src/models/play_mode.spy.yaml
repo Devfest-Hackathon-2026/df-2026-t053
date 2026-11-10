@@ -1,0 +1,8 @@
+### プレイのモード。未知の値は unknown として受け取り、free や near へ置き換えない。
+enum: PlayMode
+serialized: byName
+default: unknown
+values:
+  - unknown
+  - free
+  - near

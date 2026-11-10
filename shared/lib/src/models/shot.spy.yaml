@@ -1,0 +1,10 @@
+### 撮影の確定結果。
+class: Shot
+fields:
+  id: int
+  camera: CameraPose
+  score: int
+  distanceMeters: double
+  yawDiffDegrees: double
+  pitchDiffDegrees: double
+  createTime: DateTime

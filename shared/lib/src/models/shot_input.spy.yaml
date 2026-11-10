@@ -1,0 +1,7 @@
+### 撮影の入力。冪等性の判定に使う 4 値。Y と画角はサーバーが版から補う。
+class: ShotInput
+fields:
+  positionX: double
+  positionZ: double
+  yawDegrees: double
+  pitchDegrees: double

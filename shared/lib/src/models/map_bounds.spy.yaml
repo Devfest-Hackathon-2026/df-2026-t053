@@ -1,0 +1,7 @@
+### 会場図の範囲。モデルローカルの m。
+class: MapBounds
+fields:
+  minX: double
+  minZ: double
+  maxX: double
+  maxZ: double

@@ -1,0 +1,8 @@
+### WAV 音声の断片。sequence=0 から連番、各 data は 1〜32768 bytes。最後だけ last=true。
+class: GuideAudioChunk
+extends: NearbyGuideEvent
+fields:
+  sequence: int
+  data: ByteData
+  contentType: String
+  last: bool

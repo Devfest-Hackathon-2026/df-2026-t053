@@ -1,0 +1,5 @@
+### ガイド本文の出典。
+class: GuideSource
+fields:
+  title: String
+  url: String

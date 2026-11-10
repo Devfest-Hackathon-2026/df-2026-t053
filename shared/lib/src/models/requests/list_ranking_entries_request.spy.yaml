@@ -1,0 +1,5 @@
+### ranking.listRankingEntries の引数。
+class: ListRankingEntriesRequest
+fields:
+  revisionId: int
+  mode: PlayMode

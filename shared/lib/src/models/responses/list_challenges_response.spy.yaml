@@ -1,0 +1,4 @@
+### 公開中の出題。提出版は最大 1 件を id 昇順で返す。
+class: ListChallengesResponse
+fields:
+  challenges: List<Challenge>

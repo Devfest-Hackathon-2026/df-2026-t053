@@ -1,0 +1,7 @@
+### 配信する素材の参照。端末は sha256 と byteLength で検証する。
+class: AssetRef
+fields:
+  url: String
+  sha256: String
+  byteLength: int
+  contentType: String

@@ -1,0 +1,8 @@
+### プレイの状態。未知の値は unknown として受け取り、撮影を無効にする。
+enum: PlaySessionState
+serialized: byName
+default: unknown
+values:
+  - unknown
+  - active
+  - completed

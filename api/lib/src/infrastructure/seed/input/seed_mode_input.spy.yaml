@@ -1,0 +1,7 @@
+### モードごとの歩行領域と開始点（free は 2〜32 件、near は 1 件）。
+class: SeedModeInput
+serverOnly: true
+fields:
+  mode: PlayMode
+  walkable: WalkableArea
+  spawns: List<SeedSpawnInput>

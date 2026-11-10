@@ -1,0 +1,8 @@
+### ガイド本文。必ず先頭に 1 回。生成成功なら aiGenerated=true、固定文なら false。
+class: GuideText
+extends: NearbyGuideEvent
+fields:
+  text: String
+  structures: List<String>
+  sources: List<GuideSource>
+  aiGenerated: bool

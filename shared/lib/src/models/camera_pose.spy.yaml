@@ -1,0 +1,9 @@
+### カメラの姿勢。位置は視点（足元に eyeHeightMeters を足した値）。
+class: CameraPose
+fields:
+  positionX: double
+  positionY: double
+  positionZ: double
+  yawDegrees: double
+  pitchDegrees: double
+  verticalFovDegrees: double

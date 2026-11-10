@@ -1,0 +1,5 @@
+### 自由探索で選べる入口。座標は含めない。
+class: SpawnEntrance
+fields:
+  id: int
+  label: String

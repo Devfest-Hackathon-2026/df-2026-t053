@@ -1,0 +1,12 @@
+### 構造物資料の出典。
+class: StructureSourceRow
+table: structure_source
+serverOnly: true
+fields:
+  structureId: int, column=structure_id, relation(parent=structure, onDelete=Cascade)
+  title: String
+  url: String
+  sortOrder: int, column=sort_order
+indexes:
+  structure_source_structure_idx:
+    fields: structureId, sortOrder

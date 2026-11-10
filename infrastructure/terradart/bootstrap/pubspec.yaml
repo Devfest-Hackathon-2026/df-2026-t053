@@ -1,0 +1,22 @@
+name: photohunt_bootstrap
+description: 万博フォトハントの GCP 初期設定（API・tfstate・WIF・SA・予算）。インフラ担当が手元から適用する。
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+
+# TerraDart は alpha で minor の更新に破壊的変更が入るため、^ を付けずに固定する。
+# terradart_cli・terradart_core・provider の版は揃える（docs/infrastructure.md 5.4）。
+dependencies:
+  terradart_core: 0.36.0
+  terradart_google: 0.36.0
+
+dev_dependencies:
+  lints: ">=3.0.0 <7.0.0"
+  terradart_cli: 0.36.0
+  test: ^1.25.0
+
+terradart:
+  engine: tofu
+  # terradart_cli 0.36.0 が SHA-256 を同梱している版。PATH の tofu は使わない（mise で入れない）。
+  opentofu_version: 1.13.1

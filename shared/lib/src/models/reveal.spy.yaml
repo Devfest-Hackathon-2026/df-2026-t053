@@ -1,0 +1,6 @@
+### 撮影後に明かす正解と解説。撮影前の応答には含めない。
+class: Reveal
+fields:
+  goalCamera: CameraPose
+  story: String
+  highlight: String

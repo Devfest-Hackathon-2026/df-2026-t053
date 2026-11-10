@@ -1,0 +1,12 @@
+### seed の入力 1 版分（content/seeds/<slug>/r<n>/revision.yaml）。管理用 CLI だけが読む。
+class: SeedRevisionInput
+serverOnly: true
+fields:
+  challenge: SeedChallengeInput
+  revision: SeedRevisionFields
+  assets: SeedAssetsInput
+  map: SeedMapInput
+  modes: List<SeedModeInput>
+  landmarks: List<SeedLandmarkInput>
+  credits: List<Credit>
+  structures: List<SeedStructureInput>

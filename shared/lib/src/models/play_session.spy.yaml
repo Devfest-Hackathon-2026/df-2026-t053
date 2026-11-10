@@ -1,0 +1,14 @@
+### プレイ。active では shot / reveal / myRankingEntry はすべて null、completed ではすべて返す。
+class: PlaySession
+fields:
+  id: UuidValue
+  revisionId: int
+  mode: PlayMode
+  spawnPointId: int
+  spawn: Spawn
+  state: PlaySessionState
+  createTime: DateTime
+  expireTime: DateTime
+  shot: Shot?
+  reveal: Reveal?
+  myRankingEntry: RankingEntry?

@@ -1,0 +1,70 @@
+{
+  "PhysicalOpaque": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalOpaque.frag"
+  },
+  "PhysicalOpaqueCube": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalOpaqueCube.frag"
+  },
+  "PhysicalOpaqueShadow": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalOpaqueShadow.frag"
+  },
+  "PhysicalOpaqueShadowCube": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalOpaqueShadowCube.frag"
+  },
+  "PhysicalOpaqueLightmap": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalOpaqueLightmap.frag"
+  },
+  "PhysicalOpaqueLightmapCube": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalOpaqueLightmapCube.frag"
+  },
+  "PhysicalOpaqueLightmapShadow": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalOpaqueLightmapShadow.frag"
+  },
+  "PhysicalOpaqueLightmapShadowCube": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalOpaqueLightmapShadowCube.frag"
+  },
+  "PhysicalTransmission": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalTransmission.frag"
+  },
+  "PhysicalTransmissionCube": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalTransmissionCube.frag"
+  },
+  "PhysicalTransmissionShadow": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalTransmissionShadow.frag"
+  },
+  "PhysicalTransmissionShadowCube": {
+    "type": "fragment",
+    "file": "build/fmat/physical/PhysicalTransmissionShadowCube.frag"
+  },
+  "ShadowCatcher": {
+    "type": "fragment",
+    "file": "build/fmat/physical/ShadowCatcher.frag"
+  },
+  "ShadowCatcherShadow": {
+    "type": "fragment",
+    "file": "build/fmat/physical/ShadowCatcherShadow.frag"
+  },
+  "ShadowCatcherUnskinnedVertex": {
+    "type": "vertex",
+    "file": "build/fmat/physical/ShadowCatcherUnskinnedVertex.vert"
+  },
+  "ShadowCatcherSkinnedVertex": {
+    "type": "vertex",
+    "file": "build/fmat/physical/ShadowCatcherSkinnedVertex.vert"
+  },
+  "ShadowCatcherUnskinnedDepthVertex": {
+    "type": "vertex",
+    "file": "build/fmat/physical/ShadowCatcherUnskinnedDepthVertex.vert"
+  }
+}

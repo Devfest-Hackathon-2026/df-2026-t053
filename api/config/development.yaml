@@ -1,0 +1,17 @@
+# ローカル開発（dart run bin/main.dart）の設定。DB は全 run mode で SQLite。
+apiServer:
+  port: 8080
+  publicHost: localhost
+  publicPort: 8080
+  publicScheme: http
+
+database:
+  filePath: ./data/db.sqlite
+
+maxRequestSize: 524288
+
+# SQLite は永続セッションログを持てない
+sessionLogs:
+  persistentEnabled: false
+  consoleEnabled: true
+  consoleLogFormat: text

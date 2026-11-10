@@ -1,0 +1,30 @@
+### 出題の版。published_at を設定した後は内容を更新しない（公開処理 #26 が担保する）。
+class: ChallengeRevisionRow
+table: challenge_revision
+serverOnly: true
+fields:
+  challengeId: int, column=challenge_id, relation(parent=challenge, onDelete=Restrict)
+  revisionNo: int, column=revision_no
+  sceneProfile: String, column=scene_profile
+  scoringVersion: String, column=scoring_version
+  photoAssetId: int, column=photo_asset_id, relation(parent=asset, onDelete=Restrict)
+  mapAssetId: int, column=map_asset_id, relation(parent=asset, onDelete=Restrict)
+  photoAlt: String, column=photo_alt
+  mapBoundsXz: String, column=map_bounds_xz
+  eyeHeightM: double, column=eye_height_m
+  shotFovDeg: double, column=shot_fov_deg
+  goalX: double, column=goal_x
+  goalY: double, column=goal_y
+  goalZ: double, column=goal_z
+  goalYawDeg: double, column=goal_yaw_deg
+  goalPitchDeg: double, column=goal_pitch_deg
+  story: String
+  highlight: String
+  publishedAt: DateTime?, column=published_at
+  ### seed 入力（素材の内容を含む）を正規化した SHA-256。同じ版番号の再投入で内容を比べる（#26）。
+  seedDigest: String?, column=seed_digest
+  createdAt: DateTime, column=created_at
+indexes:
+  challenge_revision_challenge_no_uk:
+    fields: challengeId, revisionNo
+    unique: true

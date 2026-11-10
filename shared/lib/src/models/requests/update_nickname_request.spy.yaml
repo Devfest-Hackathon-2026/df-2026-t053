@@ -1,0 +1,4 @@
+### profile.updateNickname の引数。nickname だけを受け付ける。
+class: UpdateNicknameRequest
+fields:
+  nickname: String

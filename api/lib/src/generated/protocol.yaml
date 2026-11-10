@@ -1,0 +1,24 @@
+anonymousIdp:
+  - login:
+challenge:
+  - listChallenges:
+  - getChallenge:
+  - getChallengeRevision:
+guide:
+  - explainNearby:
+health:
+  - ping:
+jwtRefresh:
+  - refreshAccessToken:
+pavilion:
+  - listPavilions:
+play:
+  - createPlaySession:
+  - submitShot:
+  - getPlaySession:
+profile:
+  - getMyProfile:
+  - updateNickname:
+ranking:
+  - listRankingEntries:
+  - getMyRankingEntry:

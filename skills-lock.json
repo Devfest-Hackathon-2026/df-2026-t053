@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "skills": {
+    "cloud-logging-query-generation": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/cloud-logging-query-generation/SKILL.md",
+      "computedHash": "bbcd604f8667db9e4cf77f6057fa91ad937513ba4af1e7e41d4f2cfe652196d1",
+      "installMode": "copy"
+    },
+    "cloud-run-basics": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/cloud-run-basics/SKILL.md",
+      "computedHash": "0c1323791e24cc34e977e7b4f41b016863c0faec9dc855a590db402dfb3ab7c5",
+      "installMode": "copy"
+    },
+    "gemini-api-dev": {
+      "source": "google-gemini/gemini-skills",
+      "sourceType": "github",
+      "skillPath": "skills/gemini-api-dev/SKILL.md",
+      "computedHash": "6a8f7f1781a1a420ec4ca7d6e39bbf13129da7dd8c3a789eb0417053fe862bf2",
+      "installMode": "copy"
+    },
+    "google-cloud-networking-observability": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-networking-observability/SKILL.md",
+      "computedHash": "88d90e72a85e7a8c09c80f731296c9f178d8f8711724e9a09d5427598d8c2ce3",
+      "installMode": "copy"
+    },
+    "google-cloud-recipe-auth": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-recipe-auth/SKILL.md",
+      "computedHash": "19668b1d6b8d524562fb111be7e9d71e274c93f9f7decd17a820ed7ce96929ba",
+      "installMode": "copy"
+    },
+    "google-cloud-recipe-onboarding": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-recipe-onboarding/SKILL.md",
+      "computedHash": "ed40c9fc7406ac16cee81ddfc843a117d9169150385e475a4b1cb2cf4381128f",
+      "installMode": "copy"
+    },
+    "google-cloud-storage-basics": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-storage-basics/SKILL.md",
+      "computedHash": "a0af786d950a9783045e84ce11f59ae180fb0f96dc1519cb25597ded6568d2d1",
+      "installMode": "copy"
+    },
+    "google-cloud-storage-bucket-architect": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-storage-bucket-architect/SKILL.md",
+      "computedHash": "489bed1345207eb08c9abf896adacd22aef1087e89dcaf518a24b88a8cb72e3d",
+      "installMode": "copy"
+    },
+    "google-cloud-waf-cost-optimization": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-waf-cost-optimization/SKILL.md",
+      "computedHash": "741225d89091acd165cbd421ae43b9aee8d1086a84002aeb15ac7569a61ab002",
+      "installMode": "copy"
+    },
+    "google-cloud-waf-reliability": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-waf-reliability/SKILL.md",
+      "computedHash": "559973663110e2f12feef00f7c4d32038ae65637ac39c2e425a934210698df0f",
+      "installMode": "copy"
+    },
+    "google-cloud-waf-security": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-waf-security/SKILL.md",
+      "computedHash": "718c219336d4c390c45168b3624fb5946cc5a85040d02ad95fdf33878d0690d3",
+      "installMode": "copy"
+    },
+    "iam-helper-for-troubleshooting": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/iam-helper-for-troubleshooting/SKILL.md",
+      "computedHash": "edf2ea77039c05c8e1195f1890d208d5f38edf512266cd7f075cd2167c05c0c5",
+      "installMode": "copy"
+    },
+    "serverpod-auth": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-auth/SKILL.md",
+      "computedHash": "31226e5659bdfb3ca8b77fa078a0ca76961124fd14f0bc20377c4502f537b9ec",
+      "installMode": "copy"
+    },
+    "serverpod-configuration": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-configuration/SKILL.md",
+      "computedHash": "505829b684d3f732bbfd484a744d032e213368ddd5bb625734622a3127956e23",
+      "installMode": "copy"
+    },
+    "serverpod-database": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-database/SKILL.md",
+      "computedHash": "c7ad2e7aaf2c9c249583cc6c4115366d784a2fd206af2829ebfbe9087c0d1ba3",
+      "installMode": "copy"
+    },
+    "serverpod-endpoints": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-endpoints/SKILL.md",
+      "computedHash": "30d8d225a732305b8a1206504baf9628663e971f83d7d9f6102487ff1ed883ca",
+      "installMode": "copy"
+    },
+    "serverpod-migrations": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-migrations/SKILL.md",
+      "computedHash": "87d0c285dcda6236f047807e237c1cadc12105c662a64738b48ea74648dbb1a5",
+      "installMode": "copy"
+    },
+    "serverpod-models": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-models/SKILL.md",
+      "computedHash": "d9bab7917baf7c1503491dd40b541399b24a2b56ae916b18f5bc2fee78b9d92a",
+      "installMode": "copy"
+    },
+    "serverpod-overview": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-overview/SKILL.md",
+      "computedHash": "a49f65030db19f2d405d792794ea4deb66cd82c68ee1507ef49b84dbd0f88d4d",
+      "installMode": "copy"
+    },
+    "serverpod-sessions": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-sessions/SKILL.md",
+      "computedHash": "50eb268a39fd7903cb8d08fc832489935cabd3576a343a8a2365d5c2f6a2a683",
+      "installMode": "copy"
+    },
+    "serverpod-streams": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-streams/SKILL.md",
+      "computedHash": "f04ffee28c499bded9a043e856d8f9951abc87318f9342021b69c9b93da58855",
+      "installMode": "copy"
+    },
+    "serverpod-testing": {
+      "source": "serverpod/serverpod",
+      "sourceType": "github",
+      "skillPath": "packages/serverpod/skills/serverpod-testing/SKILL.md",
+      "computedHash": "252e970dd065b2d97b2942f2217c547e3273b31f463de4c63cbbed63426a0903",
+      "installMode": "copy"
+    },
+    "terradart": {
+      "source": "nozomi-koborinai/terradart",
+      "ref": "v0.36.0",
+      "sourceType": "github",
+      "skillPath": "skills/terradart/SKILL.md",
+      "computedHash": "8557379d69e8a285e6b0cf1b063eace0c6d3f2f49935c53bd5dd0f6a07c88815"
+    }
+  }
+}

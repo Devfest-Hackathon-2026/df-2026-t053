@@ -1,0 +1,66 @@
+{
+  "__className__": "serverpod.DatabaseMigration",
+  "actions": [
+    {
+      "__className__": "serverpod.DatabaseMigrationAction",
+      "type": "alterTable",
+      "alterTable": {
+        "__className__": "serverpod.TableMigration",
+        "name": "challenge_revision",
+        "schema": "public",
+        "addColumns": [],
+        "deleteColumns": [
+          "model_asset_id"
+        ],
+        "modifyColumns": [],
+        "addIndexes": [],
+        "deleteIndexes": [],
+        "addForeignKeys": [
+          {
+            "__className__": "serverpod.ForeignKeyDefinition",
+            "constraintName": "challenge_revision_fk_2",
+            "columns": [
+              "map_asset_id"
+            ],
+            "referenceTable": "asset",
+            "referenceTableSchema": "public",
+            "referenceColumns": [
+              "id"
+            ],
+            "onUpdate": 3,
+            "onDelete": 2
+          }
+        ],
+        "deleteForeignKeys": [
+          "challenge_revision_fk_3",
+          "challenge_revision_fk_2"
+        ],
+        "warnings": [
+          {
+            "__className__": "serverpod.DatabaseMigrationWarning",
+            "type": "columnDropped",
+            "message": "Column \"model_asset_id\" of table \"challenge_revision\" will be dropped.",
+            "table": "challenge_revision",
+            "columns": [
+              "model_asset_id"
+            ],
+            "destrucive": true
+          }
+        ]
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "__className__": "serverpod.DatabaseMigrationWarning",
+      "type": "columnDropped",
+      "message": "Column \"model_asset_id\" of table \"challenge_revision\" will be dropped.",
+      "table": "challenge_revision",
+      "columns": [
+        "model_asset_id"
+      ],
+      "destrucive": true
+    }
+  ],
+  "migrationApiVersion": 1
+}

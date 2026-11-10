@@ -1,0 +1,4 @@
+### 全パビリオン一覧の応答。
+class: ListPavilionsResponse
+fields:
+  pavilions: List<Pavilion>

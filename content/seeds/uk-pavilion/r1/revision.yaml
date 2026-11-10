@@ -1,0 +1,188 @@
+# 英国パビリオン前の庭（2025-07-24 撮影）。
+# 本番に公開済みの r1 は、表示名なし・digest 版 1 の内容である。
+# このファイルは検証のため自由探索の開始点に表示名を足してある。本番へ再投入しない。
+#
+# 座標は同梱モデル（app/assets/models/merged_model_draco.glb）の実行時ローカル座標（m）。
+# 実行時の向きは +X 東・+Z 北（flutter_scene が glTF の Z を反転して読み込むため）。
+# docs/specs.md「ローカル座標」の「−Z を北」とは逆なので、照合結果を content/provenance/ に記録した。
+# yaw は北向き 0°・東向き 90°（カメラの前方 +Z を 0° とする実装と一致）。
+#
+# 足元 Y はこの付近の地表（約 9.9 m）。視点はその上 1.6 m（11.5 m）。
+# 会場図は bounds 1219 m × 796 m に対して 3657×2388 px（1 m = 3 px）。
+# 画像の最大辺は 4096 px までなので、英国パビリオン付近の図を 8 px/m のまま会場全体へ広げられない。
+# 以前の図（X −250..−80、Z −180..−50、1360×1040 px）は同じ範囲へ縮小して置いてある。
+# 画像の行は Z が増える向き（docs/specs.md の式どおり）なので、北が下になる。
+challenge:
+  slug: uk-pavilion
+  title: 英国パビリオンの赤い電話ボックス
+revision:
+  revisionNo: 1
+  sceneProfile: bundled-v1
+  scoringVersion: v1
+  photoAlt: 白い穴あきパネルを積み重ねた外壁の建物を、花壇越しに見上げた写真。右手前に赤い電話ボックスが立っている
+  eyeHeightMeters: 1.6
+  # 写真（Xperia の超広角）の縦の画角を、3D モデルとの重ね合わせで推定した値。
+  shotVerticalFovDegrees: 83.0
+  # 足元 Y（9.9）＋ eyeHeightMeters（1.6）。写真と 3D モデルの輪郭の重ね合わせで求めた。
+  goal: { x: -164.6, y: 11.5, z: -131.3, yawDegrees: 359.8, pitchDegrees: 14.0 }
+  story: 2025年7月24日の正午前、英国パビリオン前の通路で撮影した一枚。真夏の日差しの下、花壇越しに白い外壁を見上げている。
+  highlight: 庭の端に立つ赤い電話ボックスと、折り曲げた穴あきアルミパネルを重ねた白い外壁。夜は外壁の照明でユニオンジャックが浮かび上がる。
+assets:
+  photo: { file: photo.jpg, contentType: image/jpeg }
+  map: { file: map.png, contentType: image/png }
+map:
+  bounds: { minX: -683.0, minZ: -186.0, maxX: 536.0, maxZ: 610.0 }
+modes:
+  - mode: free
+    walkable:
+      outer: [{ x: -245, z: -175 }, { x: -85, z: -175 }, { x: -85, z: -55 }, { x: -245, z: -55 }]
+      # 外周に収まる建物の外形（凸包）。外周をまたぐ建物は含めない。
+      holes:
+        # 英国パビリオン
+        - [{ x: -201.9, z: -95.1 }, { x: -196.8, z: -104.6 }, { x: -157.6, z: -116.2 }, { x: -156.8, z: -116.4 }, { x: -151.2, z: -96.4 }, { x: -179.3, z: -82.8 }]
+        # 東隣の黒い外壁の建物
+        - [{ x: -155.3, z: -123.1 }, { x: -114.9, z: -134.9 }, { x: -110.5, z: -119.6 }, { x: -110.6, z: -107.0 }, { x: -142.2, z: -97.6 }, { x: -150.8, z: -107.9 }]
+        # 赤い電話ボックス
+        - [{ x: -161.1, z: -128.7 }, { x: -160.0, z: -128.7 }, { x: -160.0, z: -127.6 }, { x: -161.1, z: -127.6 }]
+        # 南西の建物
+        - [{ x: -230.5, z: -119.2 }, { x: -228.4, z: -124.1 }, { x: -225.7, z: -130.4 }, { x: -220.2, z: -127.3 }, { x: -210.6, z: -120.0 }, { x: -212.0, z: -114.7 }, { x: -212.5, z: -112.9 }, { x: -215.9, z: -109.2 }, { x: -218.4, z: -110.2 }]
+        # 北西の建物
+        - [{ x: -211.4, z: -73.5 }, { x: -204.0, z: -91.1 }, { x: -202.2, z: -90.4 }, { x: -189.8, z: -85.2 }, { x: -177.3, z: -79.9 }, { x: -184.7, z: -62.2 }, { x: -208.5, z: -72.2 }, { x: -210.6, z: -73.1 }]
+        # 北の建物
+        - [{ x: -167.8, z: -72.3 }, { x: -166.4, z: -76.1 }, { x: -163.1, z: -79.7 }, { x: -159.3, z: -81.9 }, { x: -155.3, z: -83.5 }, { x: -142.4, z: -87.0 }, { x: -138.1, z: -84.2 }, { x: -135.5, z: -80.7 }, { x: -131.9, z: -70.1 }, { x: -135.4, z: -66.9 }, { x: -140.5, z: -65.3 }, { x: -159.1, z: -63.8 }, { x: -164.6, z: -63.7 }]
+        # 西の小さな建物
+        - [{ x: -234.1, z: -83.8 }, { x: -231.8, z: -86.8 }, { x: -231.0, z: -86.2 }, { x: -228.6, z: -84.4 }, { x: -227.2, z: -83.3 }, { x: -227.1, z: -83.2 }, { x: -229.4, z: -80.2 }, { x: -230.2, z: -80.8 }, { x: -231.9, z: -82.1 }]
+        # 東の建物
+        - [{ x: -107.5, z: -111.8 }, { x: -107.4, z: -120.1 }, { x: -104.9, z: -120.1 }, { x: -89.7, z: -110.8 }, { x: -89.7, z: -108.3 }, { x: -94.9, z: -108.3 }, { x: -107.5, z: -108.4 }]
+        # 南東の建物
+        - [{ x: -109.6, z: -167.3 }, { x: -99.4, z: -168.1 }, { x: -98.6, z: -157.6 }, { x: -108.8, z: -156.8 }, { x: -109.5, z: -164.7 }, { x: -109.6, z: -166.4 }]
+    # 当たり判定（app/assets/collision.bin）でゴールまで歩いて到達できることを確認した地点。
+    spawns:
+      - { positionX: -230, positionY: 9.9, positionZ: -160, yawDegrees: 60, label: 南通路西 }
+      - { positionX: -120, positionY: 9.9, positionZ: -160, yawDegrees: 270, label: 南通路東 }
+      - { positionX: -215, positionY: 9.9, positionZ: -65, yawDegrees: 180, label: 北 }
+      - { positionX: -100, positionY: 9.9, positionZ: -140, yawDegrees: 300, label: 南東 }
+  - mode: near
+    walkable:
+      # 英国パビリオンと東隣の建物の南側の通路。
+      outer: [{ x: -190, z: -155 }, { x: -152, z: -155 }, { x: -152, z: -125 }, { x: -190, z: -125 }]
+      # free の穴のうち near の領域内にあるもの。
+      holes:
+        - [{ x: -161.1, z: -128.7 }, { x: -160.0, z: -128.7 }, { x: -160.0, z: -127.6 }, { x: -161.1, z: -127.6 }]
+    spawns:
+      - { positionX: -176, positionY: 9.9, positionZ: -145, yawDegrees: 100 }
+# 英国パビリオン以外は、provenance の変換（基準点 34.6489°N, 135.3800°E からの
+# 東距 e・北距 n に対し x = e − 323.5、z = n − 13.5）で 0.1 m に丸めた位置。
+# 建物外形との個別の重ね合わせはしていない。英国パビリオンだけは外形照合の位置のまま。
+landmarks:
+  - { pavilionKey: uk-pavilion, displayName: 英国パビリオン, positionX: -174.9, positionZ: -99.4, latitude: 34.648061, longitude: 135.381547 }
+  - { pavilionKey: JpPr01, displayName: "日本館", positionX: 390.2, positionZ: -79.7, latitude: 34.648305, longitude: 135.387793 }
+  - { pavilionKey: JpPr02, displayName: "ウーマンズ パビリオン in collaboration with Cartier", positionX: 407.9, positionZ: -21.1, latitude: 34.648832, longitude: 135.387987 }
+  - { pavilionKey: JpPr03, displayName: "大阪ヘルスケアパビリオン", positionX: 347.1, positionZ: 184.3, latitude: 34.650677, longitude: 135.387323 }
+  - { pavilionKey: JpPr04, displayName: "関西パビリオン", positionX: 298.2, positionZ: 246.3, latitude: 34.651234, longitude: 135.386789 }
+  - { pavilionKey: JpPr05, displayName: "NTT Pavilion", positionX: 404.2, positionZ: 175.7, latitude: 34.65059981905167, longitude: 135.38794657102636 }
+  - { pavilionKey: JpPr06, displayName: "電力館 可能性のタマゴたち", positionX: 367.2, positionZ: 24.0, latitude: 34.649237, longitude: 135.387542 }
+  - { pavilionKey: JpPr07, displayName: "住友館", positionX: 421.1, positionZ: 33.4, latitude: 34.649321, longitude: 135.388131 }
+  - { pavilionKey: JpPr08, displayName: "パナソニックグループ パビリオン「ノモの国」", positionX: 496.7, positionZ: -5.5, latitude: 34.648972, longitude: 135.388956 }
+  - { pavilionKey: JpPr09, displayName: "三菱未来館", positionX: 535.5, positionZ: 7.3, latitude: 34.649087, longitude: 135.38938 }
+  - { pavilionKey: JpPr10, displayName: "よしもと waraii myraii館", positionX: -339.1, positionZ: 125.1, latitude: 34.650145, longitude: 135.37983 }
+  - { pavilionKey: JpPr11, displayName: "PASONA NATUREVERSE", positionX: -394.7, positionZ: 111.1, latitude: 34.650019, longitude: 135.379222 }
+  - { pavilionKey: JpPr12, displayName: "BLUE OCEAN DOME", positionX: -278.1, positionZ: 243.9, latitude: 34.651212, longitude: 135.380496 }
+  - { pavilionKey: JpPr13, displayName: "GUNDAM NEXT FUTURE PAVILION", positionX: -314.3, positionZ: 223.3, latitude: 34.651027, longitude: 135.3801 }
+  - { pavilionKey: JpPr14, displayName: "TECH WORLD館", positionX: -97.5, positionZ: 354.4, latitude: 34.652205, longitude: 135.382468 }
+  - { pavilionKey: JpPr15, displayName: "ガスパビリオン おばけワンダーランド", positionX: -130.3, positionZ: 342.3, latitude: 34.652096, longitude: 135.38211 }
+  - { pavilionKey: JpPr16, displayName: "飯田グループ×大阪公立大学共同出展館", positionX: -157.9, positionZ: 335.8, latitude: 34.652038, longitude: 135.381808 }
+  - { pavilionKey: JpPr17, displayName: "ORA外食パビリオン 宴", positionX: -201.5, positionZ: 296.4, latitude: 34.651684, longitude: 135.381332 }
+  - { pavilionKey: JpPr18, displayName: "未来の都市", positionX: -682.3, positionZ: 609.3, latitude: 34.654495, longitude: 135.376082 }
+  - { pavilionKey: emp01, displayName: "アメリカ館", positionX: 181.1, positionZ: 35.6, latitude: 34.6493406525861, longitude: 135.3855105277863 }
+  - { pavilionKey: emp02, displayName: "スイス連邦館", positionX: 172.1, positionZ: -124.5, latitude: 34.64790302810724, longitude: 135.38541149323567 }
+  - { pavilionKey: emp03, displayName: "アイルランド館", positionX: 248.4, positionZ: 128.1, latitude: 34.65017158140878, longitude: 135.38624552071377 }
+  - { pavilionKey: emp04, displayName: "マレーシア館", positionX: 217.7, positionZ: 128.7, latitude: 34.65017759363577, longitude: 135.38590933130448 }
+  - { pavilionKey: emp05, displayName: "コモンズA館", positionX: 134.0, positionZ: 138.2, latitude: 34.65026308499387, longitude: 135.38499626965535 }
+  - { pavilionKey: emp06, displayName: "ヨルダン館", positionX: 105.8, positionZ: 62.0, latitude: 34.64957830883168, longitude: 135.3846883556958 }
+  - { pavilionKey: emp07, displayName: "ペルー館", positionX: 117.9, positionZ: 56.0, latitude: 34.64952435950317, longitude: 135.38481951635802 }
+  - { pavilionKey: emp08, displayName: "モザンビーク館", positionX: 142.8, positionZ: 68.9, latitude: 34.649640191841726, longitude: 135.3850914818488 }
+  - { pavilionKey: emp09, displayName: "フィリピン館", positionX: 189.4, positionZ: 66.2, latitude: 34.64961639068948, longitude: 135.38560069383146 }
+  - { pavilionKey: emp10, displayName: "フランス館", positionX: 203.3, positionZ: 1.3, latitude: 34.649033, longitude: 135.385753 }
+  - { pavilionKey: emp11, displayName: "ベトナム館", positionX: 272.0, positionZ: -24.6, latitude: 34.64880029073257, longitude: 135.3865026573826 }
+  - { pavilionKey: emp12, displayName: "ミャクミャクハウス", positionX: 283.3, positionZ: -32.7, latitude: 34.64872726721375, longitude: 135.38662659777393 }
+  - { pavilionKey: emp13, displayName: "カタール館", positionX: 261.5, positionZ: -63.0, latitude: 34.64845524751131, longitude: 135.38638834431325 }
+  - { pavilionKey: emp14, displayName: "アラブ首長国連邦館", positionX: 262.8, positionZ: -99.6, latitude: 34.648126578385806, longitude: 135.38640210828183 }
+  - { pavilionKey: emp15, displayName: "カナダ館", positionX: 223.5, positionZ: -113.4, latitude: 34.64800300117914, longitude: 135.38597326389953 }
+  - { pavilionKey: emp16, displayName: "ポルトガル館", positionX: 207.7, positionZ: -171.2, latitude: 34.647483331983196, longitude: 135.3858009494879 }
+  - { pavilionKey: emp17, displayName: "コロンビア館", positionX: 181.9, positionZ: -147.3, latitude: 34.64769797703605, longitude: 135.38551922588277 }
+  - { pavilionKey: emp18, displayName: "オーストリア館", positionX: 157.7, positionZ: -103.4, latitude: 34.64809237387501, longitude: 135.38525488325763 }
+  - { pavilionKey: emp19, displayName: "ブラジル館", positionX: 111.4, positionZ: -63.5, latitude: 34.64845116103783, longitude: 135.38474937046388 }
+  - { pavilionKey: emp20, displayName: "クウェート館", positionX: 91.2, positionZ: -41.6, latitude: 34.648647905798434, longitude: 135.38452792757744 }
+  - { pavilionKey: emp21, displayName: "中華人民共和国館", positionX: 61.6, positionZ: -33.3, latitude: 34.64872223147537, longitude: 135.38420550673476 }
+  - { pavilionKey: emp22, displayName: "国際機関館", positionX: 33.5, positionZ: -121.3, latitude: 34.6479312962392, longitude: 135.38389874280202 }
+  - { pavilionKey: emp23, displayName: "国際連合館", positionX: 51.5, positionZ: -118.7, latitude: 34.64795506628616, longitude: 135.3840954073992 }
+  - { pavilionKey: emp24, displayName: "国際赤十字・赤新月運動館", positionX: 62.9, positionZ: -127.2, latitude: 34.64787859785432, longitude: 135.38421897100042 }
+  - { pavilionKey: emp25, displayName: "バーレーン館", positionX: 105.6, positionZ: -169.6, latitude: 34.647497656346985, longitude: 135.38468572606558 }
+  - { pavilionKey: emp26, displayName: "トルクメニスタン館", positionX: 88.6, positionZ: -185.8, latitude: 34.64735229385829, longitude: 135.38450010473457 }
+  - { pavilionKey: emp27, displayName: "北欧館", positionX: 58.6, positionZ: -181.0, latitude: 34.647395312409635, longitude: 135.38417209378494 }
+  - { pavilionKey: emp28, displayName: "マルタ館", positionX: 33.3, positionZ: -171.8, latitude: 34.64747830720081, longitude: 135.3838961799925 }
+  - { pavilionKey: emp29, displayName: "チェコ館", positionX: 10.3, positionZ: -168.3, latitude: 34.647509616087284, longitude: 135.38364499809228 }
+  - { pavilionKey: sig01, displayName: "Better Co-Being(宮田裕章氏)", positionX: 12.6, positionZ: 2.6, latitude: 34.64904463240182, longitude: 135.38367066343187 }
+  - { pavilionKey: sig02, displayName: "いのちの未来(石黒浩氏)", positionX: 18.7, positionZ: -52.6, latitude: 34.648548993802265, longitude: 135.3837372701959 }
+  - { pavilionKey: sig03, displayName: "いのちの遊び場クラゲ館(中島さち子氏)", positionX: 4.9, positionZ: -106.9, latitude: 34.64806082424489, longitude: 135.3835858911868 }
+  - { pavilionKey: sig04, displayName: "null²(落合陽一氏)", positionX: -27.6, positionZ: -135.7, latitude: 34.647802266231096, longitude: 135.3832310006451 }
+  - { pavilionKey: sig05, displayName: "いのちの動的平衡館(福岡伸一氏)", positionX: -87.5, positionZ: -120.0, latitude: 34.64794311386721, longitude: 135.38257729093536 }
+  - { pavilionKey: sig06, displayName: "いのちめぐる冒険(河森正治氏)", positionX: -72.7, positionZ: -83.3, latitude: 34.648273204145966, longitude: 135.3827383354985 }
+  - { pavilionKey: sig07, displayName: "EARTH MART(小山薫堂氏)", positionX: -62.0, positionZ: -44.1, latitude: 34.64862484176475, longitude: 135.38285600209593 }
+  - { pavilionKey: sig08, displayName: "Dialogue Theater ‐ いのちのあかし ‐(河瀬直美氏)", positionX: -52.7, positionZ: -16.2, latitude: 34.648875728367564, longitude: 135.38295685917944 }
+  - { pavilionKey: sv01, displayName: "イタリア・バチカンパビリオン", positionX: -262.6, positionZ: 65.5, latitude: 34.64960939370966, longitude: 135.38066537326094 }
+  - { pavilionKey: sv02, displayName: "シンガポールパビリオン", positionX: -295.5, positionZ: 13.8, latitude: 34.64914534413351, longitude: 135.38030595090754 }
+  - { pavilionKey: sv03, displayName: "ブルガリア パビリオン", positionX: -276.4, positionZ: -8.0, latitude: 34.64894913807164, longitude: 135.38051379932864 }
+  - { pavilionKey: sv04, displayName: "オランダパビリオン", positionX: -275.3, positionZ: -25.1, latitude: 34.648796015147816, longitude: 135.38052618559797 }
+  - { pavilionKey: sv05, displayName: "オマーン館", positionX: -170.8, positionZ: -12.1, latitude: 34.64891272745833, longitude: 135.38166703081427 }
+  - { pavilionKey: sv06, displayName: "ハンガリー館", positionX: -148.1, positionZ: 11.3, latitude: 34.64912267050379, longitude: 135.38191544623714 }
+  - { pavilionKey: sv07, displayName: "ポーランドパビリオン", positionX: -147.8, positionZ: -66.2, latitude: 34.648426753462736, longitude: 135.38191856779704 }
+  - { pavilionKey: sv08, displayName: "ルーマニアパビリオン", positionX: -198.5, positionZ: -75.1, latitude: 34.64834695061307, longitude: 135.3813651641998 }
+  - { pavilionKey: sv10, displayName: "アンゴラパビリオン", positionX: -131.6, positionZ: -119.9, latitude: 34.64794434760042, longitude: 135.38209578340874 }
+  - { pavilionKey: sv11, displayName: "チリパビリオン", positionX: -179.2, positionZ: 87.7, latitude: 34.649809298805216, longitude: 135.38157532139937 }
+  - { pavilionKey: sv12, displayName: "チュニジアパビリオン", positionX: -190.3, positionZ: 89.9, latitude: 34.64982855770272, longitude: 135.38145461092677 }
+  - { pavilionKey: sv13, displayName: "カンボジア パビリオン", positionX: -213.1, positionZ: 100.3, latitude: 34.64992235963003, longitude: 135.38120507741542 }
+  - { pavilionKey: sv14, displayName: "アルジェリア館", positionX: -207.0, positionZ: 72.4, latitude: 34.649672, longitude: 135.381272 }
+  - { pavilionKey: sv15, displayName: "バルト館（ラトビア・リトアニア）", positionX: -229.8, positionZ: 82.0, latitude: 34.649758, longitude: 135.381023 }
+  - { pavilionKey: sv16, displayName: "EUパビリオン", positionX: -236.1, positionZ: 103.5, latitude: 34.64995090802163, longitude: 135.38095471763413 }
+  - { pavilionKey: sv17, displayName: "ベルギー王国館", positionX: -260.6, positionZ: 99.9, latitude: 34.6499190228763, longitude: 135.38068736881098 }
+  - { pavilionKey: sv18, displayName: "コモンズC館", positionX: -133.9, positionZ: 93.8, latitude: 34.6498638545112, longitude: 135.38207009703083 }
+  - { pavilionKey: sv19, displayName: "コモンズD館", positionX: -212.0, positionZ: 0.8, latitude: 34.64902828358879, longitude: 135.38121796606455 }
+  - { pavilionKey: sv20, displayName: "コモンズE館", positionX: -125.7, positionZ: -21.1, latitude: 34.64883154034824, longitude: 135.38215989188956 }
+  - { pavilionKey: co01, displayName: "ルクセンブルク館", positionX: 190.4, positionZ: 184.2, latitude: 34.650675851462964, longitude: 135.38561130865503 }
+  - { pavilionKey: co02, displayName: "ドイツ館", positionX: 156.9, positionZ: 207.1, latitude: 34.65088125979061, longitude: 135.38524610664203 }
+  - { pavilionKey: co03, displayName: "韓国館", positionX: 121.0, positionZ: 220.1, latitude: 34.65099863575325, longitude: 135.38485372680478 }
+  - { pavilionKey: co04, displayName: "コモンズF館", positionX: 112.8, positionZ: 251.1, latitude: 34.651277050628394, longitude: 135.38476468213437 }
+  - { pavilionKey: co05, displayName: "EXPO 2025 デジタルウォレットパーク", positionX: 92.1, positionZ: 251.2, latitude: 34.65127750559591, longitude: 135.3845378926283 }
+  - { pavilionKey: co06, displayName: "アゼルバイジャン館", positionX: 81.4, positionZ: 202.9, latitude: 34.65084418508125, longitude: 135.38442147319952 }
+  - { pavilionKey: co07, displayName: "夜の地球 Earth at Nightパビリオン", positionX: 34.4, positionZ: 224.6, latitude: 34.65103904704516, longitude: 135.3839082261711 }
+  - { pavilionKey: co08, displayName: "モナコ館", positionX: 28.5, positionZ: 265.1, latitude: 34.6514031131546, longitude: 135.38384385315476 }
+  - { pavilionKey: co09, displayName: "トルコ館", positionX: 7.7, positionZ: 286.9, latitude: 34.65159894321414, longitude: 135.38361624352424 }
+  - { pavilionKey: co10, displayName: "タイ王国館", positionX: -17.8, positionZ: 243.3, latitude: 34.65120707847904, longitude: 135.38333822974906 }
+  - { pavilionKey: co11, displayName: "スペイン館", positionX: -45.5, positionZ: 245.5, latitude: 34.65122647584673, longitude: 135.3830355396629 }
+  - { pavilionKey: co12, displayName: "サウジアラビア館", positionX: -78.4, positionZ: 247.4, latitude: 34.65124412753385, longitude: 135.38267612365507 }
+  - { pavilionKey: co13, displayName: "オーストラリア館", positionX: -111.8, positionZ: 242.5, latitude: 34.65119999830898, longitude: 135.38231134322916 }
+  - { pavilionKey: co14, displayName: "インドネシア館", positionX: -144.9, positionZ: 229.1, latitude: 34.65107948764666, longitude: 135.38195025807428 }
+  - { pavilionKey: co15, displayName: "ウズベキスタン館", positionX: -200.9, positionZ: 208.4, latitude: 34.65089349785882, longitude: 135.38133840602768 }
+  - { pavilionKey: co16, displayName: "セルビア館", positionX: -226.9, positionZ: 165.6, latitude: 34.6505089074849, longitude: 135.3810548336804 }
+  - { pavilionKey: co17, displayName: "バングラデシュ館", positionX: -201.4, positionZ: 156.2, latitude: 34.65042435432921, longitude: 135.38133276513224 }
+  - { pavilionKey: co18, displayName: "セネガル館", positionX: -189.7, positionZ: 156.3, latitude: 34.65042527322459, longitude: 135.38146090185685 }
+  - { pavilionKey: co19, displayName: "エジプト館", positionX: -179.4, positionZ: 156.2, latitude: 34.65042416998335, longitude: 135.38157355463545 }
+  - { pavilionKey: co20, displayName: "インドパビリオン - バーラト", positionX: -163.7, positionZ: 216.3, latitude: 34.65096463583815, longitude: 135.3817451927189 }
+  - { pavilionKey: co21, displayName: "コモンズB館", positionX: -132.7, positionZ: 151.5, latitude: 34.65038212532265, longitude: 135.38208403217462 }
+  - { pavilionKey: co22, displayName: "ネパール館", positionX: 228.2, positionZ: 176.5, latitude: 34.65060662632736, longitude: 135.3860240393435 }
+credits:
+  - { name: 写真：チームメンバー撮影（2025-07-24）, url: null }
+  - { name: 3D都市モデル（Project PLATEAU）大阪・関西万博会場を加工, url: "https://www.geospatial.jp/ckan/dataset/plateau-27999-osaka-shi-2025" }
+  - { name: 英国パビリオンの緯度経度 © OpenStreetMap contributors（ODbL）, url: "https://www.openstreetmap.org/copyright" }
+  - { name: その他の施設の緯度経度（ゆめしまっぷAPIの登録データ）, url: "https://github.com/penguins-osaka/expo2025_project_api" }
+structures:
+  - name: 英国パビリオン
+    pavilionKey: uk-pavilion
+    positionX: -174.9
+    positionZ: -99.4
+    facts: ロンドンの Woo Architects が設計した。外壁は折り曲げた穴あきアルミパネルで、穴の並びは19世紀初めに織機で使われたパンチカードを思わせる。夜は照明で外壁にユニオンジャックが浮かび上がる。パビリオンのテーマは「Come Build The Future」。
+    fallbackText: 英国パビリオンです。白い外壁は、折り曲げた穴あきアルミパネルを積み重ねたもので、穴の並びは昔の織機のパンチカードがモチーフです。
+    sources:
+      - { title: "UK Pavilion at Expo 2025 Osaka by Woo Architects（Dezeen）", url: "https://www.dezeen.com/2025/04/15/uk-pavilion-expo-2025-osaka-woo-architects/" }

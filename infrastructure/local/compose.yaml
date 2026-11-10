@@ -1,0 +1,123 @@
+# ローカル実行環境。操作は `mise //infrastructure/local:<task>` から行う。
+# 値は .env.local（.env.example をコピーして作る）から読む。
+# 補間用の読み込みは mise.toml の COMPOSE_ENV_FILES、コンテナへの注入は env_file。
+name: photohunt-local
+
+services:
+  gcs:
+    # 版を固定する。更新するときは README の「本番との差分」も確認する。
+    image: fsouza/fake-gcs-server:1.56.1
+    command:
+      - -scheme
+      - http
+      - -port
+      - "4443"
+      # selfLink などに載るホスト。端末から届く値は .env.local の GCS_PUBLIC_HOST で変える。
+      - -public-host
+      - ${GCS_PUBLIC_HOST:-localhost:4443}
+      # gcs/init 直下のディレクトリをバケットとして読み込む（初期バケットの作成）。
+      - -data
+      - /data
+      # 書き込みを volume に残す。コンテナを作り直してもオブジェクトは消えない。
+      - -backend
+      - filesystem
+      - -filesystem-root
+      - /storage
+    ports:
+      - "${GCS_HOST_PORT:-4443}:4443"
+    volumes:
+      - ./gcs/init:/data:ro
+      - gcs-storage:/storage
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:4443/storage/v1/b"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: ../..
+      dockerfile: api/Dockerfile
+    image: photohunt-api:local
+    env_file: .env.local
+    # Cloud Run の終了猶予（10 秒）に合わせる。start.sh の停止待ち（Serverpod 3 秒＋Litestream 5 秒）と
+    # 所有権の解放は、この猶予内に終わる前提。猶予が短い Docker 環境（既定が 1 秒のもの）だと、
+    # 解放の前に強制終了されて所有権が残る。
+    stop_grace_period: 10s
+    environment:
+      STORAGE_EMULATOR_HOST: http://gcs:4443
+      # 複製先だけ本番と違う（litestream/litestream.yml の冒頭を参照）。
+      LITESTREAM_CONFIG: /litestream/litestream.yml
+    volumes:
+      - ./litestream/litestream.yml:/litestream/litestream.yml:ro
+      - replica:/replica
+    ports:
+      - "${API_HOST_PORT:-8080}:${PORT:-8080}"
+    depends_on:
+      gcs:
+        condition: service_healthy
+    # image に curl / wget が無いので、bash の /dev/tcp で health.ping を叩く。
+    # /dev/tcp は 127.0.0.1 の PORT へ直接つなぐ。
+    healthcheck:
+      test:
+        - CMD
+        - bash
+        - -c
+        - |
+          body='{"request":{}}'
+          exec 3<>/dev/tcp/127.0.0.1/$${PORT:-8080}
+          printf 'POST /health/ping HTTP/1.0\r\nHost: localhost\r\nContent-Type: application/json\r\nContent-Length: %s\r\n\r\n%s' "$${#body}" "$$body" >&3
+          head -n1 <&3 | grep -q ' 200 '
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      # 起動時に所有権の取得と復元を行うので、その時間も待つ。
+      start_period: 30s
+    # /data（SQLite）は volume にしない。コンテナを消すと空になり、
+    # レプリカから復元する流れを #24 で確かめるため。レプリカは replica volume に残る。
+
+  migrate:
+    image: photohunt-api:local
+    profiles: ["tools"]
+    env_file: .env.local
+    environment:
+      STORAGE_EMULATOR_HOST: http://gcs:4443
+      LITESTREAM_CONFIG: /litestream/litestream.yml
+    volumes:
+      - ./litestream/litestream.yml:/litestream/litestream.yml:ro
+      - replica:/replica
+    # Cloud Run Job photohunt-migrate と同じ CLI（#34）。api と同じ writer 所有権を取ってから、
+    # 復元 → 適用 → 照合 → 複製を行う。ローカルはレプリカがなければ初回の DB も作る。
+    # 停止されたときも、子プロセスを止めて所有権を解放（または保持）できるようにする。
+    stop_grace_period: 10s
+    entrypoint: ["/app/migrate/bin/migrate"]
+    command: ["apply", "--init-if-missing"]
+    depends_on:
+      gcs:
+        condition: service_healthy
+
+  seed:
+    image: photohunt-api:local
+    profiles: ["tools"]
+    env_file: .env.local
+    environment:
+      STORAGE_EMULATOR_HOST: http://gcs:4443
+      LITESTREAM_CONFIG: /litestream/litestream.yml
+    volumes:
+      - ../../content:/content:ro
+      - ./litestream/litestream.yml:/litestream/litestream.yml:ro
+      - replica:/replica
+    # 停止されたときも、複製の確認と所有権の解放（または保持）を終えられるようにする（api と同じ）。
+    stop_grace_period: 10s
+    # api と同じ writer 所有権を取ってから、復元 → 書き込み → 複製確認を行う。
+    entrypoint: ["/app/scripts/seed.sh"]
+    # 既定は英国パビリオン第5版の登録と公開。旧版と記録は残す。別の操作は README「seed」を参照。
+    command: ["load", "--dir", "/content/seeds/uk-pavilion/r5", "--publish", "true"]
+    depends_on:
+      gcs:
+        condition: service_healthy
+
+volumes:
+  gcs-storage:
+  # Litestream のローカル複製先。コンテナを作り直しても残る。reset で消える。
+  replica:

@@ -1,0 +1,92 @@
+[env]
+_.file = ".env.local"
+# compose の補間（ポート番号など）も .env.local から読む。
+COMPOSE_ENV_FILES = ".env.local"
+
+[tasks.env-check]
+description = ".env.local があるか確認する（無ければコピーの手順を表示して失敗する）"
+hide = true
+run = '''
+if [ ! -f .env.local ]; then
+  echo ".env.local がありません。次を実行してから、もう一度試してください:" >&2
+  echo "  cp infrastructure/local/.env.example infrastructure/local/.env.local" >&2
+  exit 1
+fi
+'''
+dir = "{{config_root}}"
+
+[tasks.up]
+description = "ローカルの api と GCS emulator を起動する"
+depends = ["env-check", "//api:docker:build"]
+# migrate は、レプリカがなければ最初の DB を作り、あれば未適用の migration だけを適用する。
+# api は復元だけを行う（--apply-migrations を付けない）。
+run = [
+  "docker compose up -d --wait gcs",
+  # 稼働中の api が writer 所有権を持っていると migrate が取れない。先に止めて（所有権を
+  # 解放させて）から実行する。何度 up しても同じ結果になる。
+  "docker compose stop api",
+  "docker compose --profile tools run --rm migrate",
+  "docker compose up -d --wait api",
+]
+
+[tasks.down]
+description = "ローカル環境を停止する（データは残す）"
+depends = ["env-check"]
+run = "docker compose --profile tools down"
+
+[tasks.reset]
+description = "emulator のデータと api のコンテナを消して、初期バケットだけの状態に戻す"
+depends = ["env-check"]
+run = [
+  "docker compose --profile tools down -v",
+  "docker compose up -d --wait gcs",
+]
+
+[tasks.migrate]
+description = "migration Job と同じ CLI を実行する（api を止めて実行し、api を起動し直す）。引数は apply・init・status"
+depends = ["env-check", "//api:docker:build"]
+# 稼働中の api が writer 所有権を持っていると migrate が取れない。止めてから実行し、
+# 成否にかかわらず api を起動し直す（api は起動時にレプリカから復元し、版を照合する）。
+# 引数を省くと compose の既定（apply --init-if-missing）で動く。
+run = '''
+#!/usr/bin/env bash
+set -uo pipefail
+docker compose up -d --wait gcs || exit 1
+docker compose stop api
+docker compose --profile tools run --rm migrate "$@"
+status=$?
+if ! docker compose up -d --wait api; then
+  # migrate が失敗していればその終了コードを返す（api が起動しない原因を隠さない）。
+  echo "api を起動できない（migrate の終了コード $status）" >&2
+  if [ "$status" != 0 ]; then exit "$status"; fi
+  exit 1
+fi
+exit "$status"
+'''
+
+[tasks.seed]
+description = "サンプル出題を登録・公開する（api を止めて seed を実行し、api を起動し直す）"
+depends = ["env-check", "//api:docker:build"]
+# 稼働中の api が writer 所有権を持っていると seed が取れない。止めてから実行し、
+# 成否にかかわらず api を起動し直す（api は起動時にレプリカから復元する）。
+run = '''
+#!/usr/bin/env bash
+set -uo pipefail
+docker compose up -d --wait gcs || exit 1
+docker compose stop api
+docker compose --profile tools run --rm seed
+status=$?
+docker compose up -d --wait api || exit 1
+exit "$status"
+'''
+
+[tasks.verify]
+description = "永続化の実証: 書き込み→api削除→復元、二重起動の拒否、Litestream停止時の閉塞（Docker が要る。環境を作り直す）"
+# Dart は api の config root にしかないので、テストは //api のタスクで実行する。
+depends = ["env-check", "//api:test:persistence"]
+run = "echo ok"
+
+[tasks.logs]
+description = "api のログを追う"
+depends = ["env-check"]
+run = "docker compose logs -f api"

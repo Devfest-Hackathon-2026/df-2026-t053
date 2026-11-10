@@ -1,0 +1,16 @@
+### 版に固定した会場図上の地点。表示座標（pos_x/pos_z）と地理座標（lat/lon）は別物。
+class: LandmarkRow
+table: landmark
+serverOnly: true
+fields:
+  revisionId: int, column=revision_id, relation(parent=challenge_revision, onDelete=Cascade)
+  pavilionId: int, column=pavilion_id, relation(parent=pavilion, onDelete=Restrict)
+  displayName: String, column=display_name
+  posX: double, column=pos_x
+  posZ: double, column=pos_z
+  lat: double?
+  lon: double?
+indexes:
+  landmark_revision_pavilion_uk:
+    fields: revisionId, pavilionId
+    unique: true

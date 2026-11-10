@@ -1,0 +1,5 @@
+### pavilion マスターの入力（content/seeds/pavilions.yaml）。
+class: SeedPavilionList
+serverOnly: true
+fields:
+  pavilions: List<SeedPavilionInput>

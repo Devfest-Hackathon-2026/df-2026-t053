@@ -1,0 +1,8 @@
+### play.createPlaySession の引数。requestId は開始ごとに発行する UUID v4。
+class: CreatePlaySessionRequest
+fields:
+  revisionId: int
+  mode: PlayMode
+  requestId: UuidValue
+  ### 自由探索で入口が公開されているときの開始点。周辺探索と、入口のない版では null。
+  spawnPointId: int?

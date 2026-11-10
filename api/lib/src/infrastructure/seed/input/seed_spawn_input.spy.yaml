@@ -1,0 +1,9 @@
+### 開始点。label がある自由探索の点だけを入口として公開する。
+class: SeedSpawnInput
+serverOnly: true
+fields:
+  positionX: double
+  positionY: double
+  positionZ: double
+  yawDegrees: double
+  label: String?

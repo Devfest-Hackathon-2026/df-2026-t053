@@ -1,0 +1,13 @@
+### 版の内容。goal・story・highlight は公開 DTO に出さない。
+class: SeedRevisionFields
+serverOnly: true
+fields:
+  revisionNo: int
+  sceneProfile: String
+  scoringVersion: String
+  photoAlt: String
+  eyeHeightMeters: double
+  shotVerticalFovDegrees: double
+  goal: SeedGoalInput
+  story: String
+  highlight: String

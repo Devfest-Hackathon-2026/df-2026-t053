@@ -1,0 +1,26 @@
+### 撮影の確定結果。1 プレイに 1 行で、書き換えない。score は 0〜1000。
+class: ShotRow
+table: shot
+serverOnly: true
+fields:
+  requestId: UuidValue, column=request_id
+  playSessionId: UuidValue, column=play_session_id, relation(parent=play_session, onDelete=Restrict)
+  x: double
+  y: double
+  z: double
+  yawDeg: double, column=yaw_deg
+  pitchDeg: double, column=pitch_deg
+  fovDeg: double, column=fov_deg
+  distanceM: double, column=distance_m
+  yawDiffDeg: double, column=yaw_diff_deg
+  pitchDiffDeg: double, column=pitch_diff_deg
+  score: int
+  rankAtSubmission: int, column=rank_at_submission
+  bestScoreAtSubmission: int, column=best_score_at_submission
+  nicknameAtSubmission: String, column=nickname_at_submission
+  bestAchieveTimeAtSubmission: DateTime, column=best_achieve_time_at_submission
+  createdAt: DateTime, column=created_at
+indexes:
+  shot_play_session_uk:
+    fields: playSessionId
+    unique: true

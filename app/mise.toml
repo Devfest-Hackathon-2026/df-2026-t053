@@ -1,0 +1,22 @@
+[tools]
+# Dart は Flutter 同梱のものを使う（app では単体の dart は入れない）
+flutter = "3.47.9"
+# 区画モデルの加工コマンド（tool/scene_tiles）で使う
+node = "26.13.0"
+
+[tasks.setup]
+run = "flutter pub get"
+[tasks.lint]
+run = "flutter analyze"
+[tasks.test]
+run = "flutter test"
+[tasks."tiles:generate"]
+description = "会場GLBから区画モデルとmanifestを作り直す（手順は tool/scene_tiles/README.md）"
+dir = "{{config_root}}/tool/scene_tiles"
+run = ["npm ci --ignore-scripts --no-audit --no-fund", "npm run generate"]
+[tasks."tiles:test"]
+description = "加工コマンドの単体テストと、生成済み区画の三角形・材質・範囲の検査"
+dir = "{{config_root}}/tool/scene_tiles"
+run = ["npm ci --ignore-scripts --no-audit --no-fund", "npm test"]
+# run:local は mise-tasks/run/local（接続先ごとの dart-define を組み立てる）
+# run:prod は mise-tasks/run/prod（TerraDart が書く dart_defines.prod.json で Cloud Run に接続する）

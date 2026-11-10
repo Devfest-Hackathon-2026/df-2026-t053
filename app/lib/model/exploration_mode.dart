@@ -1,0 +1,1 @@
+enum ExplorationMode { free, near }

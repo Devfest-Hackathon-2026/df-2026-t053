@@ -1,0 +1,18 @@
+# Cloud Run 上の設定。待受ポートは Cloud Run の PORT（既定 8080）に合わせる。
+# 待受アドレスは Serverpod の既定で全インターフェース（0.0.0.0）になる。
+apiServer:
+  port: 8080
+  publicHost: localhost
+  publicPort: 443
+  publicScheme: https
+
+database:
+  filePath: /data/db.sqlite
+
+maxRequestSize: 524288
+
+# ログは標準出力へ出す（Cloud Logging）
+sessionLogs:
+  persistentEnabled: false
+  consoleEnabled: true
+  consoleLogFormat: json

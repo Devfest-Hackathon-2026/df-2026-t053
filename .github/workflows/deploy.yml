@@ -1,0 +1,172 @@
+# prod への配備（docs/infrastructure.md 8.4・8.5）。
+# - main への push：API の image に入るもの・stack・配備手順が変わったときに自動で配備する（job=migrate）。
+#   リポジトリの Variables で DEPLOY_ON_PUSH=false にすると止められる（審査期間中など）。
+# - 手動実行（main）：seed の実行や、途中で止まった配備の再開に使う。
+# 保守経由の配備では数分の保守時間が出るので、main へのマージがそのまま保守の時刻になる。
+# sa-ci-deploy は WIF の gh-deploy pool の条件で、main 上のこのファイルからしか借用できない（push も同じ条件で通る）。
+#
+# 手順の本体は infrastructure/terradart/scripts/deploy.sh。手元からも同じコマンドで続きを実行できる。
+name: deploy
+
+on:
+  push:
+    branches: [main]
+    # 否定のパターンは後ろに置く（後に書いたものが優先される）。
+    # image に入らないもの（テスト・文書）は、deploy.sh resolve のビルド判定でも同じく除く。
+    paths:
+      - "api/**"
+      - "shared/**"
+      - ".dockerignore"
+      - "infrastructure/terradart/stack/**"
+      - "infrastructure/terradart/scripts/**"
+      - ".github/workflows/deploy.yml"
+      - "!api/test/**"
+      - "!api/docs/**"
+      - "!shared/test/**"
+      - "!infrastructure/terradart/stack/test/**"
+      - "!**/*.md"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 保守中に実行する Job（migrate は未適用の migration だけを適用する）
+        type: choice
+        options: [migrate, seed]
+        default: migrate
+      job_args:
+        description: seed の引数（カンマ区切り。例 load,--dir,/content/seeds/uk-pavilion/r5,--publish,true）
+        required: false
+        default: ""
+      from:
+        description: 保守経由デプロイをこの段階から再開する（plan なら plan から判定する）
+        type: choice
+        options: [plan, maintenance-revision, switch-maintenance, wait-owner-released, job, release-revision, check-candidate, switch-release]
+        default: plan
+
+permissions:
+  contents: read
+
+# 保守切替の途中で止めないため、取り消さない。
+# 待機中の実行は 1 件だけ残り、後から来たもの（より新しい main）に置き換わる。
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+env:
+  MISE_TRUSTED_CONFIG_PATHS: ${{ github.workspace }}
+  TERRADART_CACHE_DIR: ${{ github.workspace }}/../.terradart-cache
+
+jobs:
+  deploy:
+    name: deploy (prod)
+    if: >-
+      github.ref == 'refs/heads/main'
+      && (github.event_name != 'push' || vars.DEPLOY_ON_PUSH != 'false')
+    runs-on: ubuntu-24.04
+    # Job（最大 15 分）・所有権の解放待ち（最大 5 分）・候補の確認（最大 12 分）・ビルド・apply 2 回が入る。
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      # 稼働中の RELEASE_ID との差分で、ビルドが要るかを判定するので履歴を取る。
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: jdx/mise-action@b44d12e7d0d8ee7461bb893e1b1993500433185b # v5.2.7
+        with:
+          version: 2026.11.3
+          working_directory: infrastructure/terradart
+          monorepo: false
+
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.pub-cache
+            ~/.cache/terradart-plugins
+            ${{ env.TERRADART_CACHE_DIR }}
+          key: terradart-${{ runner.os }}-${{ hashFiles('infrastructure/terradart/*/pubspec.lock', 'infrastructure/terradart/*/tf-out/prod/.terraform.lock.hcl') }}
+          restore-keys: terradart-${{ runner.os }}-
+
+      - run: mise //infrastructure/terradart:setup
+
+      - id: auth
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_DEPLOY_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SA }}
+
+      - id: resolve
+        name: 配備する image を決める
+        working-directory: infrastructure/terradart
+        run: scripts/deploy.sh resolve | tee -a "$GITHUB_OUTPUT"
+
+      - if: steps.resolve.outputs.NEED_BUILD == '1'
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - if: steps.resolve.outputs.NEED_BUILD == '1'
+        name: Artifact Registry へログイン
+        run: gcloud auth configure-docker asia-northeast1-docker.pkg.dev --quiet
+
+      # GitHub Actions のキャッシュで Dart の依存取得とビルドの段を使い回す。
+      - if: steps.resolve.outputs.NEED_BUILD == '1'
+        id: build
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          file: api/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.resolve.outputs.IMAGE_TAG }}
+          cache-from: type=gha,scope=api
+          cache-to: type=gha,scope=api,mode=max
+
+      - name: 保守経由デプロイ
+        working-directory: infrastructure/terradart
+        env:
+          RESOLVED_IMAGE: ${{ steps.resolve.outputs.API_IMAGE }}
+          IMAGE_TAG: ${{ steps.resolve.outputs.IMAGE_TAG }}
+          BUILT_DIGEST: ${{ steps.build.outputs.digest }}
+          RELEASE_ID: ${{ steps.resolve.outputs.RELEASE_ID }}
+          # push では inputs が空なので、手動実行の既定値と同じ値を使う。
+          JOB: ${{ inputs.job || 'migrate' }}
+          JOB_ARGS: ${{ inputs.job_args }}
+          FROM: ${{ inputs.from || 'plan' }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          if [ -n "$BUILT_DIGEST" ]; then
+            API_IMAGE="${IMAGE_TAG%:*}@$BUILT_DIGEST"
+          else
+            API_IMAGE="$RESOLVED_IMAGE"
+          fi
+          export API_IMAGE
+          args=(--yes --job "$JOB")
+          if [ -n "$JOB_ARGS" ]; then args+=(--job-args "$JOB_ARGS"); fi
+          if [ "$FROM" != plan ]; then args+=(--from "$FROM"); fi
+          {
+            echo "## prod の配備"
+            echo
+            echo "- 契機: \`$EVENT\`"
+            echo "- コミット: \`$RELEASE_ID\`"
+            echo "- image: \`$API_IMAGE\`"
+            echo "- Job: \`$JOB\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+          scripts/deploy.sh "${args[@]}" all
+
+      # 認証より前で失敗したときは gcloud を呼べないので出さない。
+      - name: 配備後の状態
+        if: always() && steps.auth.outcome == 'success'
+        working-directory: infrastructure/terradart
+        run: |
+          eval "$(cd stack && dart run bin/describe.dart)"
+          {
+            echo
+            echo "| リビジョン | トラフィック | タグ |"
+            echo "| --- | --- | --- |"
+            gcloud run services describe "$API_SERVICE" --project="$GCP_PROJECT_ID" --region="$GCP_REGION" --format=json \
+              | jq -r '.status.traffic[] | "| \(.revisionName // "latest") | \(.percent // 0)% | \(.tag // "") |"'
+            echo
+            echo "途中で止まった場合は、トラフィックが保守リビジョンにあるかを確認し、Actions の from で段階を指定して再実行する（infrastructure/terradart/README.md）。"
+          } >> "$GITHUB_STEP_SUMMARY"

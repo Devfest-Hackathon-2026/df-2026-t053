@@ -1,0 +1,8 @@
+### 順位の 1 行。SubmitShotResponse では撮影時のスナップショット。
+class: RankingEntry
+fields:
+  rank: int
+  nickname: String
+  score: int
+  achieveTime: DateTime
+  mine: bool

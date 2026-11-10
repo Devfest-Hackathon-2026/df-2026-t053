@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#MISE description="Cloud Run（prod）の API につないでアプリを起動する"
+#USAGE flag "--device-id <id>" help="flutter run -d に渡す端末 ID"
+set -euo pipefail
+
+# 接続先は TerraDart が stack の出力から書く define file（API_BASE_URL・ASSET_BASE_URL）を正本にする。
+# 作り方: mise //infrastructure/terradart:outputs（state の読み取り権限だけでよい）
+define_file="$MISE_MONOREPO_ROOT/infrastructure/terradart/stack/.terradart/dart_defines.prod.json"
+
+if [[ ! -f "$define_file" ]]; then
+  echo "define file が見つかりません: ${define_file}" >&2
+  echo "先に mise //infrastructure/terradart:outputs を実行してください（gcloud auth application-default login が必要）。" >&2
+  exit 1
+fi
+
+echo "define file: ${define_file}"
+cat "$define_file"
+echo
+
+args=(run "--dart-define-from-file=$define_file")
+[[ -n "${usage_device_id:-}" ]] && args+=(-d "$usage_device_id")
+exec flutter "${args[@]}"

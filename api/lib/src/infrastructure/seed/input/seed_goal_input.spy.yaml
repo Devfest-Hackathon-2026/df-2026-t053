@@ -1,0 +1,9 @@
+### 撮影の正解姿勢。位置は視点（足元の Y に eyeHeightMeters を足した値）。
+class: SeedGoalInput
+serverOnly: true
+fields:
+  x: double
+  y: double
+  z: double
+  yawDegrees: double
+  pitchDegrees: double

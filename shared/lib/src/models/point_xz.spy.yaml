@@ -1,0 +1,5 @@
+### 会場モデルのローカル座標（m）の XZ 平面上の点。
+class: PointXZ
+fields:
+  x: double
+  z: double

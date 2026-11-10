@@ -1,0 +1,3 @@
+### challenge.listChallenges の引数。項目は持たない。
+class: ListChallengesRequest
+fields: {}

@@ -1,0 +1,5 @@
+### 歩行できる領域。外周と、0 個以上の穴で表す。
+class: WalkableArea
+fields:
+  outer: List<PointXZ>
+  holes: List<List<PointXZ>>

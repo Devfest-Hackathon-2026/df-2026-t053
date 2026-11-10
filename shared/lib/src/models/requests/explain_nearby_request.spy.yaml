@@ -1,0 +1,8 @@
+### guide.explainNearby の引数。
+class: ExplainNearbyRequest
+fields:
+  playSessionId: UuidValue
+  positionX: double
+  positionZ: double
+  yawDegrees: double
+  locale: String

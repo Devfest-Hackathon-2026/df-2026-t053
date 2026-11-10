@@ -1,0 +1,13 @@
+### 出題の不変な公開版。正解・解説・開始候補は含めない。
+class: ChallengeRevision
+fields:
+  id: int
+  challengeId: int
+  sceneProfile: String
+  photo: AssetRef
+  photoAlt: String
+  map: VenueMap
+  modes: List<ModeConfig>
+  eyeHeightMeters: double
+  shotVerticalFovDegrees: double
+  credits: List<Credit>

@@ -1,0 +1,4 @@
+### play.getPlaySession の引数。
+class: GetPlaySessionRequest
+fields:
+  playSessionId: UuidValue

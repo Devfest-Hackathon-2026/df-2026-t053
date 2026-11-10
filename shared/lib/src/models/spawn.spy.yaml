@@ -1,0 +1,7 @@
+### 開始点。位置は足元で、pitch の初期値は 0。
+class: Spawn
+fields:
+  positionX: double
+  positionY: double
+  positionZ: double
+  yawDegrees: double

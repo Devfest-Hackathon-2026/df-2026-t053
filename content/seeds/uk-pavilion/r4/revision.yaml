@@ -1,0 +1,424 @@
+# 英国パビリオン前の庭（2025-07-24 撮影）の第4版。
+# r3 から、ガイドの解説対象（structures）に会場の主な施設 19 件を足す（#227）。
+# 写真・正解姿勢・会場図・歩行領域・開始点・ランドマーク・英国パビリオンの資料は r3 と同じ。
+# 足した施設の代表位置は、uk-pavilion/r1 の landmarks（緯度経度の重心を変換した位置）と同じ。
+# 資料の出典と確認日は content/provenance/README.md「ガイドの解説対象（r4）」に記録した。
+#
+challenge:
+  slug: uk-pavilion
+  title: 英国パビリオンの赤い電話ボックス
+revision:
+  revisionNo: 4
+  sceneProfile: bundled-v1
+  scoringVersion: v1
+  photoAlt: 白い穴あきパネルを積み重ねた外壁の建物を、花壇越しに見上げた写真。右手前に赤い電話ボックスが立っている
+  eyeHeightMeters: 1.6
+  # 写真（Xperia の超広角）の縦の画角を、3D モデルとの重ね合わせで推定した値。
+  shotVerticalFovDegrees: 83.0
+  # 足元 Y（9.9）＋ eyeHeightMeters（1.6）。写真と 3D モデルの輪郭の重ね合わせで求めた。
+  goal: { x: -164.6, y: 11.5, z: -131.3, yawDegrees: 359.8, pitchDegrees: 14.0 }
+  story: 2025年7月24日の正午前、英国パビリオン前の通路で撮影した一枚。真夏の日差しの下、花壇越しに白い外壁を見上げている。
+  highlight: 庭の端に立つ赤い電話ボックスと、折り曲げた穴あきアルミパネルを重ねた白い外壁。夜は外壁の照明でユニオンジャックが浮かび上がる。
+assets:
+  photo: { file: photo.jpg, contentType: image/jpeg }
+  map: { file: map.png, contentType: image/png }
+map:
+  # 建物から約 80 m の通行範囲を覆う。画像は 4096×3273（比率は bounds と 1 px 以内）。
+  bounds: { minX: -868.0, minZ: -610.0, maxX: 784.0, maxZ: 710.0 }
+modes:
+  - mode: free
+    walkable:
+      # 建物から約 80 m 以内。各ゾーン・リング・東西ゲートを内側に含む。
+      # モデルの外接矩形（海や敷地の外）は含めない。穴は r1 と同じ建物外形。
+      outer:
+        - { x: 580.0, z: -602.0 }
+        - { x: 776.0, z: -602.0 }
+        - { x: 776.0, z: -406.0 }
+        - { x: 740.0, z: -386.0 }
+        - { x: 704.0, z: -350.0 }
+        - { x: 664.0, z: -330.0 }
+        - { x: 648.0, z: -310.0 }
+        - { x: 640.0, z: -310.0 }
+        - { x: 624.0, z: -290.0 }
+        - { x: 616.0, z: -290.0 }
+        - { x: 604.0, z: -274.0 }
+        - { x: 580.0, z: -262.0 }
+        - { x: 560.0, z: -238.0 }
+        - { x: 552.0, z: -238.0 }
+        - { x: 540.0, z: -222.0 }
+        - { x: 532.0, z: -222.0 }
+        - { x: 520.0, z: -210.0 }
+        - { x: 528.0, z: -170.0 }
+        - { x: 524.0, z: -138.0 }
+        - { x: 564.0, z: -130.0 }
+        - { x: 588.0, z: -118.0 }
+        - { x: 604.0, z: -102.0 }
+        - { x: 612.0, z: -78.0 }
+        - { x: 712.0, z: 26.0 }
+        - { x: 712.0, z: 34.0 }
+        - { x: 728.0, z: 46.0 }
+        - { x: 748.0, z: 82.0 }
+        - { x: 752.0, z: 114.0 }
+        - { x: 736.0, z: 162.0 }
+        - { x: 680.0, z: 210.0 }
+        - { x: 656.0, z: 222.0 }
+        - { x: 620.0, z: 222.0 }
+        - { x: 632.0, z: 234.0 }
+        - { x: 632.0, z: 242.0 }
+        - { x: 652.0, z: 258.0 }
+        - { x: 668.0, z: 290.0 }
+        - { x: 672.0, z: 314.0 }
+        - { x: 668.0, z: 342.0 }
+        - { x: 652.0, z: 374.0 }
+        - { x: 636.0, z: 390.0 }
+        - { x: 600.0, z: 410.0 }
+        - { x: 540.0, z: 410.0 }
+        - { x: 516.0, z: 398.0 }
+        - { x: 496.0, z: 378.0 }
+        - { x: 496.0, z: 370.0 }
+        - { x: 476.0, z: 354.0 }
+        - { x: 460.0, z: 326.0 }
+        - { x: 412.0, z: 330.0 }
+        - { x: 404.0, z: 338.0 }
+        - { x: 384.0, z: 338.0 }
+        - { x: 368.0, z: 350.0 }
+        - { x: 328.0, z: 358.0 }
+        - { x: 320.0, z: 354.0 }
+        - { x: 268.0, z: 382.0 }
+        - { x: 252.0, z: 382.0 }
+        - { x: 148.0, z: 418.0 }
+        - { x: 100.0, z: 426.0 }
+        - { x: 68.0, z: 442.0 }
+        - { x: 24.0, z: 450.0 }
+        - { x: -56.0, z: 478.0 }
+        - { x: -96.0, z: 482.0 }
+        - { x: -120.0, z: 478.0 }
+        - { x: -144.0, z: 462.0 }
+        - { x: -252.0, z: 462.0 }
+        - { x: -276.0, z: 450.0 }
+        - { x: -300.0, z: 426.0 }
+        - { x: -328.0, z: 370.0 }
+        - { x: -364.0, z: 354.0 }
+        - { x: -376.0, z: 354.0 }
+        - { x: -392.0, z: 366.0 }
+        - { x: -428.0, z: 370.0 }
+        - { x: -476.0, z: 354.0 }
+        - { x: -492.0, z: 334.0 }
+        - { x: -544.0, z: 334.0 }
+        - { x: -544.0, z: 350.0 }
+        - { x: -536.0, z: 354.0 }
+        - { x: -532.0, z: 370.0 }
+        - { x: -520.0, z: 378.0 }
+        - { x: -520.0, z: 386.0 }
+        - { x: -512.0, z: 390.0 }
+        - { x: -512.0, z: 398.0 }
+        - { x: -504.0, z: 402.0 }
+        - { x: -504.0, z: 410.0 }
+        - { x: -496.0, z: 414.0 }
+        - { x: -496.0, z: 422.0 }
+        - { x: -488.0, z: 426.0 }
+        - { x: -468.0, z: 462.0 }
+        - { x: -468.0, z: 518.0 }
+        - { x: -480.0, z: 542.0 }
+        - { x: -504.0, z: 566.0 }
+        - { x: -520.0, z: 570.0 }
+        - { x: -508.0, z: 602.0 }
+        - { x: -492.0, z: 614.0 }
+        - { x: -468.0, z: 658.0 }
+        - { x: -468.0, z: 702.0 }
+        - { x: -752.0, z: 702.0 }
+        - { x: -760.0, z: 694.0 }
+        - { x: -760.0, z: 686.0 }
+        - { x: -768.0, z: 682.0 }
+        - { x: -768.0, z: 674.0 }
+        - { x: -776.0, z: 670.0 }
+        - { x: -776.0, z: 662.0 }
+        - { x: -784.0, z: 658.0 }
+        - { x: -784.0, z: 650.0 }
+        - { x: -792.0, z: 646.0 }
+        - { x: -792.0, z: 638.0 }
+        - { x: -800.0, z: 634.0 }
+        - { x: -800.0, z: 626.0 }
+        - { x: -808.0, z: 622.0 }
+        - { x: -808.0, z: 614.0 }
+        - { x: -816.0, z: 610.0 }
+        - { x: -816.0, z: 602.0 }
+        - { x: -824.0, z: 598.0 }
+        - { x: -824.0, z: 590.0 }
+        - { x: -860.0, z: 542.0 }
+        - { x: -860.0, z: 258.0 }
+        - { x: -816.0, z: 234.0 }
+        - { x: -800.0, z: 234.0 }
+        - { x: -792.0, z: 214.0 }
+        - { x: -776.0, z: 198.0 }
+        - { x: -768.0, z: 198.0 }
+        - { x: -764.0, z: 190.0 }
+        - { x: -756.0, z: 190.0 }
+        - { x: -752.0, z: 182.0 }
+        - { x: -744.0, z: 182.0 }
+        - { x: -740.0, z: 174.0 }
+        - { x: -732.0, z: 174.0 }
+        - { x: -728.0, z: 166.0 }
+        - { x: -720.0, z: 166.0 }
+        - { x: -656.0, z: 118.0 }
+        - { x: -612.0, z: 98.0 }
+        - { x: -520.0, z: 86.0 }
+        - { x: -520.0, z: 58.0 }
+        - { x: -536.0, z: 54.0 }
+        - { x: -556.0, z: 34.0 }
+        - { x: -580.0, z: -38.0 }
+        - { x: -576.0, z: -74.0 }
+        - { x: -548.0, z: -114.0 }
+        - { x: -464.0, z: -146.0 }
+        - { x: -428.0, z: -150.0 }
+        - { x: -384.0, z: -166.0 }
+        - { x: -340.0, z: -170.0 }
+        - { x: -340.0, z: -178.0 }
+        - { x: -324.0, z: -194.0 }
+        - { x: -276.0, z: -214.0 }
+        - { x: -216.0, z: -218.0 }
+        - { x: -180.0, z: -206.0 }
+        - { x: -156.0, z: -278.0 }
+        - { x: -136.0, z: -298.0 }
+        - { x: -112.0, z: -310.0 }
+        - { x: -48.0, z: -310.0 }
+        - { x: -24.0, z: -298.0 }
+        - { x: -4.0, z: -270.0 }
+        - { x: 16.0, z: -262.0 }
+        - { x: 48.0, z: -294.0 }
+        - { x: 64.0, z: -298.0 }
+        - { x: 76.0, z: -314.0 }
+        - { x: 100.0, z: -326.0 }
+        - { x: 140.0, z: -334.0 }
+        - { x: 184.0, z: -330.0 }
+        - { x: 200.0, z: -342.0 }
+        - { x: 248.0, z: -354.0 }
+        - { x: 276.0, z: -350.0 }
+        - { x: 312.0, z: -382.0 }
+        - { x: 364.0, z: -402.0 }
+        - { x: 396.0, z: -406.0 }
+        - { x: 432.0, z: -394.0 }
+        - { x: 448.0, z: -414.0 }
+        - { x: 456.0, z: -414.0 }
+        - { x: 468.0, z: -430.0 }
+        - { x: 496.0, z: -446.0 }
+        - { x: 488.0, z: -490.0 }
+        - { x: 504.0, z: -538.0 }
+        - { x: 532.0, z: -566.0 }
+        - { x: 568.0, z: -586.0 }
+      holes:
+        # 英国パビリオン
+        - [{ x: -201.9, z: -95.1 }, { x: -196.8, z: -104.6 }, { x: -157.6, z: -116.2 }, { x: -156.8, z: -116.4 }, { x: -151.2, z: -96.4 }, { x: -179.3, z: -82.8 }]
+        # 東隣の黒い外壁の建物
+        - [{ x: -155.3, z: -123.1 }, { x: -114.9, z: -134.9 }, { x: -110.5, z: -119.6 }, { x: -110.6, z: -107.0 }, { x: -142.2, z: -97.6 }, { x: -150.8, z: -107.9 }]
+        # 赤い電話ボックス
+        - [{ x: -161.1, z: -128.7 }, { x: -160.0, z: -128.7 }, { x: -160.0, z: -127.6 }, { x: -161.1, z: -127.6 }]
+        # 南西の建物
+        - [{ x: -230.5, z: -119.2 }, { x: -228.4, z: -124.1 }, { x: -225.7, z: -130.4 }, { x: -220.2, z: -127.3 }, { x: -210.6, z: -120.0 }, { x: -212.0, z: -114.7 }, { x: -212.5, z: -112.9 }, { x: -215.9, z: -109.2 }, { x: -218.4, z: -110.2 }]
+        # 北西の建物
+        - [{ x: -211.4, z: -73.5 }, { x: -204.0, z: -91.1 }, { x: -202.2, z: -90.4 }, { x: -189.8, z: -85.2 }, { x: -177.3, z: -79.9 }, { x: -184.7, z: -62.2 }, { x: -208.5, z: -72.2 }, { x: -210.6, z: -73.1 }]
+        # 北の建物
+        - [{ x: -167.8, z: -72.3 }, { x: -166.4, z: -76.1 }, { x: -163.1, z: -79.7 }, { x: -159.3, z: -81.9 }, { x: -155.3, z: -83.5 }, { x: -142.4, z: -87.0 }, { x: -138.1, z: -84.2 }, { x: -135.5, z: -80.7 }, { x: -131.9, z: -70.1 }, { x: -135.4, z: -66.9 }, { x: -140.5, z: -65.3 }, { x: -159.1, z: -63.8 }, { x: -164.6, z: -63.7 }]
+        # 西の小さな建物
+        - [{ x: -234.1, z: -83.8 }, { x: -231.8, z: -86.8 }, { x: -231.0, z: -86.2 }, { x: -228.6, z: -84.4 }, { x: -227.2, z: -83.3 }, { x: -227.1, z: -83.2 }, { x: -229.4, z: -80.2 }, { x: -230.2, z: -80.8 }, { x: -231.9, z: -82.1 }]
+        # 東の建物
+        - [{ x: -107.5, z: -111.8 }, { x: -107.4, z: -120.1 }, { x: -104.9, z: -120.1 }, { x: -89.7, z: -110.8 }, { x: -89.7, z: -108.3 }, { x: -94.9, z: -108.3 }, { x: -107.5, z: -108.4 }]
+        # 南東の建物
+        - [{ x: -109.6, z: -167.3 }, { x: -99.4, z: -168.1 }, { x: -98.6, z: -157.6 }, { x: -108.8, z: -156.8 }, { x: -109.5, z: -164.7 }, { x: -109.6, z: -166.4 }]
+    spawns:
+      # 足元 Y はパビリオン前と同じ平面。
+      # 東ゲートは西（270°）。西ゲートは会場の内側、南東（124°）。
+      - { positionX: 580.0, positionY: 9.9, positionZ: 123.4, yawDegrees: 270, label: 東ゲート }
+      - { positionX: -572.3, positionY: 9.9, positionZ: 342.9, yawDegrees: 124, label: 西ゲート }
+  - mode: near
+    walkable:
+      # 英国パビリオンと東隣の建物の南側の通路。
+      outer: [{ x: -190, z: -155 }, { x: -152, z: -155 }, { x: -152, z: -125 }, { x: -190, z: -125 }]
+      # free の穴のうち near の領域内にあるもの。
+      holes:
+        - [{ x: -161.1, z: -128.7 }, { x: -160.0, z: -128.7 }, { x: -160.0, z: -127.6 }, { x: -161.1, z: -127.6 }]
+    spawns:
+      - { positionX: -176, positionY: 9.9, positionZ: -145, yawDegrees: 100 }
+landmarks:
+  - { pavilionKey: uk-pavilion, displayName: 英国パビリオン, positionX: -174.9, positionZ: -99.4, latitude: 34.648061, longitude: 135.381547 }
+credits:
+  - { name: 写真：チームメンバー撮影（2025-07-24）, url: null }
+  - { name: 3D都市モデル（Project PLATEAU）大阪・関西万博会場を加工, url: "https://www.geospatial.jp/ckan/dataset/plateau-27999-osaka-shi-2025" }
+  - { name: 施設の緯度経度 © OpenStreetMap contributors（ODbL）, url: "https://www.openstreetmap.org/copyright" }
+structures:
+  - name: 英国パビリオン
+    pavilionKey: uk-pavilion
+    # ガイドの選定は代表位置から 30 m 以内を対象にする。r2 の建物中心（-174.9, -99.4）は
+    # 周辺探索の開始点から 45.6 m、撮影ゴールから 33.5 m で届かなかった（#213）。
+    # 南の正面の外壁から約 6 m 手前（写真の花壇のあたり）に置き、開始点から 27.3 m、
+    # ゴールから 15.2 m にする。
+    positionX: -172.0
+    positionZ: -118.0
+    facts: ロンドンの Woo Architects が設計した。外壁は折り曲げた穴あきアルミパネルで、穴の並びは19世紀初めに織機で使われたパンチカードを思わせる。夜は照明で外壁にユニオンジャックが浮かび上がる。パビリオンのテーマは「Come Build The Future」。
+    fallbackText: 英国パビリオンです。白い外壁は、折り曲げた穴あきアルミパネルを積み重ねたもので、穴の並びは昔の織機のパンチカードがモチーフです。
+    sources:
+      - { title: "UK Pavilion at Expo 2025 Osaka by Woo Architects（Dezeen）", url: "https://www.dezeen.com/2025/04/15/uk-pavilion-expo-2025-osaka-woo-architects/" }
+  - name: 三菱未来館
+    pavilionKey: JpPr09
+    positionX: 535.5
+    positionZ: 7.3
+    facts: 三菱地所設計が設計した。ひし形の上階が地面のすぐ上に浮かぶ「母船」のような姿をしている。足場用の鋼管や土のう、ブルーシートなど、ふだんは工事中にしか使わない仮設材を仕上げ材に使い、会期後に解体して再利用できるようにした。テーマは「いのち」で、上階の2つのシアターで映像体験を行う。
+    fallbackText: 三菱未来館です。足場用の鋼管やブルーシートなど、工事で使う仮設材を仕上げに使った、解体して再利用できる建物です。
+    sources:
+      - { title: "First images of completed Expo 2025 Osaka pavilion revealed（Dezeen）", url: "https://www.dezeen.com/2025/03/18/mitsubishi-pavilion-expo-2025-osaka/" }
+  - name: パナソニックグループ パビリオン「ノモの国」
+    pavilionKey: JpPr08
+    positionX: 496.7
+    positionZ: -5.5
+    facts: 建築家の永山祐子が設計した。外装は、薄く透ける布オーガンジーの膜730枚を1,404個のフレームに取り付けたもので、見る角度によって表情が変わる。建物には、使用済みの家電や工場から回収した鉄や銅を再利用している。主に子どもたちに向けたパビリオンで、「Unlock your nature」を掲げている。
+    fallbackText: パナソニックグループ パビリオン「ノモの国」です。永山祐子さんが設計し、薄く透ける布の膜を重ねた外装が、見る角度によって表情を変えます。
+    sources:
+      - { title: "Osaka/Kansai Expo: Construction of Panasonic Group Pavilion “The Land of NOMO” Completed（Panasonic Newsroom Global）", url: "https://news.panasonic.com/global/stories/17269" }
+      - { title: "Expo 2025 Osaka Panasonic Group Pavilion / Yuko Nagayama & Associates（ArchDaily）", url: "https://www.archdaily.com/1029502/expo-2025-osaka-panasonic-group-pavilion-yuko-nagayama-and-associates" }
+  - name: サウジアラビア館
+    pavilionKey: co12
+    positionX: -78.4
+    positionZ: 247.4
+    facts: フォスター・アンド・パートナーズが設計した。角ばった建物群を路地のような通路でつなぎ、中央の中庭を囲む「村」のような構成で、サウジアラビアの伝統的な街路を手本にしている。外装にはサウジアラビア産の石を使い、解体して再利用できる構造にした。中庭には夜の公演用の舞台があり、高さ17メートルの壁にアート作品が投影される。
+    fallbackText: サウジアラビア館です。フォスター・アンド・パートナーズが設計し、路地のような通路が中央の中庭へと続く、村のような構成になっています。
+    sources:
+      - { title: "Foster + Partners creates 'a village' for Saudi Arabia at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/15/saudi-arabia-pavilion-expo-2025-osaka/" }
+  - name: TECH WORLD館
+    pavilionKey: JpPr14
+    positionX: -97.5
+    positionZ: 354.4
+    facts: 台湾の設計事務所MAYUが、日本の梓設計と協力して設計した。建物の形は台湾の山々に着想を得ている。館内には「生命」「自然」「未来」をテーマにした3つのシアターがあり、AI技術と3D映像を組み合わせた体験で台湾の文化と技術を紹介する。
+    fallbackText: TECH WORLD館です。台湾の山々に着想を得た建物で、館内には生命・自然・未来をテーマにした3つのシアターがあります。
+    sources:
+      - { title: "Osaka expo Taiwan pavilion to feature smart tech and AI（Taipei Times）", url: "https://www.taipeitimes.com/News/taiwan/archives/2025/04/06/2003834703" }
+      - { title: "Tech World: Mountains of the Heart（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025077/" }
+  - name: フランス館
+    pavilionKey: emp10
+    positionX: 203.3
+    positionZ: 1.3
+    facts: フランスのColdefyとイタリアのカルロ・ラッティ・アソシエイツが設計した。正面の銅で覆われたらせん階段は、運命の人どうしを結ぶ「赤い糸」の言い伝えと、劇場の大階段を参照している。両脇の高さ17メートルの白い布のファサードは舞台の幕がモチーフ。館内には樹齢1000年のオリーブの木を据えた庭がある。
+    fallbackText: フランス館です。正面の大きならせん階段は、運命の人を結ぶ「赤い糸」の言い伝えと、劇場の大階段から着想を得ています。
+    sources:
+      - { title: "Huge helical staircase emblazons French pavilion at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/14/france-pavilion-expo-2025-osaka/" }
+  - name: ベトナム館
+    pavilionKey: emp11
+    positionX: 272.0
+    positionZ: -24.6
+    facts: 「人を中心とした包摂的な社会」を掲げるパビリオン。館内の天井は伝統的なランタンの絵で飾られ、プロジェクションマッピングや3D技術で民族衣装や伝統的な産品を紹介する。目玉は水上人形劇で、伝統楽器の生演奏にあわせて1日4回上演される。
+    fallbackText: ベトナム館です。伝統楽器の生演奏にあわせて人形が水の上で動く、水上人形劇が見どころです。
+    sources:
+      - { title: "Vietnam Pavilion: An Inclusive Society Where People Are Centered（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025087/" }
+  - name: イタリア・バチカンパビリオン
+    pavilionKey: sv01
+    positionX: -262.6
+    positionZ: 65.5
+    facts: マリオ・クチネッラ・アーキテクツが設計した木造のパビリオンで、ルネサンスの「理想都市」の考え方を下敷きにしている。テーマは「芸術が生命を再生する」。中心の展示は2世紀の大理石像「ファルネーゼのアトラス」で、屋上にはイタリア式の空中庭園がある。館内にはバチカンの展示もあり、カラヴァッジョの「キリストの埋葬」が公開された。
+    fallbackText: イタリア・バチカンパビリオンです。木造の建物で、2世紀の大理石像「ファルネーゼのアトラス」が展示の中心に据えられています。
+    sources:
+      - { title: "Expo 2025 Osaka: Italy Pavilion structures completed 6 months before opening（Kyodo News PR Wire）", url: "https://kyodonewsprwire.jp/release/202410188385" }
+      - { title: "Italy/Holy See Pavilion: Art Regenerates Life, Beauty Brings Hope（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025019/" }
+  - name: ベルギー王国館
+    pavilionKey: sv17
+    positionX: -260.6
+    positionZ: 99.9
+    facts: 水をテーマにしたパビリオンで、建物は水の三つの状態である液体・固体・気体に対応する3つの層で構成され、国内の3つの地域も表している。設計はベルギーの建築家シリル・ルソーが率いるチームの案。館内では生命科学やヘルスケアの取り組みを、AIやロボットを使って紹介する。
+    fallbackText: ベルギー王国館です。水をテーマに、液体・固体・気体という水の三つの状態を3つの層で表した建物です。
+    sources:
+      - { title: "Belgium Pavilion: Water（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025057/" }
+      - { title: "Belgium puts water, the building blocks of life, centre stage at World Expo Osaka 2025（Focus on Belgium）", url: "https://focusonbelgium.be/en/international/belgium-puts-water-building-blocks-life-centre-stage-world-expo-osaka-2025" }
+  - name: いのちの遊び場クラゲ館
+    pavilionKey: sig03
+    positionX: 4.9
+    positionZ: -106.9
+    facts: ジャズピアニストで数学研究者、STEAM教育者の中島さち子がプロデュースした。外観はクラゲから着想を得ており、館の中心には「創造の木」がそびえる。2階は五感で遊ぶ「Play Mountain」、1階には世界の音楽や芸能を上演する祭りの舞台がある。内部の木製部材は万博後に再利用しやすいよう設計された。
+    fallbackText: いのちの遊び場クラゲ館です。クラゲから着想を得た外観で、館の中心には「創造の木」がそびえています。
+    sources:
+      - { title: "Playground of Life: Jellyfish Pavilion of Sachiko Nakajima | Expo 2025（いのちの遊び場 クラゲ館 公式サイト）", url: "https://expokurage-2025.com/en/concept/" }
+      - { title: "Playground of Life: Jellyfish Pavilion (Invigorating Lives)（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025008/" }
+  - name: null²
+    pavilionKey: sig04
+    positionX: -27.6
+    positionZ: -135.7
+    facts: 落合陽一がプロデュースしたシグネチャーパビリオンで、設計はノイズ・アーキテクツ。ゲームなどで使われる立体の画素「ボクセル」を寄せ集めた形をしている。鉄骨の骨組みを鏡のような金属質の膜で覆い、風や音で膜が振動すると映り込む空がゆがむ。内部のスピーカーやロボットアームでも波のような動きを生み出す。
+    fallbackText: null²です。鏡のような膜で覆われた建物で、風や音で膜が揺れると、映り込む空の景色がゆがみます。
+    sources:
+      - { title: "Osaka Expo pavilion features vibrating mirrored facade（Dezeen）", url: "https://www.dezeen.com/2025/06/25/noiz-architects-pavilion-osaka-expo-null2/" }
+  - name: Better Co-Being
+    pavilionKey: sig01
+    positionX: 12.6
+    positionZ: 2.6
+    facts: 宮田裕章がプロデュースし、妹島和世と西沢立衛によるSANAAが設計した。静けさの森の木々の間に、高さ11メートルの銀色の格子状の天蓋を4層に重ね、細い柱だけで支えている。屋根も壁もなく、森の上に浮かぶ雲をイメージしている。風雨を防ぐためではなく、アート体験の舞台として同じ空を分かち合う場をつくっている。
+    fallbackText: Better Co-Beingです。SANAAが設計した、銀色の格子を4層に重ねた高さ11メートルの天蓋で、屋根も壁もない開かれたパビリオンです。
+    sources:
+      - { title: "Architecture | Better Co-Being : Signature Pavilion of Miyata Hiroaki（Better Co-Being 公式サイト）", url: "https://co-being.jp/en/architecture/" }
+      - { title: "Ten stand-out pavilions at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/11/expo-2025-osaka-roundup/" }
+  - name: 日本館
+    pavilionKey: JpPr01
+    positionX: 390.2
+    positionZ: -79.7
+    facts: 日建設計が、nendo創設者の佐藤オオキと協力して設計した。高さ12メートルのCLT（直交集成板）のパネルを、すき間をあけながら円を描くように並べ、鉄骨がその木材を支えている。1階の吹き抜けには、会場で集めた生ごみを微生物で発酵させてバイオガスをつくり、発電する設備がある。展示のタイトルは「Between Lives」。
+    fallbackText: 日本館です。木の板を円形に並べた建物で、会場の生ごみを微生物で分解してつくったバイオガスで発電する設備があります。
+    sources:
+      - { title: "Nikken Sekkei designs energy-generating Japan Pavilion for Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/05/02/nikken-sekkei-japan-pavilion-expo-osaka-2025/" }
+  - name: カタール館
+    pavilionKey: emp13
+    positionX: 261.5
+    positionZ: -63.0
+    facts: 隈研吾建築都市設計事務所が設計した。カタールと日本の木組みの技法を用いた木造の構造を、曲線を描く白い布で包んでいる。布は伝統的な帆船「ダウ」の帆を思わせる。展示はOMAの研究部門AMOが手がけ、海岸線がカタールの文化や産業をどう形づくってきたかを紹介する。
+    fallbackText: カタール館です。隈研吾さんが設計し、木造の建物を、伝統的な帆船ダウの帆を思わせる白い布で包んでいます。
+    sources:
+      - { title: "Kengo Kuma models Qatar Pavilion on traditional sailing boats（Dezeen）", url: "https://www.dezeen.com/2025/05/21/qatar-pavilion-kengo-kuma-amo-expo-2025-osaka/" }
+  - name: GUNDAM NEXT FUTURE PAVILION
+    pavilionKey: JpPr13
+    positionX: -314.3
+    positionZ: 223.3
+    facts: バンダイナムコホールディングスが出展した。全高約17メートルの実物大ガンダム像「RX-78F00/E」が立ち、関西で初めての実物大ガンダム立像となった。像には横浜で展示された「動くガンダム」の部材を再利用している。館内は2150年の宇宙ステーションを舞台にした映像体験で、幅18メートル、高さ8メートルのスクリーンと床の振動を組み合わせる。
+    fallbackText: GUNDAM NEXT FUTURE PAVILIONです。全高約17メートルの実物大ガンダム像が立ち、館内では2150年の宇宙ステーションを舞台にした映像体験ができます。
+    sources:
+      - { title: "EXPO2025 Osaka,Kansai,Japan \"GUNDAM NEXT FUTURE PAVILION\"（バンダイナムコホールディングス）", url: "https://www.bandainamco.co.jp/en/gundam-next-future-pavilion/" }
+      - { title: "Gundam Next Future Pavilion: A Possibility for the Near Future（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025076/" }
+  - name: BLUE OCEAN DOME
+    pavilionKey: JpPr12
+    positionX: -278.1
+    positionZ: 243.9
+    facts: 建築家の坂茂が設計した。大きな中央のドームと2つの小さなドームからなり、紙管、竹、炭素繊維強化プラスチックという異なる素材でそれぞれのドームをつくっている。非営利団体ZERIの出展で、海といのちの大切さと、プラスチックなどのごみによる海洋汚染をテーマにした展示がある。
+    fallbackText: BLUE OCEAN DOMEです。坂茂さんが設計し、紙管・竹・炭素繊維強化プラスチックという異なる素材でつくった3つのドームが並びます。
+    sources:
+      - { title: "Ten stand-out pavilions at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/11/expo-2025-osaka-roundup/" }
+      - { title: "Shigeru Ban unveils triple-domed Expo 2025 Osaka pavilion（Dezeen）", url: "https://www.dezeen.com/2023/05/31/shigeru-ban-domed-expo-2025-osaka-pavilion/" }
+  - name: 未来の都市
+    pavilionKey: JpPr18
+    positionX: -682.3
+    positionZ: 609.3
+    facts: 博覧会協会と12の協賛企業・団体が共同で出展した、長さ約150メートル、幅約33メートルの大型パビリオン。テーマは「幸せの都市へ」で、Society 5.0がめざす未来の都市像を体験できる。外壁は太陽工業が開発した白い光触媒コーティングの膜で覆われ、汚れを分解するセルフクリーニング機能をもつ。
+    fallbackText: 未来の都市です。長さ約150メートルの大きなパビリオンで、白い膜の外壁には汚れを分解する光触媒のコーティングが施されています。
+    sources:
+      - { title: "いよいよ4月に開幕する大阪・関西万博の最大級パビリオン「未来の都市」を徹底リポート（ASCII.jp）", url: "https://ascii.jp/elem/000/004/256/4256659/" }
+      - { title: "What is ‘The Future City’ in the coming EXPO 2025 Osaka, Kansai? 12 exhibitors showcase their future societies（Travel Voice）", url: "https://www.travelvoice.jp/english/what-is-the-future-city-in-the-coming-expo-2025-osaka-kansai-12-exhibitors-showcase-their-future-societies" }
+  - name: アイルランド館
+    pavilionKey: emp03
+    positionX: 248.4
+    positionZ: 128.1
+    facts: アイルランド政府の公共事業局（OPW）の建築家が設計した。3つの楕円形の空間を組み合わせ、新石器時代からアイルランドの美術や工芸に使われてきた渦巻き文様「トリスケル」を立体的に表している。外装はアイルランド産のダグラスファー材。テーマは「創造性が人をつなぐ」で、屋外にはジョセフ・ウォルシュの円形の彫刻「Magnus Rinn」がある。
+    fallbackText: アイルランド館です。古くからアイルランドの美術に使われてきた渦巻き文様「トリスケル」を、3つの楕円形の空間で立体的に表した建物です。
+    sources:
+      - { title: "Ireland Pavilion | Ireland At Expo 2025（Ireland.ie, Government of Ireland）", url: "https://api.ireland.ie/en/expo/ireland-pavilion/" }
+      - { title: "Ireland: Creativity Connects People（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025016/" }
+  - name: アンゴラパビリオン
+    pavilionKey: sv10
+    positionX: -131.6
+    positionZ: -119.9
+    facts: テーマは「健康のための教育」で、外観にはテーマが漢字で掲げられている。館内では伝統工芸品や民族衣装を紹介し、シアターでは子どものころマラリアから救われ、のちに医療従事者になった女性のドキュメンタリーを上映する。感染症対策などの健康課題と、それに取り組む人々も紹介している。外観デザインの部門で金賞を受けた。
+    fallbackText: アンゴラパビリオンです。「健康のための教育」をテーマに、感染症対策などの健康課題と、それに取り組む人々を紹介しています。
+    sources:
+      - { title: "Angola Pavilion: Education for Health（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025093/" }
+      - { title: "Angola Wins Best Exterior Design at Expo Osaka 2025（Embassy of the Republic of Angola in Japan）", url: "https://www.angola.or.jp/2025/10/13/angola-bestdesign-osaka2025-2/" }
+  - name: ルーマニアパビリオン
+    pavilionKey: sv08
+    positionX: -198.5
+    positionZ: -75.1
+    facts: テーマは「Romanian Magic Box」で、面積は約700平方メートル。館内ではマスコットのペリカン「ハル」のホログラムが来場者を迎える。インスタレーションや映像、コンサート、料理を通じて、自然や芸術、工芸、食文化を紹介している。
+    fallbackText: ルーマニアパビリオンです。「ルーマニアン・マジック・ボックス」をテーマに、マスコットのペリカン「ハル」のホログラムが来場者を迎えます。
+    sources:
+      - { title: "Romania Pavilion: The Romanian Magic Box（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025081/" }
+      - { title: "Romania participates in the World Expo in Japan with a 700 square meter pavilion（Radio România Actualități）", url: "https://romania-actualitati.ro/news-in-english/romania-participates-in-the-world-expo-in-japan-with-a-700-square-meter-pavilion-id204941.html" }

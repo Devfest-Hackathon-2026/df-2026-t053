@@ -1,0 +1,74 @@
+# APIテスト専用の自作仮データ。本番seedには使用しない。
+# 動作確認用の仮の出題（#26）。写真・区画・正解姿勢は自作の仮データで、実在の構図ではない。
+#
+# 座標はモデルのローカル座標（m、+X 東、+Y 上、−Z 北）。yaw は北向き 0°、東向き 90°。
+# 会場図は bounds 120 m × 120 m に対して 960×960 px（1 m = 8 px）。
+challenge:
+  slug: sample-plaza
+  title: サンプル広場の柱
+revision:
+  revisionNo: 1
+  sceneProfile: bundled-v1
+  scoringVersion: v1
+  photoAlt: 広場の奥に柱が並び、その上に空が広がる写真（仮）
+  eyeHeightMeters: 1.6
+  shotVerticalFovDegrees: 50.0
+  # 足元 Y（0）＋ eyeHeightMeters（1.6）
+  goal: { x: 0.0, y: 1.6, z: -45.0, yawDegrees: 0.0, pitchDegrees: 8.0 }
+  story: 動作確認用の仮のエピソード。
+  highlight: 動作確認用の仮の見どころ。
+assets:
+  photo: { file: photo.png, contentType: image/png }
+  map: { file: map.png, contentType: image/png }
+map:
+  bounds: { minX: -60.0, minZ: -80.0, maxX: 60.0, maxZ: 40.0 }
+modes:
+  - mode: free
+    walkable:
+      outer: [{ x: -50, z: -70 }, { x: 50, z: -70 }, { x: 50, z: 30 }, { x: -50, z: 30 }]
+      holes:
+        - [{ x: -5, z: -35 }, { x: 5, z: -35 }, { x: 5, z: -25 }, { x: -5, z: -25 }]
+    spawns:
+      - { positionX: -40, positionY: 0, positionZ: 20, yawDegrees: 0, label: 西 }
+      - { positionX: 40, positionY: 0, positionZ: 20, yawDegrees: 315, label: 東 }
+      - { positionX: 0, positionY: 0, positionZ: 25, yawDegrees: 0, label: 北 }
+  - mode: near
+    walkable:
+      outer: [{ x: -20, z: -60 }, { x: 20, z: -60 }, { x: 20, z: -10 }, { x: -20, z: -10 }]
+      # free の障害物は near の領域内にもあるので、同じ穴を持たせる。
+      holes:
+        - [{ x: -5, z: -35 }, { x: 5, z: -35 }, { x: 5, z: -25 }, { x: -5, z: -25 }]
+    spawns:
+      - { positionX: 10, positionY: 0, positionZ: -15, yawDegrees: 200 }
+landmarks:
+  - { pavilionKey: sample-pavilion-a, displayName: サンプル館A, positionX: -30, positionZ: -60, latitude: null, longitude: null }
+  - { pavilionKey: sample-pavilion-b, displayName: サンプル館B, positionX: 30, positionZ: 10, latitude: null, longitude: null }
+  - { pavilionKey: JpPr01, displayName: "日本館", positionX: 10, positionZ: -10, latitude: 34.648305, longitude: 135.387793 }
+  - { pavilionKey: emp19, displayName: "ブラジル館", positionX: 5, positionZ: -15, latitude: 34.64845116103783, longitude: 135.38474937046388 }
+  - { pavilionKey: emp20, displayName: "クウェート館", positionX: 8, positionZ: -18, latitude: 34.648647905798434, longitude: 135.38452792757744 }
+  - { pavilionKey: emp21, displayName: "中華人民共和国館", positionX: 12, positionZ: -20, latitude: 34.64872223147537, longitude: 135.38420550673476 }
+  - { pavilionKey: emp25, displayName: "バーレーン館", positionX: 15, positionZ: -25, latitude: 34.647497656346985, longitude: 135.38468572606558 }
+  - { pavilionKey: emp27, displayName: "北欧館", positionX: 10, positionZ: -30, latitude: 34.647395312409635, longitude: 135.38417209378494 }
+  - { pavilionKey: emp28, displayName: "マルタ館", positionX: 5, positionZ: -32, latitude: 34.64747830720081, longitude: 135.3838961799925 }
+  - { pavilionKey: emp29, displayName: "チェコ館", positionX: 0, positionZ: -35, latitude: 34.647509616087284, longitude: 135.38364499809228 }
+  - { pavilionKey: sig01, displayName: "Better Co-Being(宮田裕章氏)", positionX: -5, positionZ: -40, latitude: 34.64904463240182, longitude: 135.38367066343187 }
+  - { pavilionKey: sig02, displayName: "いのちの未来(石黒浩氏)", positionX: -10, positionZ: -42, latitude: 34.648548993802265, longitude: 135.3837372701959 }
+  - { pavilionKey: sig03, displayName: "いのちの遊び場クラゲ館(中島さち子氏)", positionX: -12, positionZ: -45, latitude: 34.64806082424489, longitude: 135.3835858911868 }
+  - { pavilionKey: sig04, displayName: "null²(落合陽一氏)", positionX: -15, positionZ: -48, latitude: 34.647802266231096, longitude: 135.3832310006451 }
+  - { pavilionKey: sig05, displayName: "いのちの動的平衡館(福岡伸一氏)", positionX: -18, positionZ: -50, latitude: 34.64794311386721, longitude: 135.38257729093536 }
+  - { pavilionKey: sig06, displayName: "いのちめぐる冒険(河森正治氏)", positionX: -20, positionZ: -52, latitude: 34.648273204145966, longitude: 135.3827383354985 }
+  - { pavilionKey: sig07, displayName: "EARTH MART(小山薫堂氏)", positionX: -22, positionZ: -55, latitude: 34.64862484176475, longitude: 135.38285600209593 }
+  - { pavilionKey: sig08, displayName: "Dialogue Theater ‐ いのちのあかし ‐(河瀬直美氏)", positionX: -25, positionZ: -58, latitude: 34.648875728367564, longitude: 135.38295685917944 }
+  - { pavilionKey: co03, displayName: "韓国館", positionX: 20, positionZ: 5, latitude: 34.65099863575325, longitude: 135.38485372680478 }
+  - { pavilionKey: co06, displayName: "アゼルバイジャン館", positionX: 25, positionZ: 8, latitude: 34.65084418508125, longitude: 135.38442147319952 }
+credits:
+  - { name: 動作確認用の仮素材（#3 で差し替える）, url: null }
+structures:
+  - name: サンプルの大屋根
+    pavilionKey: sample-ring
+    positionX: 0
+    positionZ: -30
+    facts: 動作確認用の仮の事実。
+    fallbackText: 動作確認用の固定の代替文。
+    sources:
+      - { title: 動作確認用の仮の出典, url: "https://example.com/sample-ring" }

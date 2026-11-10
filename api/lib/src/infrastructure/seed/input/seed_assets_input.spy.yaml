@@ -1,0 +1,6 @@
+### 公開素材（写真・会場図）。3D モデルはアプリ同梱のため含めない。
+class: SeedAssetsInput
+serverOnly: true
+fields:
+  photo: SeedAssetFileInput
+  map: SeedAssetFileInput

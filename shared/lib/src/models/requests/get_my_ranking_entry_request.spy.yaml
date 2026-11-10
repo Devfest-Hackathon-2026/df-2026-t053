@@ -1,0 +1,5 @@
+### ranking.getMyRankingEntry の引数。
+class: GetMyRankingEntryRequest
+fields:
+  revisionId: int
+  mode: PlayMode

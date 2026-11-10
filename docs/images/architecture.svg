@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1100" viewBox="0 0 1200 1100" role="img" aria-labelledby="title desc"><title id="title">かさね旅のアーキテクチャ</title><desc id="desc">端末内で3Dを描画し、HTTPSとWSSでCloud RunのServerpodに接続。ServerpodはSQLite、Litestream、Cloud Storage、Vertex AIと連携。TerraDartがインフラを管理する。</desc><style>text { font-family: 'Hiragino Sans','Noto Sans JP',sans-serif; fill:#194e52 } .small {font-size:18px} .body {font-size:21px} .heading {font-size:27px;font-weight:700}</style>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#426e70"/></marker></defs><rect width="1200" height="1100" fill="#fafbf7"/>
+<text x="40" y="49" class="heading" text-anchor="start">かさね旅 / システム構成</text>
+<rect x="30" y="75" width="1140" height="190" rx="16" fill="#eaf4ef" stroke="#c6dcda" stroke-width="1.5"/>
+<text x="50" y="108" class="heading" text-anchor="start">利用者のスマートフォン</text>
+<rect x="55" y="132" width="350" height="104" rx="16" fill="#fff" stroke="#c6dcda" stroke-width="1.5"/>
+<text x="230" y="168" class="body" text-anchor="middle">同梱3Dモデル・会場マップ</text>
+<text x="230" y="204" class="small" text-anchor="middle">区画単位で読込・解放</text>
+<rect x="550" y="130" width="590" height="110" rx="16" fill="#194e52" stroke="#c6dcda" stroke-width="1.5"/>
+<text x="845" y="172" class="heading" text-anchor="middle" style="fill:#fff">Flutter / Riverpod / Flutter Scene</text>
+<text x="845" y="210" class="body" text-anchor="middle" style="fill:#e1f0eb">3D探索・写真・撮影・結果・ガイド表示</text>
+<path d="M420 187 H533" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="476" y="166" class="small" text-anchor="middle">端末内描画</text>
+<rect x="30" y="365" width="1140" height="525" rx="16" fill="#f0f5f1" stroke="#c6dcda" stroke-width="1.5"/>
+<text x="50" y="401" class="heading" text-anchor="start">Google Cloud</text>
+<rect x="55" y="425" width="510" height="440" rx="16" fill="#fff" stroke="#c6dcda" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text x="75" y="462" class="heading" text-anchor="start">Cloud Run</text>
+<rect x="80" y="483" width="460" height="113" rx="16" fill="#c4edda" stroke="#c6dcda" stroke-width="1.5"/>
+<text x="310" y="522" class="heading" text-anchor="middle">Dart / Serverpod</text>
+<text x="310" y="554" class="body" text-anchor="middle">匿名認証・出題・採点・ランキング</text>
+<text x="310" y="581" class="body" text-anchor="middle">ガイドAPI</text>
+<path d="M310 476 V300 H680 V250" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<text x="332" y="326" class="small" text-anchor="start">HTTPS：認証・出題・撮影・順位</text>
+<text x="332" y="350" class="small" text-anchor="start">WSS：ガイド要求・本文・音声</text>
+<rect x="720" y="430" width="420" height="100" rx="16" fill="#fff" stroke="#c6dcda" stroke-width="1.5"/>
+<text x="930" y="469" class="heading" text-anchor="middle">Cloud Storage / 公開素材</text>
+<text x="930" y="506" class="body" text-anchor="middle">写真などの出題素材</text>
+<path d="M1060 420 V250" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1042" y="302" class="small" text-anchor="end">HTTPSで直接取得</text>
+<text x="1042" y="330" class="small" text-anchor="end">URL・ハッシュを照合</text>
+<rect x="720" y="588" width="420" height="124" rx="16" fill="#e8f0fb" stroke="#b6cce6" stroke-width="1.5"/>
+<text x="930" y="625" class="heading" text-anchor="middle">Vertex AI</text>
+<text x="930" y="662" class="body" text-anchor="middle">Gemini → 資料からガイド本文</text>
+<text x="930" y="694" class="body" text-anchor="middle">Gemini TTS → 本文の音声化</text>
+<path d="M550 556 H630 V650 H708" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<text x="725" y="570" class="small" text-anchor="start">対象資料を送信 / 本文・音声を取得</text>
+<rect x="80" y="730" width="210" height="104" rx="16" fill="#fff5db" stroke="#e6d8aa" stroke-width="1.5"/>
+<text x="185" y="769" class="heading" text-anchor="middle">SQLite</text>
+<text x="185" y="800" class="small" text-anchor="middle">出題・プレイ・記録</text>
+<rect x="350" y="730" width="190" height="104" rx="16" fill="#fff5db" stroke="#e6d8aa" stroke-width="1.5"/>
+<text x="445" y="769" class="heading" text-anchor="middle">Litestream</text>
+<text x="445" y="800" class="small" text-anchor="middle">DB複製・復元</text>
+<path d="M185 609 V719" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<text x="205" y="670" class="small" text-anchor="start">読み書き</text>
+<path d="M300 780 H340" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="318" y="756" class="small" text-anchor="middle">WAL</text>
+<rect x="720" y="760" width="420" height="90" rx="16" fill="#fff5db" stroke="#e6d8aa" stroke-width="1.5"/>
+<text x="930" y="796" class="heading" text-anchor="middle">Cloud Storage / 非公開</text>
+<text x="930" y="826" class="body" text-anchor="middle">DB複製の保存・復元</text>
+<path d="M550 785 H625 V810 H708" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<rect x="30" y="930" width="1140" height="118" rx="16" fill="#fff0e4" stroke="#d8aa88" stroke-width="1.5"/>
+<text x="50" y="960" class="body" text-anchor="start">インフラ管理・配備</text>
+<text x="180" y="1005" class="heading" text-anchor="middle">TerraDart / Dart</text>
+<path d="M324 997 H430" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)" stroke-dasharray="7 6"/>
+<text x="377" y="981" class="small" text-anchor="middle">synth</text>
+<text x="565" y="1005" class="heading" text-anchor="middle">Terraform JSON</text>
+<path d="M710 997 H786" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)" stroke-dasharray="7 6"/>
+<text x="970" y="997" class="body" text-anchor="middle">手元 / GitHub Actions</text>
+<text x="970" y="1026" class="small" text-anchor="middle">検査・plan・apply</text>
+<path d="M1090 930 V897" fill="none" stroke="#426e70" stroke-width="2.5" marker-end="url(#arrow)" stroke-dasharray="7 6"/>
+<text x="40" y="1083" class="small" text-anchor="start">実線：実行時の通信・処理　破線：構成管理・配備。認証・IAM・監視等の詳細は本文を参照。</text>
+</svg>

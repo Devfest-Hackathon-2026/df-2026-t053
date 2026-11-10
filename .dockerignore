@@ -1,0 +1,12 @@
+# build context はリポジトリのルート（shared を含めるため）。api と shared 以外は送らない。
+*
+!api/
+!shared/
+**/.dart_tool/
+**/build/
+**/.packages
+api/data/
+api/.serverpod/
+api/config/passwords.yaml
+api/test/
+shared/test/

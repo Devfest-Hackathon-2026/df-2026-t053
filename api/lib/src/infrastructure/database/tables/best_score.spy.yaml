@@ -1,0 +1,20 @@
+### 本人・版・モードごとの自己ベスト。ランキングの元データ。
+class: BestScoreRow
+table: best_score
+serverOnly: true
+fields:
+  userProfileId: int, column=user_profile_id, relation(parent=user_profile, onDelete=Restrict)
+  revisionId: int, column=revision_id, relation(parent=challenge_revision, onDelete=Restrict)
+  mode: PlayMode
+  shotId: int, column=shot_id, relation(parent=shot, onDelete=Restrict)
+  score: int
+  achievedAt: DateTime, column=achieved_at
+indexes:
+  best_score_profile_revision_mode_uk:
+    fields: userProfileId, revisionId, mode
+    unique: true
+  best_score_shot_uk:
+    fields: shotId
+    unique: true
+  best_score_ranking_idx:
+    fields: revisionId, mode, score, achievedAt, userProfileId

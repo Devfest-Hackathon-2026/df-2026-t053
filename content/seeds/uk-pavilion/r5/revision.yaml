@@ -1,0 +1,1101 @@
+# 英国パビリオン前の庭（2025-07-24 撮影）の第5版。
+# r4 から、ガイドの解説対象（structures）に、会場図に出すパビリオンの残り 76 件を足す（#239）。
+# 写真・正解姿勢・会場図・歩行領域・開始点・ランドマーク・既存 20 件の資料は r4 と同じ。
+# 足した施設の代表位置は、uk-pavilion/r1 の landmarks（緯度経度の重心を変換した位置）と同じ。
+# 資料の出典と確認日は content/provenance/README.md「ガイドの解説対象（r5）」に記録した。
+#
+challenge:
+  slug: uk-pavilion
+  title: 英国パビリオンの赤い電話ボックス
+revision:
+  revisionNo: 5
+  sceneProfile: bundled-v1
+  scoringVersion: v1
+  photoAlt: 白い穴あきパネルを積み重ねた外壁の建物を、花壇越しに見上げた写真。右手前に赤い電話ボックスが立っている
+  eyeHeightMeters: 1.6
+  # 写真（Xperia の超広角）の縦の画角を、3D モデルとの重ね合わせで推定した値。
+  shotVerticalFovDegrees: 83.0
+  # 足元 Y（9.9）＋ eyeHeightMeters（1.6）。写真と 3D モデルの輪郭の重ね合わせで求めた。
+  goal: { x: -164.6, y: 11.5, z: -131.3, yawDegrees: 359.8, pitchDegrees: 14.0 }
+  story: 2025年7月24日の正午前、英国パビリオン前の通路で撮影した一枚。真夏の日差しの下、花壇越しに白い外壁を見上げている。
+  highlight: 庭の端に立つ赤い電話ボックスと、折り曲げた穴あきアルミパネルを重ねた白い外壁。夜は外壁の照明でユニオンジャックが浮かび上がる。
+assets:
+  photo: { file: photo.jpg, contentType: image/jpeg }
+  map: { file: map.png, contentType: image/png }
+map:
+  # 建物から約 80 m の通行範囲を覆う。画像は 4096×3273（比率は bounds と 1 px 以内）。
+  bounds: { minX: -868.0, minZ: -610.0, maxX: 784.0, maxZ: 710.0 }
+modes:
+  - mode: free
+    walkable:
+      # 建物から約 80 m 以内。各ゾーン・リング・東西ゲートを内側に含む。
+      # モデルの外接矩形（海や敷地の外）は含めない。穴は r1 と同じ建物外形。
+      outer:
+        - { x: 580.0, z: -602.0 }
+        - { x: 776.0, z: -602.0 }
+        - { x: 776.0, z: -406.0 }
+        - { x: 740.0, z: -386.0 }
+        - { x: 704.0, z: -350.0 }
+        - { x: 664.0, z: -330.0 }
+        - { x: 648.0, z: -310.0 }
+        - { x: 640.0, z: -310.0 }
+        - { x: 624.0, z: -290.0 }
+        - { x: 616.0, z: -290.0 }
+        - { x: 604.0, z: -274.0 }
+        - { x: 580.0, z: -262.0 }
+        - { x: 560.0, z: -238.0 }
+        - { x: 552.0, z: -238.0 }
+        - { x: 540.0, z: -222.0 }
+        - { x: 532.0, z: -222.0 }
+        - { x: 520.0, z: -210.0 }
+        - { x: 528.0, z: -170.0 }
+        - { x: 524.0, z: -138.0 }
+        - { x: 564.0, z: -130.0 }
+        - { x: 588.0, z: -118.0 }
+        - { x: 604.0, z: -102.0 }
+        - { x: 612.0, z: -78.0 }
+        - { x: 712.0, z: 26.0 }
+        - { x: 712.0, z: 34.0 }
+        - { x: 728.0, z: 46.0 }
+        - { x: 748.0, z: 82.0 }
+        - { x: 752.0, z: 114.0 }
+        - { x: 736.0, z: 162.0 }
+        - { x: 680.0, z: 210.0 }
+        - { x: 656.0, z: 222.0 }
+        - { x: 620.0, z: 222.0 }
+        - { x: 632.0, z: 234.0 }
+        - { x: 632.0, z: 242.0 }
+        - { x: 652.0, z: 258.0 }
+        - { x: 668.0, z: 290.0 }
+        - { x: 672.0, z: 314.0 }
+        - { x: 668.0, z: 342.0 }
+        - { x: 652.0, z: 374.0 }
+        - { x: 636.0, z: 390.0 }
+        - { x: 600.0, z: 410.0 }
+        - { x: 540.0, z: 410.0 }
+        - { x: 516.0, z: 398.0 }
+        - { x: 496.0, z: 378.0 }
+        - { x: 496.0, z: 370.0 }
+        - { x: 476.0, z: 354.0 }
+        - { x: 460.0, z: 326.0 }
+        - { x: 412.0, z: 330.0 }
+        - { x: 404.0, z: 338.0 }
+        - { x: 384.0, z: 338.0 }
+        - { x: 368.0, z: 350.0 }
+        - { x: 328.0, z: 358.0 }
+        - { x: 320.0, z: 354.0 }
+        - { x: 268.0, z: 382.0 }
+        - { x: 252.0, z: 382.0 }
+        - { x: 148.0, z: 418.0 }
+        - { x: 100.0, z: 426.0 }
+        - { x: 68.0, z: 442.0 }
+        - { x: 24.0, z: 450.0 }
+        - { x: -56.0, z: 478.0 }
+        - { x: -96.0, z: 482.0 }
+        - { x: -120.0, z: 478.0 }
+        - { x: -144.0, z: 462.0 }
+        - { x: -252.0, z: 462.0 }
+        - { x: -276.0, z: 450.0 }
+        - { x: -300.0, z: 426.0 }
+        - { x: -328.0, z: 370.0 }
+        - { x: -364.0, z: 354.0 }
+        - { x: -376.0, z: 354.0 }
+        - { x: -392.0, z: 366.0 }
+        - { x: -428.0, z: 370.0 }
+        - { x: -476.0, z: 354.0 }
+        - { x: -492.0, z: 334.0 }
+        - { x: -544.0, z: 334.0 }
+        - { x: -544.0, z: 350.0 }
+        - { x: -536.0, z: 354.0 }
+        - { x: -532.0, z: 370.0 }
+        - { x: -520.0, z: 378.0 }
+        - { x: -520.0, z: 386.0 }
+        - { x: -512.0, z: 390.0 }
+        - { x: -512.0, z: 398.0 }
+        - { x: -504.0, z: 402.0 }
+        - { x: -504.0, z: 410.0 }
+        - { x: -496.0, z: 414.0 }
+        - { x: -496.0, z: 422.0 }
+        - { x: -488.0, z: 426.0 }
+        - { x: -468.0, z: 462.0 }
+        - { x: -468.0, z: 518.0 }
+        - { x: -480.0, z: 542.0 }
+        - { x: -504.0, z: 566.0 }
+        - { x: -520.0, z: 570.0 }
+        - { x: -508.0, z: 602.0 }
+        - { x: -492.0, z: 614.0 }
+        - { x: -468.0, z: 658.0 }
+        - { x: -468.0, z: 702.0 }
+        - { x: -752.0, z: 702.0 }
+        - { x: -760.0, z: 694.0 }
+        - { x: -760.0, z: 686.0 }
+        - { x: -768.0, z: 682.0 }
+        - { x: -768.0, z: 674.0 }
+        - { x: -776.0, z: 670.0 }
+        - { x: -776.0, z: 662.0 }
+        - { x: -784.0, z: 658.0 }
+        - { x: -784.0, z: 650.0 }
+        - { x: -792.0, z: 646.0 }
+        - { x: -792.0, z: 638.0 }
+        - { x: -800.0, z: 634.0 }
+        - { x: -800.0, z: 626.0 }
+        - { x: -808.0, z: 622.0 }
+        - { x: -808.0, z: 614.0 }
+        - { x: -816.0, z: 610.0 }
+        - { x: -816.0, z: 602.0 }
+        - { x: -824.0, z: 598.0 }
+        - { x: -824.0, z: 590.0 }
+        - { x: -860.0, z: 542.0 }
+        - { x: -860.0, z: 258.0 }
+        - { x: -816.0, z: 234.0 }
+        - { x: -800.0, z: 234.0 }
+        - { x: -792.0, z: 214.0 }
+        - { x: -776.0, z: 198.0 }
+        - { x: -768.0, z: 198.0 }
+        - { x: -764.0, z: 190.0 }
+        - { x: -756.0, z: 190.0 }
+        - { x: -752.0, z: 182.0 }
+        - { x: -744.0, z: 182.0 }
+        - { x: -740.0, z: 174.0 }
+        - { x: -732.0, z: 174.0 }
+        - { x: -728.0, z: 166.0 }
+        - { x: -720.0, z: 166.0 }
+        - { x: -656.0, z: 118.0 }
+        - { x: -612.0, z: 98.0 }
+        - { x: -520.0, z: 86.0 }
+        - { x: -520.0, z: 58.0 }
+        - { x: -536.0, z: 54.0 }
+        - { x: -556.0, z: 34.0 }
+        - { x: -580.0, z: -38.0 }
+        - { x: -576.0, z: -74.0 }
+        - { x: -548.0, z: -114.0 }
+        - { x: -464.0, z: -146.0 }
+        - { x: -428.0, z: -150.0 }
+        - { x: -384.0, z: -166.0 }
+        - { x: -340.0, z: -170.0 }
+        - { x: -340.0, z: -178.0 }
+        - { x: -324.0, z: -194.0 }
+        - { x: -276.0, z: -214.0 }
+        - { x: -216.0, z: -218.0 }
+        - { x: -180.0, z: -206.0 }
+        - { x: -156.0, z: -278.0 }
+        - { x: -136.0, z: -298.0 }
+        - { x: -112.0, z: -310.0 }
+        - { x: -48.0, z: -310.0 }
+        - { x: -24.0, z: -298.0 }
+        - { x: -4.0, z: -270.0 }
+        - { x: 16.0, z: -262.0 }
+        - { x: 48.0, z: -294.0 }
+        - { x: 64.0, z: -298.0 }
+        - { x: 76.0, z: -314.0 }
+        - { x: 100.0, z: -326.0 }
+        - { x: 140.0, z: -334.0 }
+        - { x: 184.0, z: -330.0 }
+        - { x: 200.0, z: -342.0 }
+        - { x: 248.0, z: -354.0 }
+        - { x: 276.0, z: -350.0 }
+        - { x: 312.0, z: -382.0 }
+        - { x: 364.0, z: -402.0 }
+        - { x: 396.0, z: -406.0 }
+        - { x: 432.0, z: -394.0 }
+        - { x: 448.0, z: -414.0 }
+        - { x: 456.0, z: -414.0 }
+        - { x: 468.0, z: -430.0 }
+        - { x: 496.0, z: -446.0 }
+        - { x: 488.0, z: -490.0 }
+        - { x: 504.0, z: -538.0 }
+        - { x: 532.0, z: -566.0 }
+        - { x: 568.0, z: -586.0 }
+      holes:
+        # 英国パビリオン
+        - [{ x: -201.9, z: -95.1 }, { x: -196.8, z: -104.6 }, { x: -157.6, z: -116.2 }, { x: -156.8, z: -116.4 }, { x: -151.2, z: -96.4 }, { x: -179.3, z: -82.8 }]
+        # 東隣の黒い外壁の建物
+        - [{ x: -155.3, z: -123.1 }, { x: -114.9, z: -134.9 }, { x: -110.5, z: -119.6 }, { x: -110.6, z: -107.0 }, { x: -142.2, z: -97.6 }, { x: -150.8, z: -107.9 }]
+        # 赤い電話ボックス
+        - [{ x: -161.1, z: -128.7 }, { x: -160.0, z: -128.7 }, { x: -160.0, z: -127.6 }, { x: -161.1, z: -127.6 }]
+        # 南西の建物
+        - [{ x: -230.5, z: -119.2 }, { x: -228.4, z: -124.1 }, { x: -225.7, z: -130.4 }, { x: -220.2, z: -127.3 }, { x: -210.6, z: -120.0 }, { x: -212.0, z: -114.7 }, { x: -212.5, z: -112.9 }, { x: -215.9, z: -109.2 }, { x: -218.4, z: -110.2 }]
+        # 北西の建物
+        - [{ x: -211.4, z: -73.5 }, { x: -204.0, z: -91.1 }, { x: -202.2, z: -90.4 }, { x: -189.8, z: -85.2 }, { x: -177.3, z: -79.9 }, { x: -184.7, z: -62.2 }, { x: -208.5, z: -72.2 }, { x: -210.6, z: -73.1 }]
+        # 北の建物
+        - [{ x: -167.8, z: -72.3 }, { x: -166.4, z: -76.1 }, { x: -163.1, z: -79.7 }, { x: -159.3, z: -81.9 }, { x: -155.3, z: -83.5 }, { x: -142.4, z: -87.0 }, { x: -138.1, z: -84.2 }, { x: -135.5, z: -80.7 }, { x: -131.9, z: -70.1 }, { x: -135.4, z: -66.9 }, { x: -140.5, z: -65.3 }, { x: -159.1, z: -63.8 }, { x: -164.6, z: -63.7 }]
+        # 西の小さな建物
+        - [{ x: -234.1, z: -83.8 }, { x: -231.8, z: -86.8 }, { x: -231.0, z: -86.2 }, { x: -228.6, z: -84.4 }, { x: -227.2, z: -83.3 }, { x: -227.1, z: -83.2 }, { x: -229.4, z: -80.2 }, { x: -230.2, z: -80.8 }, { x: -231.9, z: -82.1 }]
+        # 東の建物
+        - [{ x: -107.5, z: -111.8 }, { x: -107.4, z: -120.1 }, { x: -104.9, z: -120.1 }, { x: -89.7, z: -110.8 }, { x: -89.7, z: -108.3 }, { x: -94.9, z: -108.3 }, { x: -107.5, z: -108.4 }]
+        # 南東の建物
+        - [{ x: -109.6, z: -167.3 }, { x: -99.4, z: -168.1 }, { x: -98.6, z: -157.6 }, { x: -108.8, z: -156.8 }, { x: -109.5, z: -164.7 }, { x: -109.6, z: -166.4 }]
+    spawns:
+      # 足元 Y はパビリオン前と同じ平面。
+      # 東ゲートは西（270°）。西ゲートは会場の内側、南東（124°）。
+      - { positionX: 580.0, positionY: 9.9, positionZ: 123.4, yawDegrees: 270, label: 東ゲート }
+      - { positionX: -572.3, positionY: 9.9, positionZ: 342.9, yawDegrees: 124, label: 西ゲート }
+  - mode: near
+    walkable:
+      # 英国パビリオンと東隣の建物の南側の通路。
+      outer: [{ x: -190, z: -155 }, { x: -152, z: -155 }, { x: -152, z: -125 }, { x: -190, z: -125 }]
+      # free の穴のうち near の領域内にあるもの。
+      holes:
+        - [{ x: -161.1, z: -128.7 }, { x: -160.0, z: -128.7 }, { x: -160.0, z: -127.6 }, { x: -161.1, z: -127.6 }]
+    spawns:
+      - { positionX: -176, positionY: 9.9, positionZ: -145, yawDegrees: 100 }
+landmarks:
+  - { pavilionKey: uk-pavilion, displayName: 英国パビリオン, positionX: -174.9, positionZ: -99.4, latitude: 34.648061, longitude: 135.381547 }
+credits:
+  - { name: 写真：チームメンバー撮影（2025-07-24）, url: null }
+  - { name: 3D都市モデル（Project PLATEAU）大阪・関西万博会場を加工, url: "https://www.geospatial.jp/ckan/dataset/plateau-27999-osaka-shi-2025" }
+  - { name: 施設の緯度経度 © OpenStreetMap contributors（ODbL）, url: "https://www.openstreetmap.org/copyright" }
+structures:
+  - name: 英国パビリオン
+    pavilionKey: uk-pavilion
+    # ガイドの選定は代表位置から 30 m 以内を対象にする。r2 の建物中心（-174.9, -99.4）は
+    # 周辺探索の開始点から 45.6 m、撮影ゴールから 33.5 m で届かなかった（#213）。
+    # 南の正面の外壁から約 6 m 手前（写真の花壇のあたり）に置き、開始点から 27.3 m、
+    # ゴールから 15.2 m にする。
+    positionX: -172.0
+    positionZ: -118.0
+    facts: ロンドンの Woo Architects が設計した。外壁は折り曲げた穴あきアルミパネルで、穴の並びは19世紀初めに織機で使われたパンチカードを思わせる。夜は照明で外壁にユニオンジャックが浮かび上がる。パビリオンのテーマは「Come Build The Future」。
+    fallbackText: 英国パビリオンです。白い外壁は、折り曲げた穴あきアルミパネルを積み重ねたもので、穴の並びは昔の織機のパンチカードがモチーフです。
+    sources:
+      - { title: "UK Pavilion at Expo 2025 Osaka by Woo Architects（Dezeen）", url: "https://www.dezeen.com/2025/04/15/uk-pavilion-expo-2025-osaka-woo-architects/" }
+  - name: 三菱未来館
+    pavilionKey: JpPr09
+    positionX: 535.5
+    positionZ: 7.3
+    facts: 三菱地所設計が設計した。ひし形の上階が地面のすぐ上に浮かぶ「母船」のような姿をしている。足場用の鋼管や土のう、ブルーシートなど、ふだんは工事中にしか使わない仮設材を仕上げ材に使い、会期後に解体して再利用できるようにした。テーマは「いのち」で、上階の2つのシアターで映像体験を行う。
+    fallbackText: 三菱未来館です。足場用の鋼管やブルーシートなど、工事で使う仮設材を仕上げに使った、解体して再利用できる建物です。
+    sources:
+      - { title: "First images of completed Expo 2025 Osaka pavilion revealed（Dezeen）", url: "https://www.dezeen.com/2025/03/18/mitsubishi-pavilion-expo-2025-osaka/" }
+  - name: パナソニックグループ パビリオン「ノモの国」
+    pavilionKey: JpPr08
+    positionX: 496.7
+    positionZ: -5.5
+    facts: 建築家の永山祐子が設計した。外装は、薄く透ける布オーガンジーの膜730枚を1,404個のフレームに取り付けたもので、見る角度によって表情が変わる。建物には、使用済みの家電や工場から回収した鉄や銅を再利用している。主に子どもたちに向けたパビリオンで、「Unlock your nature」を掲げている。
+    fallbackText: パナソニックグループ パビリオン「ノモの国」です。永山祐子さんが設計し、薄く透ける布の膜を重ねた外装が、見る角度によって表情を変えます。
+    sources:
+      - { title: "Osaka/Kansai Expo: Construction of Panasonic Group Pavilion “The Land of NOMO” Completed（Panasonic Newsroom Global）", url: "https://news.panasonic.com/global/stories/17269" }
+      - { title: "Expo 2025 Osaka Panasonic Group Pavilion / Yuko Nagayama & Associates（ArchDaily）", url: "https://www.archdaily.com/1029502/expo-2025-osaka-panasonic-group-pavilion-yuko-nagayama-and-associates" }
+  - name: サウジアラビア館
+    pavilionKey: co12
+    positionX: -78.4
+    positionZ: 247.4
+    facts: フォスター・アンド・パートナーズが設計した。角ばった建物群を路地のような通路でつなぎ、中央の中庭を囲む「村」のような構成で、サウジアラビアの伝統的な街路を手本にしている。外装にはサウジアラビア産の石を使い、解体して再利用できる構造にした。中庭には夜の公演用の舞台があり、高さ17メートルの壁にアート作品が投影される。
+    fallbackText: サウジアラビア館です。フォスター・アンド・パートナーズが設計し、路地のような通路が中央の中庭へと続く、村のような構成になっています。
+    sources:
+      - { title: "Foster + Partners creates 'a village' for Saudi Arabia at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/15/saudi-arabia-pavilion-expo-2025-osaka/" }
+  - name: TECH WORLD館
+    pavilionKey: JpPr14
+    positionX: -97.5
+    positionZ: 354.4
+    facts: 台湾の設計事務所MAYUが、日本の梓設計と協力して設計した。建物の形は台湾の山々に着想を得ている。館内には「生命」「自然」「未来」をテーマにした3つのシアターがあり、AI技術と3D映像を組み合わせた体験で台湾の文化と技術を紹介する。
+    fallbackText: TECH WORLD館です。台湾の山々に着想を得た建物で、館内には生命・自然・未来をテーマにした3つのシアターがあります。
+    sources:
+      - { title: "Osaka expo Taiwan pavilion to feature smart tech and AI（Taipei Times）", url: "https://www.taipeitimes.com/News/taiwan/archives/2025/04/06/2003834703" }
+      - { title: "Tech World: Mountains of the Heart（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025077/" }
+  - name: フランス館
+    pavilionKey: emp10
+    positionX: 203.3
+    positionZ: 1.3
+    facts: フランスのColdefyとイタリアのカルロ・ラッティ・アソシエイツが設計した。正面の銅で覆われたらせん階段は、運命の人どうしを結ぶ「赤い糸」の言い伝えと、劇場の大階段を参照している。両脇の高さ17メートルの白い布のファサードは舞台の幕がモチーフ。館内には樹齢1000年のオリーブの木を据えた庭がある。
+    fallbackText: フランス館です。正面の大きならせん階段は、運命の人を結ぶ「赤い糸」の言い伝えと、劇場の大階段から着想を得ています。
+    sources:
+      - { title: "Huge helical staircase emblazons French pavilion at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/14/france-pavilion-expo-2025-osaka/" }
+  - name: ベトナム館
+    pavilionKey: emp11
+    positionX: 272.0
+    positionZ: -24.6
+    facts: 「人を中心とした包摂的な社会」を掲げるパビリオン。館内の天井は伝統的なランタンの絵で飾られ、プロジェクションマッピングや3D技術で民族衣装や伝統的な産品を紹介する。目玉は水上人形劇で、伝統楽器の生演奏にあわせて1日4回上演される。
+    fallbackText: ベトナム館です。伝統楽器の生演奏にあわせて人形が水の上で動く、水上人形劇が見どころです。
+    sources:
+      - { title: "Vietnam Pavilion: An Inclusive Society Where People Are Centered（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025087/" }
+  - name: イタリア・バチカンパビリオン
+    pavilionKey: sv01
+    positionX: -262.6
+    positionZ: 65.5
+    facts: マリオ・クチネッラ・アーキテクツが設計した木造のパビリオンで、ルネサンスの「理想都市」の考え方を下敷きにしている。テーマは「芸術が生命を再生する」。中心の展示は2世紀の大理石像「ファルネーゼのアトラス」で、屋上にはイタリア式の空中庭園がある。館内にはバチカンの展示もあり、カラヴァッジョの「キリストの埋葬」が公開された。
+    fallbackText: イタリア・バチカンパビリオンです。木造の建物で、2世紀の大理石像「ファルネーゼのアトラス」が展示の中心に据えられています。
+    sources:
+      - { title: "Expo 2025 Osaka: Italy Pavilion structures completed 6 months before opening（Kyodo News PR Wire）", url: "https://kyodonewsprwire.jp/release/202410188385" }
+      - { title: "Italy/Holy See Pavilion: Art Regenerates Life, Beauty Brings Hope（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025019/" }
+  - name: ベルギー王国館
+    pavilionKey: sv17
+    positionX: -260.6
+    positionZ: 99.9
+    facts: 水をテーマにしたパビリオンで、建物は水の三つの状態である液体・固体・気体に対応する3つの層で構成され、国内の3つの地域も表している。設計はベルギーの建築家シリル・ルソーが率いるチームの案。館内では生命科学やヘルスケアの取り組みを、AIやロボットを使って紹介する。
+    fallbackText: ベルギー王国館です。水をテーマに、液体・固体・気体という水の三つの状態を3つの層で表した建物です。
+    sources:
+      - { title: "Belgium Pavilion: Water（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025057/" }
+      - { title: "Belgium puts water, the building blocks of life, centre stage at World Expo Osaka 2025（Focus on Belgium）", url: "https://focusonbelgium.be/en/international/belgium-puts-water-building-blocks-life-centre-stage-world-expo-osaka-2025" }
+  - name: いのちの遊び場クラゲ館
+    pavilionKey: sig03
+    positionX: 4.9
+    positionZ: -106.9
+    facts: ジャズピアニストで数学研究者、STEAM教育者の中島さち子がプロデュースした。外観はクラゲから着想を得ており、館の中心には「創造の木」がそびえる。2階は五感で遊ぶ「Play Mountain」、1階には世界の音楽や芸能を上演する祭りの舞台がある。内部の木製部材は万博後に再利用しやすいよう設計された。
+    fallbackText: いのちの遊び場クラゲ館です。クラゲから着想を得た外観で、館の中心には「創造の木」がそびえています。
+    sources:
+      - { title: "Playground of Life: Jellyfish Pavilion of Sachiko Nakajima | Expo 2025（いのちの遊び場 クラゲ館 公式サイト）", url: "https://expokurage-2025.com/en/concept/" }
+      - { title: "Playground of Life: Jellyfish Pavilion (Invigorating Lives)（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025008/" }
+  - name: null²
+    pavilionKey: sig04
+    positionX: -27.6
+    positionZ: -135.7
+    facts: 落合陽一がプロデュースしたシグネチャーパビリオンで、設計はノイズ・アーキテクツ。ゲームなどで使われる立体の画素「ボクセル」を寄せ集めた形をしている。鉄骨の骨組みを鏡のような金属質の膜で覆い、風や音で膜が振動すると映り込む空がゆがむ。内部のスピーカーやロボットアームでも波のような動きを生み出す。
+    fallbackText: null²です。鏡のような膜で覆われた建物で、風や音で膜が揺れると、映り込む空の景色がゆがみます。
+    sources:
+      - { title: "Osaka Expo pavilion features vibrating mirrored facade（Dezeen）", url: "https://www.dezeen.com/2025/06/25/noiz-architects-pavilion-osaka-expo-null2/" }
+  - name: Better Co-Being
+    pavilionKey: sig01
+    positionX: 12.6
+    positionZ: 2.6
+    facts: 宮田裕章がプロデュースし、妹島和世と西沢立衛によるSANAAが設計した。静けさの森の木々の間に、高さ11メートルの銀色の格子状の天蓋を4層に重ね、細い柱だけで支えている。屋根も壁もなく、森の上に浮かぶ雲をイメージしている。風雨を防ぐためではなく、アート体験の舞台として同じ空を分かち合う場をつくっている。
+    fallbackText: Better Co-Beingです。SANAAが設計した、銀色の格子を4層に重ねた高さ11メートルの天蓋で、屋根も壁もない開かれたパビリオンです。
+    sources:
+      - { title: "Architecture | Better Co-Being : Signature Pavilion of Miyata Hiroaki（Better Co-Being 公式サイト）", url: "https://co-being.jp/en/architecture/" }
+      - { title: "Ten stand-out pavilions at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/11/expo-2025-osaka-roundup/" }
+  - name: 日本館
+    pavilionKey: JpPr01
+    positionX: 390.2
+    positionZ: -79.7
+    facts: 日建設計が、nendo創設者の佐藤オオキと協力して設計した。高さ12メートルのCLT（直交集成板）のパネルを、すき間をあけながら円を描くように並べ、鉄骨がその木材を支えている。1階の吹き抜けには、会場で集めた生ごみを微生物で発酵させてバイオガスをつくり、発電する設備がある。展示のタイトルは「Between Lives」。
+    fallbackText: 日本館です。木の板を円形に並べた建物で、会場の生ごみを微生物で分解してつくったバイオガスで発電する設備があります。
+    sources:
+      - { title: "Nikken Sekkei designs energy-generating Japan Pavilion for Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/05/02/nikken-sekkei-japan-pavilion-expo-osaka-2025/" }
+  - name: カタール館
+    pavilionKey: emp13
+    positionX: 261.5
+    positionZ: -63.0
+    facts: 隈研吾建築都市設計事務所が設計した。カタールと日本の木組みの技法を用いた木造の構造を、曲線を描く白い布で包んでいる。布は伝統的な帆船「ダウ」の帆を思わせる。展示はOMAの研究部門AMOが手がけ、海岸線がカタールの文化や産業をどう形づくってきたかを紹介する。
+    fallbackText: カタール館です。隈研吾さんが設計し、木造の建物を、伝統的な帆船ダウの帆を思わせる白い布で包んでいます。
+    sources:
+      - { title: "Kengo Kuma models Qatar Pavilion on traditional sailing boats（Dezeen）", url: "https://www.dezeen.com/2025/05/21/qatar-pavilion-kengo-kuma-amo-expo-2025-osaka/" }
+  - name: GUNDAM NEXT FUTURE PAVILION
+    pavilionKey: JpPr13
+    positionX: -314.3
+    positionZ: 223.3
+    facts: バンダイナムコホールディングスが出展した。全高約17メートルの実物大ガンダム像「RX-78F00/E」が立ち、関西で初めての実物大ガンダム立像となった。像には横浜で展示された「動くガンダム」の部材を再利用している。館内は2150年の宇宙ステーションを舞台にした映像体験で、幅18メートル、高さ8メートルのスクリーンと床の振動を組み合わせる。
+    fallbackText: GUNDAM NEXT FUTURE PAVILIONです。全高約17メートルの実物大ガンダム像が立ち、館内では2150年の宇宙ステーションを舞台にした映像体験ができます。
+    sources:
+      - { title: "EXPO2025 Osaka,Kansai,Japan \"GUNDAM NEXT FUTURE PAVILION\"（バンダイナムコホールディングス）", url: "https://www.bandainamco.co.jp/en/gundam-next-future-pavilion/" }
+      - { title: "Gundam Next Future Pavilion: A Possibility for the Near Future（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025076/" }
+  - name: BLUE OCEAN DOME
+    pavilionKey: JpPr12
+    positionX: -278.1
+    positionZ: 243.9
+    facts: 建築家の坂茂が設計した。大きな中央のドームと2つの小さなドームからなり、紙管、竹、炭素繊維強化プラスチックという異なる素材でそれぞれのドームをつくっている。非営利団体ZERIの出展で、海といのちの大切さと、プラスチックなどのごみによる海洋汚染をテーマにした展示がある。
+    fallbackText: BLUE OCEAN DOMEです。坂茂さんが設計し、紙管・竹・炭素繊維強化プラスチックという異なる素材でつくった3つのドームが並びます。
+    sources:
+      - { title: "Ten stand-out pavilions at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/11/expo-2025-osaka-roundup/" }
+      - { title: "Shigeru Ban unveils triple-domed Expo 2025 Osaka pavilion（Dezeen）", url: "https://www.dezeen.com/2023/05/31/shigeru-ban-domed-expo-2025-osaka-pavilion/" }
+  - name: 未来の都市
+    pavilionKey: JpPr18
+    positionX: -682.3
+    positionZ: 609.3
+    facts: 博覧会協会と12の協賛企業・団体が共同で出展した、長さ約150メートル、幅約33メートルの大型パビリオン。テーマは「幸せの都市へ」で、Society 5.0がめざす未来の都市像を体験できる。外壁は太陽工業が開発した白い光触媒コーティングの膜で覆われ、汚れを分解するセルフクリーニング機能をもつ。
+    fallbackText: 未来の都市です。長さ約150メートルの大きなパビリオンで、白い膜の外壁には汚れを分解する光触媒のコーティングが施されています。
+    sources:
+      - { title: "いよいよ4月に開幕する大阪・関西万博の最大級パビリオン「未来の都市」を徹底リポート（ASCII.jp）", url: "https://ascii.jp/elem/000/004/256/4256659/" }
+      - { title: "What is ‘The Future City’ in the coming EXPO 2025 Osaka, Kansai? 12 exhibitors showcase their future societies（Travel Voice）", url: "https://www.travelvoice.jp/english/what-is-the-future-city-in-the-coming-expo-2025-osaka-kansai-12-exhibitors-showcase-their-future-societies" }
+  - name: アイルランド館
+    pavilionKey: emp03
+    positionX: 248.4
+    positionZ: 128.1
+    facts: アイルランド政府の公共事業局（OPW）の建築家が設計した。3つの楕円形の空間を組み合わせ、新石器時代からアイルランドの美術や工芸に使われてきた渦巻き文様「トリスケル」を立体的に表している。外装はアイルランド産のダグラスファー材。テーマは「創造性が人をつなぐ」で、屋外にはジョセフ・ウォルシュの円形の彫刻「Magnus Rinn」がある。
+    fallbackText: アイルランド館です。古くからアイルランドの美術に使われてきた渦巻き文様「トリスケル」を、3つの楕円形の空間で立体的に表した建物です。
+    sources:
+      - { title: "Ireland Pavilion | Ireland At Expo 2025（Ireland.ie, Government of Ireland）", url: "https://api.ireland.ie/en/expo/ireland-pavilion/" }
+      - { title: "Ireland: Creativity Connects People（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025016/" }
+  - name: アンゴラパビリオン
+    pavilionKey: sv10
+    positionX: -131.6
+    positionZ: -119.9
+    facts: テーマは「健康のための教育」で、外観にはテーマが漢字で掲げられている。館内では伝統工芸品や民族衣装を紹介し、シアターでは子どものころマラリアから救われ、のちに医療従事者になった女性のドキュメンタリーを上映する。感染症対策などの健康課題と、それに取り組む人々も紹介している。外観デザインの部門で金賞を受けた。
+    fallbackText: アンゴラパビリオンです。「健康のための教育」をテーマに、感染症対策などの健康課題と、それに取り組む人々を紹介しています。
+    sources:
+      - { title: "Angola Pavilion: Education for Health（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025093/" }
+      - { title: "Angola Wins Best Exterior Design at Expo Osaka 2025（Embassy of the Republic of Angola in Japan）", url: "https://www.angola.or.jp/2025/10/13/angola-bestdesign-osaka2025-2/" }
+  - name: ルーマニアパビリオン
+    pavilionKey: sv08
+    positionX: -198.5
+    positionZ: -75.1
+    facts: テーマは「Romanian Magic Box」で、面積は約700平方メートル。館内ではマスコットのペリカン「ハル」のホログラムが来場者を迎える。インスタレーションや映像、コンサート、料理を通じて、自然や芸術、工芸、食文化を紹介している。
+    fallbackText: ルーマニアパビリオンです。「ルーマニアン・マジック・ボックス」をテーマに、マスコットのペリカン「ハル」のホログラムが来場者を迎えます。
+    sources:
+      - { title: "Romania Pavilion: The Romanian Magic Box（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025081/" }
+      - { title: "Romania participates in the World Expo in Japan with a 700 square meter pavilion（Radio România Actualități）", url: "https://romania-actualitati.ro/news-in-english/romania-participates-in-the-world-expo-in-japan-with-a-700-square-meter-pavilion-id204941.html" }
+  - name: ウーマンズ パビリオン in collaboration with Cartier
+    pavilionKey: JpPr02
+    positionX: 407.9
+    positionZ: -21.1
+    facts: 建築家の永山祐子が設計した。2020年ドバイ万博の日本館で使われた立体格子「組子」のファサードを再利用し、ドバイから運んだ約1万点の部材を細長い敷地に合わせて組み直した。内閣府、経済産業省、博覧会協会とカルティエが共同で出展し、英国のアーティスト、エス・デヴリンが展示の制作を手がけた。コンセプトは「When Women Thrive, Humanity Thrives」。
+    fallbackText: ウーマンズ パビリオン in collaboration with Cartierです。2020年ドバイ万博の日本館で使われた組子格子のファサードを再利用し、永山祐子さんが設計しました。
+    sources:
+      - { title: "Women’s Pavilion at Osaka, Kansai Expo Pursuing a Fair and Sustainable Future（JapanGov KIZUNA／内閣府政府広報室）", url: "https://www.japan.go.jp/kizuna/2024/05/womens_pavilion_at_osaka_kansai_expo.html" }
+      - { title: "Women's Pavilion in collaboration with Cartier at Expo 2025 Osaka（Arup）", url: "https://www.arup.com/projects/womens-pavilion-in-collaboration-with-cartier-at-expo-2025-osaka/" }
+  - name: 大阪ヘルスケアパビリオン
+    pavilionKey: JpPr03
+    positionX: 347.1
+    positionZ: 184.3
+    facts: 大阪府と大阪市が出展し、東畑建築事務所が設計した。テーマは「REBORN」で、木と水によって栄えた「水都大阪」の歴史に着想を得ている。形がひとつずつ異なる膜屋根の上を循環する水が流れ落ち、「ウォーター・ベール」をつくる。アトリウムでは、DNAに着想を得たらせん状の木の柱が屋根を支える。
+    fallbackText: 大阪ヘルスケアパビリオンです。形がひとつずつ異なる膜屋根の上を水が流れ落ちる建物で、木と水で栄えた「水都大阪」に着想を得ています。
+    sources:
+      - { title: "Osaka Expo 2025 Healthcare Pavilion Nest for Reborn | Tohata Architects & Engineers（Arch2O）", url: "https://arch2o.com/osaka-expo-2025-healthcare-pavilion-nest-for-reborn-tohata-architects-engineers" }
+      - { title: "Osaka Healthcare Pavilion: “Nest for Reborn”（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025066/" }
+  - name: 関西パビリオン
+    pavilionKey: JpPr04
+    positionX: 298.2
+    positionZ: 246.3
+    facts: 関西広域連合が中心となり、京都、滋賀、兵庫、奈良、和歌山、鳥取、徳島、福井、三重の9府県が出展した。六角形の建物を白い幕で包んで灯籠を表し、外壁には関西各地を象徴する切り絵があしらわれている。夜は内部の光が幕を透かし、建物全体が大きな灯籠のようになる。各府県の展示は、高さ12メートルの吹き抜け「センターサークル」でつながる。
+    fallbackText: 関西パビリオンです。六角形の建物を白い幕で包んで灯籠を表した外観で、関西の9府県が出展しています。
+    sources:
+      - { title: "Kansai Pavilion: The Brilliance of Kansai’s Rich History and Its Present Day（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025067/" }
+      - { title: "大阪・関西万博《関西パビリオン》で関西の魅力を再発見！【後編】ローカルの歴史文化に触れられるパビリオンも登場（Discover Japan）", url: "https://discoverjapan-web.com/article/142654" }
+  - name: NTT Pavilion
+    pavilionKey: JpPr05
+    positionX: 404.2
+    positionZ: 175.7
+    facts: NTTのパビリオンで、体験テーマは時間と空間を超える旅「PARALLEL TRAVEL」。「感情を纏う建築」をコンセプトに、建物は風にゆらめく布の幕で覆われ、幕は来場者の笑顔の量に応じても揺れる。カーボンワイヤーで3つのシアターを引っぱり上げるテントのような構造にして、鋼材の使用を減らした。展示では次世代の通信基盤「IOWN」で、1970年大阪万博の電気通信館跡地と会場を結び、ライブを空間ごと再現した。
+    fallbackText: NTT Pavilionです。風や来場者の笑顔に応じて揺れる布の幕に覆われた建物で、体験テーマは「PARALLEL TRAVEL」です。
+    sources:
+      - { title: "NTTパビリオン | EXPO2025（NTT）", url: "https://group.ntt/jp/expo2025/pavilion/" }
+      - { title: "NTT Pavilion: Parallel Travel（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025068/" }
+  - name: 電力館 可能性のタマゴたち
+    pavilionKey: JpPr06
+    positionX: 367.2
+    positionZ: 24.0
+    facts: 電気事業連合会が出展した。基本設計は電通ライブと日建設計、実施設計と施工は大和ハウス工業が担当し、鉄骨造2階建て、高さ17.4メートル。外装の銀色のボロノイ構造は、天候や時間帯によって表情を変える。来場者はタマゴ型のデバイスを持って館内を巡り、ブースに置くとエネルギーをテーマにしたゲームや映像が始まって、タマゴが光や振動で応える。
+    fallbackText: 電力館 可能性のタマゴたちです。銀色の外装が天候や時間帯によって表情を変える建物で、エネルギーの多様な可能性をテーマにしています。
+    sources:
+      - { title: "Osaka, Kansai, Japan Expo Daiwa House Group Initiatives（Daiwa House Group）", url: "https://www.daiwahouse.com/English/expo2025/" }
+      - { title: "Electric Power Pavilion: Eggs of Possibilities（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025069/" }
+  - name: 住友館
+    pavilionKey: JpPr07
+    positionX: 421.1
+    positionZ: 33.4
+    facts: 住友グループのパビリオンで、住友の発展の礎となった四国・別子銅山の山並みに着想を得て、連なる山のシルエットを表している。建物にはグループが所有する「住友の森」の木を使い、曲面の屋根はヒノキ、入口まわりの外壁はスギで仕上げた。館内では森をテーマにした体験型展示「UNKNOWN FOREST」と、植樹の体験が行われた。
+    fallbackText: 住友館です。住友の発展の礎となった別子の山並みをかたどった建物で、グループが所有する「住友の森」の木を使っています。
+    sources:
+      - { title: "Architecture of the Sumitomo Pavilion（Sumitomo Group Public Affairs Committee）", url: "https://www.sumitomo.gr.jp/english/expo2025/arch/" }
+      - { title: "Sumitomo Pavilion: Toward a Future from the Forest（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025070/" }
+  - name: よしもと waraii myraii館
+    pavilionKey: JpPr10
+    positionX: -339.1
+    positionZ: 125.1
+    facts: 吉本興業ホールディングスのパビリオンで、名前は「笑い」と「未来」を掛け合わせている。テーマは「こころとからだの健康につながる、笑いのチカラ」。デザイン監修はWHY、設計は大成建設一級建築士事務所。入口の丘の上には笑顔の球体「タマー」が浮かび、その先のアシタ広場では芸人によるコメディショーや、言葉がわからなくても楽しめるノンバーバルパフォーマンスが毎日行われた。
+    fallbackText: よしもと waraii myraii館です。入口の丘の上に、笑顔の球体「タマー」が浮かぶパビリオンです。
+    sources:
+      - { title: "よしもと waraii myraii館 - 2025年 大阪・関西万博パビリオン（吉本興業）", url: "https://expo.yoshimoto.co.jp/" }
+      - { title: "Yoshimoto Pavilion: Expanding New Possibilities of Laughter（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025073/" }
+  - name: PASONA NATUREVERSE
+    pavilionKey: JpPr11
+    positionX: -394.7
+    positionZ: 111.1
+    facts: パソナグループのパビリオンで、the design laboの板坂諭が設計した。鉄骨造の建物は、生命の象徴としてアンモナイトに着想を得たらせん形で、来場者はらせんに沿って館内を巡る。展示は、からだ、こころと絆、いのちの歴史の3つのゾーンで構成され、iPS細胞からつくられた拍動する心臓も展示された。
+    fallbackText: PASONA NATUREVERSEです。生命の象徴であるアンモナイトに着想を得た、らせん形の建物です。
+    sources:
+      - { title: "spiral shell-shaped pavilion for expo 2025 osaka bridges architecture and ecology（designboom）", url: "https://www.designboom.com/architecture/spiral-shell-shaped-pavilion-expo-2025-osaka-architecture-ecology-design-labo-09-24-2025/" }
+      - { title: "Pasona Natureverse: Thank You, Life（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025074/" }
+  - name: ガスパビリオン おばけワンダーランド
+    pavilionKey: JpPr15
+    positionX: -130.3
+    positionZ: 342.3
+    facts: 日本ガス協会が出展し、カーボンニュートラルな社会の実現をテーマに「化けろ、未来！」をコンセプトとする。建物は鏡面の膜材を使った、最大高さ約18メートルの三角形の断面が特徴で、外装の放射冷却素材「SPACECOOL」が室内の温度上昇を抑える。来場者はXRゴーグルを着けておばけになり、パネル展示では未来の都市ガス「e-メタン」などのエネルギー技術を紹介する。
+    fallbackText: ガスパビリオン おばけワンダーランドです。鏡面の膜材で覆った三角形の断面の建物で、「化けろ、未来！」をコンセプトにしています。
+    sources:
+      - { title: "2025年日本国際博覧会 日本ガス協会が「ガスパビリオン」起工式を実施 ―おばけワンダーランドの建設―（2025年日本国際博覧会協会／共同通信PRワイヤー）", url: "https://kyodonewsprwire.jp/release/202309220032" }
+      - { title: "Gas Pavilion Obake Wonderland: Bakero—Shape Our Future!（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025078/" }
+  - name: 飯田グループ×大阪公立大学共同出展館
+    pavilionKey: JpPr16
+    positionX: -157.9
+    positionZ: 335.8
+    facts: 住宅メーカーの飯田グループと大阪公立大学が共同で出展した。建築家の高松伸が設計し、メビウスの輪を応用した立体的な建物を、京都・西陣の細尾が手がけた西陣織で全面的に包んだ。外装の西陣織は、半年間の風雨や日光に耐えるようポリエステルで織られている。館内では、未来の「ウェルネス・スマートシティ」を表した15×24メートルの楕円形のジオラマなどで、未来の住まいとまちづくりを紹介する。
+    fallbackText: 飯田グループ×大阪公立大学共同出展館です。高松伸さんが設計した建物で、外装全体を京都の西陣織で包んでいます。
+    sources:
+      - { title: "【大阪・関西万博】「世界最大の西陣織建築」、開発秘話を細尾真孝社長が語る（WWDJAPAN）", url: "https://www.wwdjapan.com/articles/2099750" }
+      - { title: "Iida Group x Osaka Metropolitan University Joint Pavilion: Futuristic Housing and Community Planning（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025079/" }
+  - name: ORA外食パビリオン 宴
+    pavilionKey: JpPr17
+    positionX: -201.5
+    positionZ: 296.4
+    facts: 大阪外食産業協会（ORA）が出展し、「新・天下の台所」をテーマに、外食産業が描く食の未来を紹介する。江戸時代の大阪は「天下の台所」と呼ばれた。約80社が参加し、1階では人気の外食チェーンや菓子メーカーが万博限定の商品を提供し、2階では食に関する展示や体験教室が行われた。
+    fallbackText: ORA外食パビリオン 宴です。「新・天下の台所」をテーマに、外食産業が描く食の未来を紹介するパビリオンです。
+    sources:
+      - { title: "ORA Gaishoku Pavilion, “Utage”（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025080/" }
+      - { title: "大阪・関西万博開幕：ORA外食パビリオン　新たな食体験を提供（日本食糧新聞・電子版）", url: "https://news.nissyoku.co.jp/news/okum20250410032527420" }
+  - name: アメリカ館
+    pavilionKey: emp01
+    positionX: 181.1
+    positionZ: 35.6
+    facts: 米国の設計事務所トラハン・アーキテクツが設計した。V字に開く2棟の三角形の建物の間に、半透明のパネルで覆った一辺13.5メートルの立方体が浮かぶ。入口に続く壁の大型LEDスクリーンには、米国各地の名所や産業の映像が映し出される。館内では宇宙探査などの技術を紹介し、1972年に採取された月の石が展示の目玉となった。
+    fallbackText: アメリカ館です。V字に開いた2棟の建物の間に、半透明の大きな立方体が浮かぶデザインです。
+    sources:
+      - { title: "\"Grand yet minimalistic\" USA Expo Osaka pavilion features massive translucent cube（Dezeen）", url: "https://www.dezeen.com/2025/04/09/usa-osaka-pavilion-trahan-cube/" }
+      - { title: "USA Pavilion: Imagine What We Can Create Together（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025018/" }
+  - name: スイス連邦館
+    pavilionKey: emp02
+    positionX: 172.1
+    positionZ: -124.5
+    facts: マニュエル・ヘルツ・アーキテクツが設計した。正面に連なる球体は、PVCとETFEの膜を膨らませた二重のクッションを鉄骨で支えたもので、1970年大阪万博の空気膜構造などの建築を参照している。軽さを中心のテーマとし、解体して運び、再利用できるようにした。球体の中の展示は、生命、地球、拡張された人間の3つのテーマで構成された。
+    fallbackText: スイス連邦館です。膜を膨らませてつくった球体が連なる建物で、1970年大阪万博の建築を参照しています。
+    sources:
+      - { title: "Manuel Herz references \"audacious spirit of Expo '70\" for Swiss pavilion（Dezeen）", url: "https://www.dezeen.com/2025/04/25/manuel-herz-switzerland-pavilion-expo-osaka/" }
+      - { title: "Switzerland Pavilion: Life, Planet, Augmented Human（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025037/" }
+  - name: マレーシア館
+    pavilionKey: emp04
+    positionX: 217.7
+    positionZ: 128.7
+    facts: 隈研吾建築都市設計事務所が設計した。マレーシアの伝統的な織物ソンケットに着想を得て、約5,000本の竹をコンピューターを使った設計で編み込み、布のように柔らかく光を通すファサードをつくった。夜はライトアップされ、外装のリボン模様が金糸や銀糸のようにきらめく。館内では伝統工芸の実演が行われた。
+    fallbackText: マレーシア館です。伝統的な織物ソンケットに着想を得て、竹を編み込んだファサードが特徴で、隈研吾建築都市設計事務所が設計しました。
+    sources:
+      - { title: "Expo 2025 Malaysia Pavilion（Kengo Kuma and Associates）", url: "https://kkaa.co.jp/en/project/expo-2025-malaysia-pavilion/" }
+      - { title: "Malaysia Pavilion: Weaving a Future in Harmony（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025060/" }
+  - name: コモンズA館
+    pavilionKey: emp05
+    positionX: 134.0
+    positionZ: 138.2
+    facts: 複数の国が一つの建物を共同で使う共同館「コモンズ」の一つで、大屋根リングの内側にある。コモンズは従来の共同館のような地域別ではなく、万博のサブテーマごとに分かれており、A館のテーマは「いのちに力を与える（Empowering Lives）」。バルバドス、ケニア、キルギス、スリランカ、サモア、イエメンなど29の国が出展した。
+    fallbackText: コモンズA館です。複数の国が一つの建物を共同で使う共同館で、「いのちに力を与える」をテーマに29の国が出展しました。
+    sources:
+      - { title: "Official Participants' Pavilion アーカイブ（Expo 2025 Osaka, Kansai, Japan Official Website）", url: "https://www.expo2025.or.jp/en/official-participant/" }
+      - { title: "大阪・関西万博を支える、JICAの知られざる取組み（国際協力機構 JICA）", url: "https://www.jica.go.jp/information/blog/1572398_21942.html" }
+  - name: ヨルダン館
+    pavilionKey: emp06
+    positionX: 105.8
+    positionZ: 62.0
+    facts: テーマは「Weaving Possibilities」。ファサードはヨルダンの伝統的な布シュマーグに着想を得た動く壁で、皇太子財団の教育機関の学生が制作した。中心の展示室は奈良県上北山村の杉で囲まれた円形の映像空間で、ワディ・ラム保護区から運んだ約22トンの砂の上に座り、360度の映像でヨルダンの歴史をたどる。
+    fallbackText: ヨルダン館です。ワディ・ラムの砂漠から運んだ砂の上に座り、360度の映像でヨルダンの歴史をたどる展示が見どころです。
+    sources:
+      - { title: "Jordan Participates in 2025 Osaka World Expo（Jordan Tourism Board）", url: "https://international.visitjordan.com/mediacenter/shownews?id=53" }
+      - { title: "Jordan Pavilion: Weaving Possibilities（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025062/" }
+  - name: ペルー館
+    pavilionKey: emp07
+    positionX: 117.9
+    positionZ: 56.0
+    facts: テーマは「Infinite Possibilities」。館内ではアンデス山脈やアマゾン川の自然と古代遺跡の神秘を紹介し、会期の前半は北部シパンの砂漠のピラミッドから出土した金銀の副葬品を、7月13日からはナスカ文化を取り上げた。農産物や織物、工芸品などペルーの輸出品も紹介し、ペルー料理も味わえる。
+    fallbackText: ペルー館です。テーマは「無限の可能性」で、アンデスやアマゾンの自然、古代遺跡の神秘を紹介しています。
+    sources:
+      - { title: "Peru Pavilion（Expo 2025 Osaka, Kansai, Japan Official Website）", url: "https://www.expo2025.or.jp/en/official-participant/peru" }
+      - { title: "Peru Pavilion: Infinite Possibilities（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025083/" }
+  - name: モザンビーク館
+    pavilionKey: emp08
+    positionX: 142.8
+    positionZ: 68.9
+    facts: テーマは「Expanding Horizons」で、教育と仕事を社会を変える主な原動力と位置づけている。外壁にはインド洋に面した海岸の風景が描かれている。館内の中央には帆船の形をしたベンチがあり、周りのモニターやパネルで海洋研究などSDGsに関わる取り組みを紹介する。伝統的なプリント布カプラナの展示と販売もある。
+    fallbackText: モザンビーク館です。テーマは「地平を広げる」で、教育と仕事を社会を変える原動力として紹介しています。
+    sources:
+      - { title: "Mozambique Pavilion（Expo 2025 Osaka, Kansai, Japan Official Website）", url: "https://www.expo2025.or.jp/en/official-participant/mozambique" }
+      - { title: "Mozambique Pavilion: Expanding Horizons（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025089/" }
+  - name: フィリピン館
+    pavilionKey: emp09
+    positionX: 189.4
+    positionZ: 66.2
+    facts: カルロ・カルマ・コンサルタンシーが設計した。外壁には各地の職人が手織りした212枚のパネルが並び、経糸と緯糸で織る技法を建築で表している。テーマは「自然、文化、コミュニティ ― よりよい未来へ共に織りなす」。館内の「アート・フォレスト」では各地域の織物を展示し、伝統舞踊などのライブパフォーマンスも行われた。
+    fallbackText: フィリピン館です。各地の職人が手織りした212枚のパネルで外壁を飾った建物です。
+    sources:
+      - { title: "At Expo Osaka 2025, the Philippine Pavilion Highlights Harmony Between Nature, Culture, and People（Arch2O）", url: "https://www.arch2o.com/?p=618120" }
+      - { title: "Philippines Pavilion: Nature, Culture, and Community—Woven Together for a Better Future（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025053/" }
+  - name: ミャクミャクハウス
+    pavilionKey: emp12
+    positionX: 283.3
+    positionZ: -32.7
+    facts: 大阪・関西万博の公式キャラクター、ミャクミャクについて知り、ミャクミャクに会える施設。館内には、2005年の愛知万博の公式キャラクター、モリゾーとキッコロから引き継いだバトンが展示された。公式ストアで販売されるぬいぐるみや、ミャクミャクとコラボしたキャラクターの展示もあった。
+    fallbackText: ミャクミャクハウスです。大阪・関西万博の公式キャラクター、ミャクミャクについて知り、ミャクミャクに会える施設です。
+    sources:
+      - { title: "There are Myakumyaku and Komyaku all over the Osaka Kansai Expo site, including the Myakumyaku House.（GIGAZINE）", url: "https://gigazine.net/gsc_news/en/20250409-myakumyaku-osaka-kansai-expo" }
+      - { title: "Exploring Expo 2025 Osaka Kansai（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025001/" }
+  - name: アラブ首長国連邦館
+    pavilionKey: emp14
+    positionX: 262.8
+    positionZ: -99.6
+    facts: アラブ首長国連邦と日本のクリエイターによるチーム「Earth to Ether Design Collective」が設計した。ガラス張りの館内に、農業で出るナツメヤシの廃材からつくった最大16メートルの柱90本が林のように立ち、日本の木工技術で組み上げている。テーマは「Earth to Ether」で、宇宙開発や医療の取り組みも紹介する。
+    fallbackText: アラブ首長国連邦館です。ナツメヤシの廃材でつくった90本の柱が、林のように立ち並ぶパビリオンです。
+    sources:
+      - { title: "UAE Pavilion: Earth to Ether（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025014/" }
+      - { title: "UAE pavilion opens at Expo 2025 Osaka with focus on heritage and future（The National）", url: "https://www.thenationalnews.com/news/uae/2025/04/13/uae-pavilion-opens-at-expo-2025-osaka-with-focus-on-heritage-and-future" }
+  - name: カナダ館
+    pavilionKey: emp15
+    positionX: 223.5
+    positionZ: -113.4
+    facts: 設計チームには Rayside Labossière と建築家 Guillaume Pelletier が加わり、演出家ロベール・ルパージュが芸術面の助言者を務めた。春に凍った川の氷が解けて流れ出す様子をモチーフに、青と白の外観で氷の造形を表している。テーマは「再生」で、来場者は拡張現実（AR）のタブレットを手に、川をたどりながら各地の暮らしにふれる。
+    fallbackText: カナダ館です。春に川の氷が解けて流れ出す様子をモチーフにした、青と白の氷のような外観のパビリオンです。
+    sources:
+      - { title: "Canada Pavilion: Regeneration（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025030/" }
+      - { title: "Canada unveils pavilion concept for Expo 2025 Osaka（Canadian Architect）", url: "https://www.canadianarchitect.com/canada-unveils-pavilion-concept-for-expo-2025-osaka/" }
+  - name: ポルトガル館
+    pavilionKey: emp16
+    positionX: 207.7
+    positionZ: -171.2
+    facts: 建築家の隈研吾が設計した。テーマは「Ocean, The Blue Dialogue」で、建物の内外に無数のロープを吊るし、海の色と波を表している。隈は船の木材やロープの繊維を生んだ山と海のつながりに着目し、風が通り抜ける建物にした。館内では海洋保全の取り組みと、南蛮貿易から始まる約500年の日本との交流を紹介する。
+    fallbackText: ポルトガル館です。隈研吾さんが設計し、建物の内外に吊るした無数のロープで海の色と波を表しています。
+    sources:
+      - { title: "Portugal Pavilion: Ocean, The Blue Dialogue（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025058/" }
+      - { title: "隈研吾さんに聞いてみよう！パビリオンの建築のこと。（2025年日本国際博覧会協会）", url: "https://www.expo2025.or.jp/officialblog/blog_20250510_1/" }
+  - name: コロンビア館
+    pavilionKey: emp17
+    positionX: 181.9
+    positionZ: -147.3
+    facts: 東京の設計事務所MORFが設計した。ガルシア＝マルケスの小説『百年の孤独』で少年が初めて氷を目にする場面に着想を得て、半透明のポリカーボネートの立方体を角度を変えて重ねたような外観にした。軽量鉄骨のモジュール構造で、解体して別の場所で再利用できるよう設計されている。館内ではコロンビアを「美の国」として紹介する。
+    fallbackText: コロンビア館です。小説『百年の孤独』で少年が初めて氷を見る場面に着想を得た、氷の立方体を重ねたような外観です。
+    sources:
+      - { title: "Colombia Pavilion: Country of Beauty（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025034/" }
+      - { title: "translucent dancing cubes shape modular colombia pavilion for osaka expo 2025（designboom）", url: "https://www.designboom.com/architecture/dancing-translucent-cubes-modular-colombia-pavilion-osaka-expo-2025-morf-07-03-2025/" }
+  - name: オーストリア館
+    pavilionKey: emp18
+    positionX: 157.7
+    positionZ: -103.4
+    facts: BWM Designers & Architects が設計した。テーマは「Composing the Future」で、正面には五線譜を思わせる木の板の大きならせんが空へ伸びる。らせんの部材はねじで留められ、解体して再利用できる。館内には、1873年のウィーン万博の際に明治天皇へ贈られたグランドピアノ「エンペラー」の複製があり、AIを使った作曲も体験できる。
+    fallbackText: オーストリア館です。五線譜を思わせる木のらせんが、空へと伸びる姿が特徴です。
+    sources:
+      - { title: "Austria Pavilion: Composing the Future（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025026/" }
+      - { title: "BWM Architects Explores Musical Heritage For Austria Pavilion at Expo Osaka 2025（ArchDaily）", url: "https://www.archdaily.com/1018994/bwm-architects-explores-musical-heritage-for-austria-pavilion-at-expo-osaka-2025" }
+  - name: ブラジル館
+    pavilionKey: emp19
+    positionX: 111.4
+    positionZ: -63.5
+    facts: 人と自然の関係をテーマにしたパビリオンで、2つの建物が並ぶ。1つ目の棟では、再利用した木材とビニール袋でつくられた、人や動物が植物のように天井から垂れ下がるアート作品が自然との共生を問いかける。2つ目の棟では、ブラジルのパランゴレと日本の羽衣を合わせた色鮮やかな衣装「パランゴロモ」を身につけて作品に入り込める。
+    fallbackText: ブラジル館です。再利用した木材とビニール袋でつくった、人や動物が天井から垂れ下がるアート作品で、自然との共生を問いかけます。
+    sources:
+      - { title: "Brazil Pavilion: Harmonious Coexistence with Nature and Cooperation among Peoples（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025084/" }
+  - name: クウェート館
+    pavilionKey: emp20
+    positionX: 91.2
+    positionZ: -41.6
+    facts: 設計事務所LAVAが「Visionary Lighthouse」をコンセプトに設計した。左右に広げた翼のような形は来場者を迎え入れるしぐさを表し、夜は照明で外観が光る。2階建ての館内には庭園や中東の伝統的な中庭があり、中心の真珠を思わせるドームでは、砂漠の夜空の下にいるような空間で国の過去・現在・未来を紹介する。
+    fallbackText: クウェート館です。翼を広げたような形の建物で、来場者を迎え入れるしぐさを表しています。
+    sources:
+      - { title: "Kuwait Pavilion: A Legacy of Empowerment（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025031/" }
+      - { title: "kuwait unveils 'visionary lighthouse' expo 2025 osaka pavilion designed by LAVA（designboom）", url: "https://www.designboom.com/architecture/kuwait-visionary-lighthouse-pavilion-design-expo-2025-osaka-lava-03-07-2024/" }
+  - name: 中華人民共和国館
+    pavilionKey: emp21
+    positionX: 61.6
+    positionZ: -33.3
+    facts: China Architecture Design Group（CADG）が設計した。外観は古代中国で文字を書き記した竹簡をモチーフにしており、竹簡には5つの書体で漢詩など119の文章が記されている。テーマは「人と自然の生命共同体を築く」。館内には国宝級の文化財や鑑真の像、月探査機「嫦娥6号」が月の裏側から持ち帰った試料などが並ぶ。
+    fallbackText: 中華人民共和国館です。古代中国で文字を書き記した竹簡をモチーフにした外観で、竹簡には漢詩などが記されています。
+    sources:
+      - { title: "China Pavilion: Building a Community of Life for Man and Nature—Future Society of Green Development（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025044/" }
+      - { title: "China Pavilion's Plan for Expo Osaka 2025: A Showcase of Traditional Chinese Inscribed Slips（ArchDaily）", url: "https://www.archdaily.com/1001039/china-pavilions-plan-for-expo-osaka-2025-a-showcase-of-traditional-chinese-inscribed-slips" }
+  - name: 国際機関館
+    pavilionKey: emp22
+    positionX: 33.5
+    positionZ: -121.3
+    facts: 5つの国際機関が共同で出展したパビリオン。過去の万博を紹介する上海の世界博覧会博物館、ASEAN、国際太陽光同盟、核融合の国際プロジェクトITER、国際科学技術センターが参加した。ASEANはVRで域内の世界遺産を紹介し、ITERは核融合炉の模型とCGでエネルギーの未来を説明する。
+    fallbackText: 国際機関館です。ASEANやITERなど5つの国際機関が、それぞれの取り組みを紹介する共同のパビリオンです。
+    sources:
+      - { title: "International Organization Pavilion（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025092/" }
+  - name: 国際連合館
+    pavilionKey: emp23
+    positionX: 51.5
+    positionZ: -118.7
+    facts: 国連の事務局や各部門がひとつの展示にまとまって出展したパビリオンで、テーマは「United for a Better Future」。国連の80年の歩みと、地球規模の課題や人道危機への取り組みを紹介する。国際的な活動が日々の暮らしにどう関わるかを示し、持続可能な未来づくりを来場者に考えてもらう構成になっている。
+    fallbackText: 国際連合館です。国連の80年の歩みと、地球規模の課題や人道危機への取り組みを紹介しています。
+    sources:
+      - { title: "United Nations Pavilion（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025033/" }
+  - name: 国際赤十字・赤新月運動館
+    pavilionKey: emp24
+    positionX: 62.9
+    positionZ: -127.2
+    facts: 人の命と健康、尊厳を守る人道支援に取り組む赤十字・赤新月運動のパビリオンで、約30分で3つのゾーンを巡る。世界の人々の日常を写真とプロジェクションマッピングで見せる空間、戦争や災害の現実を没入型の映像で伝えるドーム型シアター、命を救う人々のメッセージを大画面で読み、自分の思いを書き加えられる空間がある。
+    fallbackText: 国際赤十字・赤新月運動館です。戦争や災害の現実を伝えるドーム型シアターなど、3つのゾーンで人道支援の活動を紹介しています。
+    sources:
+      - { title: "International Red Cross and Red Crescent Movement Pavilion: The Power of Humanity（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025032/" }
+  - name: バーレーン館
+    pavilionKey: emp25
+    positionX: 105.6
+    positionZ: -169.6
+    facts: レバノン出身の建築家リナ・ゴトメが設計した。高さ17メートル、4階建ての木造で、伝統的な帆船「ダウ」の骨組みを思わせるように約3,000本の日本のスギ材を組んでいる。正面を覆う半透明の膜はダウの帆を参照し、日差しをやわらげる。吹き抜けを囲む展示では、交易や真珠採り、工芸など海とともに育まれた文化を紹介する。
+    fallbackText: バーレーン館です。リナ・ゴトメさんが設計した、伝統的な帆船ダウを思わせる木造の建物です。
+    sources:
+      - { title: "Bahrain Pavilion: Connecting Seas—A Journey Through the Senses（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025050/" }
+      - { title: "Lina Ghotmeh brings \"sense of voyage\" to Osaka Expo with boat-like Bahrain Pavilion（Dezeen）", url: "https://www.dezeen.com/2025/04/15/lina-ghotmeh-bahrain-pavilion-expo-2025-osaka/" }
+  - name: トルクメニスタン館
+    pavilionKey: emp26
+    positionX: 88.6
+    positionZ: -185.8
+    facts: テーマは「Inspiring a Better Tomorrow」。デザインは国土の約7割を占めるカラクム砂漠の風景に着想を得ており、角の丸い三角形の建物は循環、持続可能性、いのちの流れを表す。外壁の大型スクリーンには、自然の中を駆ける馬などの映像が映る。展示は階ごとに分かれ、1階は過去・現在・未来、2階は技術革新、3階は文化がテーマ。
+    fallbackText: トルクメニスタン館です。カラクム砂漠の風景に着想を得たデザインで、角の丸い三角形の建物が循環といのちの流れを表しています。
+    sources:
+      - { title: "Turkmenistan Pavilion: Inspiring a Better Tomorrow（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025046/" }
+  - name: 北欧館
+    pavilionKey: emp27
+    positionX: 58.6
+    positionZ: -181.0
+    facts: デンマーク、フィンランド、アイスランド、ノルウェー、スウェーデンの5か国が共同で出展した。イタリアの建築家ミケーレ・デ・ルッキとAMDL CIRCLEが設計した、面積1,200平方メートル、高さ17メートルの3階建ての木造建築で、北欧の伝統的な納屋に着想を得ており、再利用を前提につくられた。シアターを囲む紙のスクリーンは、捨てられるはずだった米からつくられている。
+    fallbackText: 北欧館です。北欧5か国が共同で出展した、伝統的な納屋に着想を得た高さ17メートルの木造のパビリオンです。
+    sources:
+      - { title: "Nordic Pavilion: Together Toward a Better Future（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025015/" }
+      - { title: "The Nordic region unites in one pavilion for the World Expo 2025 Osaka, Japan（Nordic Circle）", url: "https://thenordics-expoosaka.com/en/news/nordic-pavilion" }
+  - name: マルタ館
+    pavilionKey: emp28
+    positionX: 33.3
+    positionZ: -171.8
+    facts: テーマは「Catch the Wave, Catch the Opportunity」。入口の大型モニターの壁には、古い石灰岩の壁のように見える「時の門」が映し出され、館内では古代の美意識と先端技術を組み合わせた没入型の体験ができる。目玉は、江戸時代末期に日本からヨーロッパへ派遣された使節団がマルタに贈った甲冑で、2015年にマルタの武器庫で再発見された。
+    fallbackText: マルタ館です。江戸時代末期に日本の使節団がマルタに贈り、2015年に再発見された甲冑が見どころです。
+    sources:
+      - { title: "Malta Pavilion: Catch the Wave, Catch the Opportunity（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025059/" }
+  - name: チェコ館
+    pavilionKey: emp29
+    positionX: 10.3
+    positionZ: -168.3
+    facts: Apropos Architects が設計し、チェコ産の木材を使ったCLT（直交集成板）のパネルを、ボヘミアンクリスタルのガラスのファサードで包んでいる。パネルはねじで留めて解体しやすくした。らせん状のスロープがギャラリーになり、アルフォンス・ミュシャの作品などを見ながら屋上の展望テラスへ上る。らせんの形は1970年の大阪万博に同国が出展したパビリオンを参照している。
+    fallbackText: チェコ館です。木とガラスでできたらせん状のスロープがギャラリーになっていて、屋上の展望テラスまで続いています。
+    sources:
+      - { title: "Czechia Pavilion: Talent and Creativity for Life（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025042/" }
+      - { title: "Spiralling ramp of timber and glass wraps Czech pavilion at Osaka Expo（Dezeen）", url: "https://www.dezeen.com/2025/05/12/spiralling-ramp-timber-glass-czech-pavilion-osaka-expo/" }
+  - name: いのちの未来
+    pavilionKey: sig02
+    positionX: 18.7
+    positionZ: -52.6
+    facts: ロボット工学者の石黒浩がプロデュースし、石本建築事務所が設計した鉄骨造2階建ての建物。黒い外壁を屋上から水が階段状に流れ落ちる「水膜」のファサードで、水をいのちの象徴としている。館内は3つのゾーンで、日本人がモノにいのちを宿してきた歴史、50年後の暮らし、1000年後の人間の姿を、約30体のアバターやロボットとともに体験する。
+    fallbackText: いのちの未来です。黒い外壁を水が流れ落ちる建物で、館内ではアンドロイドやロボットとともに50年後や1000年後の未来を体験できます。
+    sources:
+      - { title: "Future of Life: Amplification of Lives（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025007/" }
+      - { title: "テーマ事業「シグネチャーパビリオン」石黒浩「いのちの未来」パビリオン引渡しについて（2025年日本国際博覧会協会）", url: "https://www.expo2025.or.jp/news/news-20241021-02/" }
+  - name: いのちの動的平衡館
+    pavilionKey: sig05
+    positionX: -87.5
+    positionZ: -120.0
+    facts: 生物学者の福岡伸一がプロデュースし、建築家の橋本尚樹が設計した。建物は生命の発生初期を表す「エンブリオ」と名づけられ、内部に柱がない。周囲の鉄骨のリングから伸びるワイヤーと空気チューブが膜屋根を支え、どれか一つが欠けても成り立たない、力の釣り合った構造になっている。中心には32万球のLEDでできた直径約10メートルの立体シアター「クラスラ」がある。
+    fallbackText: いのちの動的平衡館です。柱のない膜屋根の建物で、中心には32万球のLEDでできた立体シアター「クラスラ」があります。
+    sources:
+      - { title: "Dynamic Equilibrium of Life: Quest of Life（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025010/" }
+      - { title: "いのち動的平衡館を知る｜福岡伸一がプロデュースする「いのち動的平衡館」（2025年日本国際博覧会協会）", url: "https://www.expo2025.or.jp/expo-archive/project/fukuoka/overview/" }
+  - name: いのちめぐる冒険
+    pavilionKey: sig06
+    positionX: -72.7
+    positionZ: -83.3
+    facts: アニメーション監督の河森正治がプロデュースした。鉄骨と特殊なコンクリートパネルでつくった立方体の「セル」を積み重ねた建物で、最大30人が同時にVRゴーグルで宇宙規模の食物連鎖を体験するシアターや、映像・音楽・振動が連動する「ANIMA!」がある。前には、廃棄されたパソコンや携帯電話から回収した金の金箔を貼った直径3.5メートルの「いのち球」が立つ。
+    fallbackText: いのちめぐる冒険です。立方体の「セル」を積み重ねた建物で、前には廃棄されたパソコンや携帯電話の金を使った「いのち球」が立っています。
+    sources:
+      - { title: "Live Earth Journey: Totality of Life（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025011/" }
+      - { title: "河森正治プロデュース「いのちめぐる冒険」前に「いのち球」モニュメント（廃棄PC&携帯電話から生まれた都市鉱山製・金沢金箔貼り）が堂々誕生！（2025年日本国際博覧会協会）", url: "https://www.expo2025.or.jp/news/news-20250410-05/" }
+  - name: EARTH MART
+    pavilionKey: sig07
+    positionX: -62.0
+    positionZ: -44.1
+    facts: 放送作家・脚本家の小山薫堂がプロデュースし、建築家の隈研吾が設計した。食を通じていのちを考える「空想の市場」で、屋根は日本各地から集めた茅で葺いている。生産者や一流シェフ、フードテックの担い手と共創したおよそ20のコンテンツがあり、日本人が生涯に食べるとされる数にちなむ2万8000個の模型の卵でできたシャンデリアが見どころ。
+    fallbackText: EARTH MARTです。隈研吾さんが設計し、日本各地から集めた茅で屋根を葺いた、食を通じていのちを考えるパビリオンです。
+    sources:
+      - { title: "Earth Mart: Cycle of Lives（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025012/" }
+      - { title: "隈研吾さんに聞いてみよう！パビリオンの建築のこと。（2025年日本国際博覧会協会）", url: "https://www.expo2025.or.jp/officialblog/blog_20250510_1/" }
+  - name: Dialogue Theater ‐ いのちのあかし ‐
+    pavilionKey: sig08
+    positionX: -52.7
+    positionZ: -16.2
+    facts: 映画作家の河瀨直美がプロデューサーを務めた、「いのちを守る」をテーマとするシグネチャーパビリオン。奈良県十津川村と京都府福知山市の廃校になった木造校舎を解体して運び、3棟の建物に組み直した。シアターでは毎日異なる問いかけをもとに、初めて出会う二人が脚本なしで約10分間対話し、来場者がそれを見届ける。
+    fallbackText: Dialogue Theater ‐ いのちのあかし ‐です。奈良と京都の廃校になった木造校舎を移築してつくられた、「対話」を体験するパビリオンです。
+    sources:
+      - { title: "「いのちを守る」シグネチャーパビリオン「Dialogue Theater - いのちのあかし -」パビリオンページ（2025年日本国際博覧会協会）", url: "https://www.expo2025.or.jp/wp/wp-content/themes/expo2025orjp_2022/assets/pdf/project/pav_kawase.pdf" }
+      - { title: "Dialogue Theater: Sign of Life (Embracing Lives)（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025013/" }
+  - name: シンガポールパビリオン
+    pavilionKey: sv02
+    positionX: -295.5
+    positionZ: 13.8
+    facts: DP Architectsが設計した。高さ17メートルの真っ赤な球体「ドリーム・スフィア」が建物の中心で、表面はリサイクル可能なアルミの円盤1万7000枚で覆われている。願いを書いて奉納する日本の絵馬に着想を得ている。館内ではシンガポールのアーティストによる体験型の展示が続き、最上階には木々を植えた「ドリーム・フォレスト」がある。
+    fallbackText: シンガポールパビリオンです。日本の絵馬に着想を得た、高さ17メートルの赤い球体「ドリーム・スフィア」が特徴です。
+    sources:
+      - { title: "Singapore Pavilion: Where Dreams take Shape（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025036/" }
+      - { title: "DP Architects Completes “The Dream Sphere,” Singapore’s National Pavilion at Expo Osaka 2025（ArchDaily）", url: "https://www.archdaily.com/1018349/dp-architects-unveil-the-dream-sphere-singapores-national-pavilion-at-expo-osaka-2025" }
+  - name: ブルガリア パビリオン
+    pavilionKey: sv03
+    positionX: -276.4
+    positionZ: -8.0
+    facts: テーマは「自然とともに進化する」。ブルガリアは1970年の大阪万博で日本にヨーグルトを紹介した国で、マスコットの「ラクトちゃん」はヨーグルトづくりに欠かせない乳酸菌がモチーフ。館内は腸内フローラを思わせる装飾で、広大な自然や微生物の世界を、インタラクティブな没入型の展示で体験できる。
+    fallbackText: ブルガリア パビリオンです。1970年の大阪万博で日本にヨーグルトを紹介した国のパビリオンで、マスコットは乳酸菌がモチーフの「ラクトちゃん」です。
+    sources:
+      - { title: "Bulgaria Pavilion: Evolving with Nature（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025055/" }
+      - { title: "ブルガリアパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/bulgaria/" }
+  - name: オランダパビリオン
+    pavilionKey: sv04
+    positionX: -275.3
+    positionZ: -25.1
+    facts: RAU Architectsが設計した、解体できる構造のパビリオン。テーマは「コモングラウンド」で、水を表す波打つようなルーバーの外装に囲まれている。建物の中心に浮かぶ11メートルの白い球体は、再生可能エネルギーと日の出を表す。来場者は手のひら大の光る球を受け取り、展示に反応させながら館内を巡る。
+    fallbackText: オランダパビリオンです。建物の中心に、再生可能エネルギーと日の出を表す大きな白い球体が浮かんでいます。
+    sources:
+      - { title: "Netherlands Pavilion: Creating A New Dawn Together on Common Ground（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025028/" }
+      - { title: "Ten stand-out pavilions at Expo 2025 Osaka（Dezeen）", url: "https://www.dezeen.com/2025/04/11/expo-2025-osaka-roundup/" }
+  - name: オマーン館
+    pavilionKey: sv05
+    positionX: -170.8
+    positionZ: -12.1
+    facts: 「土地と水と人々」をテーマに、アラビア海や砂漠、山、緑といったオマーンの多様な自然を表したパビリオン。屋外には大小の赤いオブジェが並び、腰掛けて交流できる場になっている。館内へ続く通路はガラス天井の上を水が流れ、砂漠の緑化に向けた水資源管理や再生可能エネルギーの取り組みを紹介する。
+    fallbackText: オマーン館です。「土地と水と人々」がテーマで、館内へ続く通路では、ガラスの天井の上を水が流れています。
+    sources:
+      - { title: "Oman Pavilion: Earth, Water, and Humanity（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025027/" }
+      - { title: "オマーンパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/oman/" }
+  - name: ハンガリー館
+    pavilionKey: sv06
+    positionX: -148.1
+    positionZ: 11.3
+    facts: 民族音楽を中心テーマに、ハンガリーと日本の文化の共通点にも光を当てるパビリオン。大平原を思わせる緑の広場に建ち、手前の建物は風に揺れる3万本以上の細い帯で覆われている。奥には落ち葉の山のような形の「イマーシブ・ドーム」があり、民族音楽のライブ演奏で農村の情景へいざなう。
+    fallbackText: ハンガリー館です。風に揺れる3万本以上の細い帯で覆われた建物と、落ち葉の山のような形のドームが特徴です。
+    sources:
+      - { title: "Hungary Pavilion: Immersive Experience: One World, One Soul（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025052/" }
+      - { title: "ハンガリーパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/hungary/" }
+  - name: ポーランドパビリオン
+    pavilionKey: sv07
+    positionX: -147.8
+    positionZ: -66.2
+    facts: Interplay Architectsのアリシャ・クビツカとボルハ・マルティネスが設計した。木造の外観には日本の伝統的な木組み工法を取り入れ、広がる波のような形で創造性と革新を表し、DNAのらせんも思わせる。テーマは「ポーランド。未来を切り拓く遺産」。AIを使った空間アートの展示があり、コンサートルームではショパンのピアノ曲のリサイタルが開かれる。
+    fallbackText: ポーランドパビリオンです。日本の伝統的な木組み工法を取り入れた木造の建物で、広がる波のような形をしています。
+    sources:
+      - { title: "ポーランドパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/poland/" }
+      - { title: "Poland Pavilion: Heritage that Drives the Future（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025056/" }
+  - name: チリパビリオン
+    pavilionKey: sv11
+    positionX: -179.2
+    positionZ: 87.7
+    facts: テーマは「マクン：人々を包むチリの織物、私たちが守る未来の社会」。集成材でつくった構造体を、マプチェ族の女性たち200人が伝統的な技法で手織りした242平方メートルの幾何学模様の織物「マクン」が覆う。館内では壁3面を使った全長40メートルの映像で、チリの文化や持続可能な社会への取り組みを紹介する。
+    fallbackText: チリパビリオンです。マプチェ族の女性たち200人が手織りした、幾何学模様の大きな織物「マクン」で覆われた建物です。
+    sources:
+      - { title: "チリパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/chile/" }
+      - { title: "Chile Pavilion（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025043/" }
+  - name: チュニジアパビリオン
+    pavilionKey: sv12
+    positionX: -190.3
+    positionZ: 89.9
+    facts: テーマは「チュニジアの響き」。色鮮やかなモザイクと国花のジャスミンをモチーフにしたパビリオンで、館内に入るとジャスミンの香りに包まれる。壁面のモザイク画や映像で、女王エリッサによるカルタゴ建国や将軍ハンニバルの遠征、南部のサハラの風景、現代の科学技術の取り組みを紹介する。
+    fallbackText: チュニジアパビリオンです。モザイクと国花のジャスミンがモチーフで、館内はジャスミンの香りに包まれています。
+    sources:
+      - { title: "Tunisia Pavilion: Partnership in Innovation, Science, and Technology for Saving Lives（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025086/" }
+      - { title: "チュニジアパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/tunisia/" }
+  - name: カンボジア パビリオン
+    pavilionKey: sv13
+    positionX: -213.1
+    positionZ: 100.3
+    facts: テーマは「いのちを救う」。約30の寺院が残るコー・ケー遺跡に着想を得たパビリオンで、アンコール・ワットの外観模型や、回廊のレリーフ「乳海攪拌」の再現を展示する。文化財の展示の手前には、メコン川流域の豊かな農業とクメールの稲作の伝統を表す黄金色の稲田が広がる。伝統舞踊アプサラ・ダンスの公演もある。
+    fallbackText: カンボジア パビリオンです。コー・ケー遺跡に着想を得たパビリオンで、クメールの稲作の伝統を表す黄金色の稲田の展示があります。
+    sources:
+      - { title: "Cambodia Pavilion: Saving Lives（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025085/" }
+      - { title: "カンボジアパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/cambodia/" }
+  - name: アルジェリア館
+    pavilionKey: sv14
+    positionX: -207.0
+    positionZ: 72.4
+    facts: テーマは「平和共存の大地」で、外観には「Lights of Algeria（アルジェリアの光）」の文字が掲げられている。展示は約240万年前の石器から始まり、銀とサンゴを使った古代の装身具や、タッシリ・ナジェールなど7つのユネスコ世界遺産を紹介する。アラビア語で「光」を意味する名のAIガイド「ヌール」が映像展示を案内する。
+    fallbackText: アルジェリア館です。約240万年前の石器の展示から始まり、7つのユネスコ世界遺産などを紹介するパビリオンです。
+    sources:
+      - { title: "Algeria Pavilion: Discover the Lights of Algeria（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025088/" }
+      - { title: "アルジェリアパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/algeria/" }
+  - name: バルト館（ラトビア・リトアニア）
+    pavilionKey: sv15
+    positionX: -229.8
+    positionZ: 82.0
+    facts: ラトビアとリトアニアの2か国が共同で出展し、バルト地域の多様な自然を紹介するパビリオン。テーマは「WE ARE ONE」。目玉はインタラクティブなガラスの壁で、結露したしずくに来館者が書いたメッセージがすぐに消えていくことで、過ぎていく時のはかなさを表す。森の豊かさを伝える、ポルチーニがモチーフのマスコット「バラビちゃん」もいる。
+    fallbackText: バルト館（ラトビア・リトアニア）です。ラトビアとリトアニアが共同で出展した、「WE ARE ONE」をテーマにしたパビリオンです。
+    sources:
+      - { title: "バルト館（ラトビア共和国）（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/latvia/" }
+      - { title: "Baltic Pavilion (Latvia and Lithuania)（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025051/" }
+  - name: EUパビリオン
+    pavilionKey: sv16
+    positionX: -236.1
+    positionZ: 103.5
+    facts: テーマは「未来を育む」。デザインは、建設分野の脱炭素化を目指す「新欧州バウハウス」の3つの理念、持続可能性・美しさ・包摂性に着想を得ている。インタラクティブな展示やクイズ、トークセッションでEUと日本の取り組みを紹介し、ロボットアームが手入れする禅の庭や、デジタルの折り鶴のインスタレーションもある。
+    fallbackText: EUパビリオンです。「未来を育む」をテーマに、持続可能性・美しさ・包摂性という3つの理念に着想を得てデザインされています。
+    sources:
+      - { title: "EUパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/eu/" }
+      - { title: "The European Union: Nurturing Tomorrow（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025023/" }
+  - name: コモンズC館
+    pavilionKey: sv18
+    positionX: -133.9
+    positionZ: 93.8
+    facts: コモンズは、複数の国や地域が一つの建物に共同で出展するパビリオンで、会場にはAからFまでの館がある。コモンズC館には、イスラエル、ウクライナ、ウルグアイ、ガボン、グアテマラ、クロアチア、サンマリノ、スロバキア、スロベニア、パナマ、モンテネグロの11か国が出展している。予約なしで入れる手軽さも人気を集めた。
+    fallbackText: コモンズC館です。イスラエルやウクライナ、クロアチアなど11か国が、一つの建物に共同で出展しているパビリオンです。
+    sources:
+      - { title: "海外パビリオン アーカイブ（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/" }
+      - { title: "途上国のパビリオン出展に協力　大阪・関西万博でのJICAの取り組み（JICA）", url: "https://www.jica.go.jp/information/topics/2025/p20250925_01.html" }
+  - name: コモンズD館
+    pavilionKey: sv19
+    positionX: -212.0
+    positionZ: 0.8
+    facts: コモンズは、複数の国や地域が一つの建物に共同で出展するパビリオンで、会場にはAからFまでの館がある。コモンズD館には、ブータン、モンゴル、ラオス、パキスタン、キューバ、ホンジュラス、モルドバ、マーシャル諸島、ナイジェリア、マダガスカルなど、アジア、アフリカ、中南米、ヨーロッパ、オセアニアの25の国と地域が出展している。予約なしで入れる手軽さも人気を集めた。
+    fallbackText: コモンズD館です。アジアやアフリカ、中南米など25の国と地域が、一つの建物に共同で出展しているパビリオンです。
+    sources:
+      - { title: "海外パビリオン アーカイブ（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/" }
+      - { title: "途上国のパビリオン出展に協力　大阪・関西万博でのJICAの取り組み（JICA）", url: "https://www.jica.go.jp/information/topics/2025/p20250925_01.html" }
+  - name: ルクセンブルク館
+    pavilionKey: co01
+    positionX: 190.4
+    positionZ: 184.2
+    facts: ルクセンブルクの設計事務所STDMが設計した。テーマは「Doki Doki – ときめくルクセンブルク」。白い膜屋根の下に13の区画が並ぶ箱型の建物で、軽量な鉄骨や外しやすい部材を使い、解体して再利用することを前提に設計された。館内ではVRや3Dスキャンなどのデジタル技術で、ルクセンブルクの自然や暮らしを紹介する。
+    fallbackText: ルクセンブルク館です。白い膜屋根の下に13の区画が並ぶ建物で、解体して再利用することを前提に設計されています。
+    sources:
+      - { title: "Architecture of the Luxembourg Pavilion in Osaka: Circular and responsible（Luxembourg.lu）", url: "https://luxembourg.public.lu/en/society-and-culture/sustainable-development/architecture-pavillon-osaka.html" }
+      - { title: "Luxembourg Pavilion: Doki Doki—The Luxembourg Heartbeat（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025063/" }
+  - name: ドイツ館
+    pavilionKey: co02
+    positionX: 156.9
+    positionZ: 207.1
+    facts: ベルリンの設計事務所LAVAが設計した。テーマは循環経済で、タイトル「わ！ドイツ」の「わ」には、円（環）、調和（和）、驚きの「わ！」の3つの意味が込められている。木でできた円筒形の建物が連なり、再利用できる素材で造られている。館内ではマスコット「サーキュラー」の案内で循環経済について学べる。
+    fallbackText: ドイツ館です。「わ！ドイツ」と名付けられたパビリオンで、循環経済をテーマに、木でできた円筒形の建物が連なっています。
+    sources:
+      - { title: "LAVA Architects' German Pavilion Opens at Expo 2025 Osaka with Focus on Sustainability and Circularity（ArchDaily）", url: "https://www.archdaily.com/1018244/the-german-pavilion-designed-by-lava-architects-explores-circularity-at-expo-osaka-2025" }
+      - { title: "Germany Pavilion: Wa! Germany（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025045/" }
+  - name: 韓国館
+    pavilionKey: co03
+    positionX: 121.0
+    positionZ: 220.1
+    facts: 「With Hearts（こころに寄り添う）」をテーマに、2040年の未来社会の体験を目指すパビリオン。大屋根リング側の外壁には横27メートル、縦10メートルの巨大ディスプレーがあり、K-POPのライブ映像や観光名所の映像を流す。館内では来場者の声をAIで分析し、オーケストラ音楽に変えて流す展示がある。
+    fallbackText: 韓国館です。外壁の巨大なディスプレーでK-POPのライブ映像などを流し、館内では来場者の声をAIでオーケストラ音楽に変えます。
+    sources:
+      - { title: "韓国パビリオン（nippon.com）", url: "https://www.nippon.com/ja/guide-to-japan/expo2025041/" }
+      - { title: "韓国パビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/korea/" }
+  - name: コモンズF館
+    pavilionKey: co04
+    positionX: 112.8
+    positionZ: 251.1
+    facts: コモンズは、複数の国や地域が一つの建物に共同で出展するパビリオンで、会場にはAからFまでの館がある。コモンズF館には、アルメニア、カザフスタン、ブルネイの3か国が出展している。予約なしで入れる手軽さも人気を集めた。
+    fallbackText: コモンズF館です。アルメニア、カザフスタン、ブルネイの3か国が、一つの建物に共同で出展しているパビリオンです。
+    sources:
+      - { title: "海外パビリオン アーカイブ（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/" }
+      - { title: "途上国のパビリオン出展に協力　大阪・関西万博でのJICAの取り組み（JICA）", url: "https://www.jica.go.jp/information/topics/2025/p20250925_01.html" }
+  - name: EXPO 2025 デジタルウォレットパーク
+    pavilionKey: co05
+    positionX: 92.1
+    positionZ: 251.2
+    facts: 「EXPO2025デジタルウォレット」の利用者に向けた施設で、ポイント「ミャクポ！」を使ったアクティビティや、ステータス特典の限定エリアを設けた。公式キャラクターのミャクミャクと写真を撮れる「ミート・ザ・ミャクミャク」や、休憩スペース「ミャクポ！テラス」がある。パーク内の「デジタルトラベルゾーン」では、ルーム型LEDビジョンやVRゴーグルで各地の観光映像を見られる。
+    fallbackText: EXPO 2025 デジタルウォレットパークです。「EXPO2025デジタルウォレット」の利用者に向けた施設で、ミャクミャクとの記念撮影などの特典が用意されています。
+    sources:
+      - { title: "EXPO2025デジタルウォレットパークのサービススタート！（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/news/news-20250418-03/" }
+      - { title: "大阪・関西万博のデジタルウォレットパーク内に「デジタルトラベルゾーン」が開設されました（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/news/news-20250418-02/" }
+  - name: アゼルバイジャン館
+    pavilionKey: co06
+    positionX: 81.4
+    positionZ: 202.9
+    facts: テーマは「サステナビリティへの7つの懸け橋」。外観は7つの大きなアーチでできていて、国の7つの特色と未来へのつながりを表している。来場者はアーチをくぐるごとに、文化の側面を表す「七つの美」をめぐる新しい章へ進む。360度スクリーンの映像で、石油などの天然資源や伝統、スポーツ、観光を紹介する。
+    fallbackText: アゼルバイジャン館です。7つの大きなアーチが外観をかたちづくり、国の特色と未来へのつながりを表しています。
+    sources:
+      - { title: "アゼルバイジャンパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/azerbaijan/" }
+      - { title: "Azerbaijan Pavilion: Seven Bridges for Sustainability（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025017/" }
+  - name: 夜の地球 Earth at Nightパビリオン
+    pavilionKey: co07
+    positionX: 34.4
+    positionZ: 224.6
+    facts: 輪島塗の直径1メートルの大型地球儀「夜の地球 Earth at Night」を展示する施設。漆黒と金の発色が美しい作品で、2024年1月1日の能登半島地震でも無傷で残り、復興の象徴の一つとされている。博覧会協会と経済産業省が展示し、東京・ニューヨーク・北京・ロンドンの都市パネルや能登の復興の様子、日本の伝統的工芸品も紹介する。
+    fallbackText: 夜の地球 Earth at Nightパビリオンです。能登半島地震でも無傷で残った、輪島塗の直径1メートルの大型地球儀を展示しています。
+    sources:
+      - { title: "輪島塗大型地球儀「夜の地球　Earth at Night」の展示について（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/news/news-20250317-02/" }
+  - name: モナコ館
+    pavilionKey: co08
+    positionX: 28.5
+    positionZ: 265.1
+    facts: テーマは「Take Care of Wonder」。地中海と日本の庭園空間に着想を得たパビリオンで、館内と庭での没入型の体験を通じて、環境問題への意識を高めることを目指す。展示では植物の幹や枝を金属の構造物で表し、円筒形の映像空間では「海中」を探検するような体験ができる。オテル・ド・パリ・モンテカルロのセラーから選んだワインやコニャックを出すワインバーもある。
+    fallbackText: モナコ館です。地中海と日本の庭園空間に着想を得たパビリオンで、自然の素晴らしさとそのもろさを伝えます。
+    sources:
+      - { title: "モナコパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/monaco/" }
+      - { title: "Monaco Pavilion: Take Care of Wonder（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025061/" }
+  - name: トルコ館
+    pavilionKey: co09
+    positionX: 7.7
+    positionZ: 286.9
+    facts: テーマは「文明の黄金時代」。外壁の波模様は、地中海と黒海に面したトルコの位置を表し、入口の上には国旗の三日月と星が光る。館内には、豊富なホウ素資源を象徴する、ホウ素でコーティングした木材のインスタレーションがある。1万年以上前の遺跡ギョベクリ・テペからオスマン帝国までの文明の歩みをたどる。
+    fallbackText: トルコ館です。外壁の波模様は、地中海と黒海に面したトルコの位置を表しています。
+    sources:
+      - { title: "トルコパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/turkey/" }
+      - { title: "Türkiye Pavilion: Heyday of Civilizations（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025047/" }
+  - name: タイ王国館
+    pavilionKey: co10
+    positionX: -17.8
+    positionZ: 243.3
+    facts: パビリオン名は「ヴィマン・タイ」で、テーマは「大きな幸福のため、いのちをつなぐタイ」。建物はタイの伝統的なサラ・タイ様式の建築を思わせるデザインで、入口には木彫りの象の像が立つ。館内は3つのゾーンに分かれ、自然に根ざした伝統的な健康の知恵、医療と公衆衛生、ハーブやアロマを使ったケアを紹介する。
+    fallbackText: タイ王国館です。タイの伝統的なサラ・タイ様式の建築を思わせる建物で、入口では木彫りの象が迎えます。
+    sources:
+      - { title: "タイパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/thailand/" }
+      - { title: "Thailand Pavilion: THAILAND Connecting Lives for Greatest Happiness（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025040/thailand-pavilion-thailand-connecting-lives-for-greatest-happiness.html" }
+  - name: スペイン館
+    pavilionKey: co11
+    positionX: -45.5
+    positionZ: 245.5
+    facts: アクシオン・クルトゥラル・エスパニョーラ（AC/E）の公募で選ばれた、ネストル・モンテネグロ、Enorme Studio、Smart and Green Designの3者が設計した。テーマは、大航海時代にアジアへ向かう船を運んだ海流「黒潮」。リサイクル材や再生可能な素材で建てられ、深海のように暗い館内で海の生き物やブルーエコノミー、日本との交流の歴史を紹介する。
+    fallbackText: スペイン館です。テーマは、大航海時代にアジアへ向かう船を運んだ海流「黒潮」で、スペインと日本のつながりを伝えます。
+    sources:
+      - { title: "Spain Pavilion at Expo 2025 Osaka（Acción Cultural Española）", url: "https://www.accioncultural.es/en/ExpoSpain2025" }
+      - { title: "Spain Pavilion: Kuroshio Current（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025038/" }
+  - name: オーストラリア館
+    pavilionKey: co13
+    positionX: -111.8
+    positionZ: 242.5
+    facts: 設計事務所Buchanが主任設計者・建築家を務め、日本の日建設計と組んで建てた。外観は、オーストラリアの象徴であるユーカリに着想を得たデザイン。過去の国際的な大規模イベントで使われた建築資材などを再利用している。テーマは「Chasing the Sun ― 太陽の大地へ」で、オーストラリアを横断する太陽を追いかける没入型の体験ができる。
+    fallbackText: オーストラリア館です。オーストラリアの象徴であるユーカリに着想を得た外観で、過去の国際イベントで使われた建築資材を再利用しています。
+    sources:
+      - { title: "Construction starts on Australia Pavilion for Expo 2025 Osaka（Buchan）", url: "https://buchan.au/media/construction-starts-on-australia-pavilion-for-expo-2025-osaka/" }
+      - { title: "オーストラリアパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/australia/" }
+  - name: インドネシア館
+    pavilionKey: co14
+    positionX: -144.9
+    positionZ: 229.1
+    facts: テーマは「調和の中で繁栄する：自然、文化、未来」。外観はインドネシアにとって大切な象徴である「船」の形で、着実な前進と成長、困難を越えて航海を続ける姿を表す。館内には小さな熱帯林があり、自然保護や再生可能エネルギーの取り組み、約1,300の民族の工芸や食文化、新首都ヌサンタラを紹介する。
+    fallbackText: インドネシア館です。インドネシアにとって大切な象徴である船の形をした建物で、館内には小さな熱帯林があります。
+    sources:
+      - { title: "インドネシアパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/indonesia/" }
+      - { title: "Indonesia Pavilion: Thriving in Harmony（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025021/" }
+  - name: ウズベキスタン館
+    pavilionKey: co15
+    positionX: -200.9
+    positionZ: 208.4
+    facts: ドイツのアトリエ・ブリュックナーが設計した。シルクロードの隊商宿「キャラバンサライ」に着想を得た2層の建物で、下の階はレンガで覆われた土台、上の階は森のように並ぶ木の柱でできている。柱の木材は大阪近郊で伐採したスギで、万博後はウズベキスタンへ運び、学校などの教育施設に再利用する計画。テーマは「知識の庭 ― 未来社会のための実験室」。
+    fallbackText: ウズベキスタン館です。シルクロードの隊商宿に着想を得た建物で、上の階には大阪近郊のスギでできた木の柱が森のように並びます。
+    sources:
+      - { title: "Uzbekistan Pavilion at Expo 2025 Osaka draws on ancient Silk Road shelters（Dezeen）", url: "https://www.dezeen.com/2025/04/10/uzbekistan-pavilion-expo-2025-osaka-atelier-bruckner/" }
+      - { title: "Uzbekistan Pavilion: Garden of Knowledge（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025022/" }
+  - name: セルビア館
+    pavilionKey: co16
+    positionX: -226.9
+    positionZ: 165.6
+    facts: 副題は「浮遊する森（Floating Forest）」で、全体のテーマは「遊びの社会（Society of Play）」。ベオグラードの中心部を流れるドナウ川の小さな島々を模したデザインで、都市と自然が出会う風景を表している。館内には学びと交流の場を組み合わせた9つのステージがあり、2027年にベオグラードで開かれる万博の予告の場にもなっている。
+    fallbackText: セルビア館です。ベオグラードを流れるドナウ川の小さな島々を模したデザインで、副題は「浮遊する森」です。
+    sources:
+      - { title: "セルビア共和国パビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/serbia/" }
+      - { title: "Serbia Pavilion（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025039/" }
+  - name: バングラデシュ館
+    pavilionKey: co17
+    positionX: -201.4
+    positionZ: 156.2
+    facts: テーマは「いのちをつなぐ：伝統とイノベーションが調和する国」で、建物には環境に配慮した低炭素の素材を使っている。展示の中心は、伝統工芸で主要な輸出品でもある繊維製品で、手刺しゅうの布ナクシ・カンタや手織りのジャムダニ、「黄金の繊維」と呼ばれるジュートを紹介する。大型の液晶画面や精巧な模型で、稲作の歴史や河川の地形、暮らしの移り変わりも見せる。
+    fallbackText: バングラデシュ館です。伝統工芸で主要な輸出品でもある繊維製品を中心に、手刺しゅうや手織りの布を紹介しています。
+    sources:
+      - { title: "バングラデシュパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/bangladesh/" }
+      - { title: "Bangladesh Pavilion: A Symphony of Tradition and Innovation（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025090/" }
+  - name: セネガル館
+    pavilionKey: co18
+    positionX: -189.7
+    positionZ: 156.3
+    facts: テーマは「持続可能で公平な開発のために人々を結ぶ交差点」。2050年に向けた国の構想「セネガル2050」を掲げ、映像やパネルで主要な産業と開発目標を紹介する。2026年にダカールで開かれるユースオリンピックの紹介もある。頭上には、世界遺産のジュッジ国立鳥類保護区とゴレ島を描いた2枚の風景画が掲げられている。
+    fallbackText: セネガル館です。テーマは「持続可能で公平な開発のために人々を結ぶ交差点」で、2050年に向けた国の構想を紹介しています。
+    sources:
+      - { title: "セネガルパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/senegal/" }
+      - { title: "Senegal Pavilion: Connecting People Toward Sustainable and Equitable Development（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025091/" }
+  - name: エジプト館
+    pavilionKey: co19
+    positionX: -179.4
+    positionZ: 156.2
+    facts: テーマは「モダンエジプト　受け継ぎ、紡ぎ、未来へ」。古代文明から現代の発展までを一つの旅としてたどる構成で、展示室の壁に映す映像で古代遺跡や秘宝を紹介する。新行政首都、スエズ運河経済特区、大エジプト博物館という3つの国家プロジェクトや、再生可能エネルギーの取り組みも取り上げる。
+    fallbackText: エジプト館です。古代文明から現代の国家プロジェクトまで、エジプトの過去と未来をたどる展示です。
+    sources:
+      - { title: "エジプトパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/egypt/" }
+      - { title: "Egypt Pavilion: Legacy Empowering Future（Nippon.com）", url: "https://www.nippon.com/en/articles/-/15476" }
+  - name: インドパビリオン - バーラト
+    pavilionKey: co20
+    positionX: -163.7
+    positionZ: 216.3
+    facts: テーマは「バーラト―体験し､記憶し､受け継がれるもの―」。ヒマラヤに着想を得た外観には、古代の仏教壁画や、山の薬草で人々を救ったとされるヒンドゥー教の神ハヌマーンが描かれている。中庭「ロータス・コートヤード」ではパドマパニ（蓮華手）と菩提樹が迎え、月の南極をめざした探査機チャンドラヤーン3号の縮尺模型も展示する。屋根では72,576個のLEDが光の模様を描く。
+    fallbackText: インドパビリオン - バーラトです。ヒマラヤに着想を得た外観に、古代の仏教壁画やヒンドゥー教の神ハヌマーンが描かれています。
+    sources:
+      - { title: "インドパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/india/" }
+      - { title: "India Pavilion（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025020/" }
+  - name: コモンズB館
+    pavilionKey: co21
+    positionX: -132.7
+    positionZ: 151.5
+    facts: 複数の国が一つの建物の中で展示する共同館「コモンズ」の一つ。これまでの万博の共同館は「アフリカ館」のように地域ごとに分かれることが多かったが、今回は万博のテーマのもと、3つのサブテーマに分かれて展示している。B館には、カカオ生産の歩みを紹介するコートジボワールや、日本の国際協力を紹介するドミニカ共和国などが出展している。
+    fallbackText: コモンズB館です。複数の国が一つの建物の中で展示する共同館の一つです。
+    sources:
+      - { title: "大阪・関西万博を支える、JICAの知られざる取組み（国際協力機構 JICA）", url: "https://www.jica.go.jp/information/blog/1572398_21942.html" }
+      - { title: "コートジボワールパビリオン（コモンズ-B）（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/cote-divoire/" }
+  - name: ネパール館
+    pavilionKey: co22
+    positionX: 228.2
+    positionZ: 176.5
+    facts: ネパール人建築家プラジュワル・ハダが設計した。カトマンズの聖地スワヤンブナートのストゥーパに着想を得た建物で、言い伝えではスワヤンブナートは蓮の花から生まれたとされる。展示ではヒマラヤの景観や多様な文化、仏教美術を紹介し、仏教の儀式で使うシンギングボウルを鳴らす体験もできる。
+    fallbackText: ネパール館です。ネパール人建築家プラジュワル・ハダが、カトマンズの聖地スワヤンブナートのストゥーパに着想を得て設計しました。
+    sources:
+      - { title: "ネパールパビリオン（EXPO 2025 大阪・関西万博公式Webサイト）", url: "https://www.expo2025.or.jp/official-participant/nepal/" }
+      - { title: "Nepal Pavilion: Sharing Sights and Culture from the Roof of the World（Nippon.com）", url: "https://www.nippon.com/en/guide-to-japan/expo2025048/nepal-pavilion-sharing-sights-and-culture-from-the-roof-of-the-world.html" }

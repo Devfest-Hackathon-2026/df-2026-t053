@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万博フォトハント</title>
+<style>
+  :root{
+    --red:#E60012; --blue:#0068B7; --lgray:#D2D7DA; --mgray:#828487; --dgray:#222426;
+    --primary:var(--blue); --on-primary:#fff; --primary-container:#D7EAF6; --on-primary-container:#00385F;
+    --surface:#fff; --surface-low:#F4F6F7; --surface-mid:#E9EDEF; --surface-high:#DDE3E6;
+    --on-surface:var(--dgray); --on-variant:#4A4E51; --outline:#B9C0C4;
+    --gray3d:#9AA0A3; --photo:#7D8FA3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:0;background:#E9EDEF;color:var(--on-surface);min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif}
+  /* smartphone frame (landscape) */
+  .device{position:relative;background:#101214;border-radius:30px;padding:14px 26px;
+    width:min(1060px,97vw);box-shadow:0 6px 24px rgba(34,36,38,.3)}
+  .device::before{content:"";position:absolute;left:9px;top:50%;transform:translateY(-50%);
+    width:7px;height:7px;border-radius:50%;background:#2C2F31;box-shadow:inset 0 0 2px #000}
+  .device::after{content:"";position:absolute;right:0;top:26%;width:3px;height:64px;border-radius:2px;background:#101214}
+  .stage{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--surface)}
+  h1,h2,h3,p{margin:0}
+  button{font-family:inherit}
+  .screen{display:none;position:absolute;inset:0;flex-direction:column;background:var(--surface)}
+  .screen.active{display:flex}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:none;cursor:pointer;font-weight:700;
+    border-radius:999px;min-height:48px;padding:0 22px;font-size:14px;white-space:nowrap}
+  .btn-filled{background:var(--primary);color:var(--on-primary)}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-tonal{background:var(--primary-container);color:var(--on-primary-container)}
+  .btn-outlined{background:var(--surface);color:var(--primary);border:1.5px solid var(--primary)}
+  .btn-ghost{background:var(--surface);color:var(--on-surface);border:1.5px solid var(--outline)}
+  .iconbtn{display:inline-flex;align-items:center;gap:6px;border:none;cursor:pointer;font-weight:700;background:var(--surface);
+    color:var(--on-surface);border-radius:999px;min-height:48px;padding:0 16px;font-size:13px;box-shadow:0 1px 4px rgba(34,36,38,.18)}
+  .chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:700;white-space:nowrap}
+  .chip-gray{background:var(--surface-mid);color:var(--on-variant)}
+  .chip-dark{background:var(--dgray);color:#fff}
+  .chip-blue{background:var(--primary-container);color:var(--on-primary-container)}
+  .note{font-size:12px;line-height:1.6;color:var(--on-variant)}
+  .card{background:var(--surface);border:1.5px solid var(--surface-high);border-radius:20px}
+  .photo{background:var(--photo);border-radius:16px;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;font-size:14px;letter-spacing:.06em}
+  .appbar{display:flex;align-items:center;gap:10px;padding:14px 18px 8px}
+  .appbar .title{font-size:18px;font-weight:900;flex:1}
+  .prog{height:10px;border-radius:99px;background:var(--surface-mid);overflow:hidden}
+  .prog i{display:block;height:100%;background:var(--primary);border-radius:99px;width:0;transition:width .3s}
+  .spinner{width:34px;height:34px;border-radius:50%;border:4px solid var(--primary-container);border-top-color:var(--primary);
+    animation:spin 1s linear infinite;flex:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .overlay{position:absolute;inset:0;background:rgba(34,36,38,.55);display:none;align-items:center;justify-content:center;padding:22px;z-index:20}
+  .overlay.open{display:flex}
+  .dialog{background:var(--surface);border-radius:28px;max-width:860px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden;padding:18px 20px}
+  .dialog-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .dialog-head h3{font-size:17px;font-weight:800;flex:1}
+  .xbtn{width:40px;height:40px;border-radius:50%;border:none;background:var(--surface-mid);cursor:pointer;font-size:15px;flex:none}
+  .seg{display:inline-flex;background:var(--surface-mid);border-radius:999px;padding:4px;gap:2px}
+  .seg button{border:none;background:transparent;border-radius:999px;padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;color:var(--on-variant)}
+  .seg button.on{background:var(--surface);color:var(--on-surface);box-shadow:0 1px 3px rgba(34,36,38,.25)}
+  table.rank{width:100%;border-collapse:collapse;font-size:13.5px}
+  table.rank th{font-size:11.5px;color:var(--on-variant);text-align:left;padding:7px 10px;border-bottom:1.5px solid var(--surface-high)}
+  table.rank td{padding:8px 10px;border-bottom:1px solid var(--surface-mid)}
+  table.rank tr.me td{background:var(--primary-container);font-weight:800}
+  .field{background:var(--surface-low);border:1.5px solid var(--outline);border-radius:12px;padding:12px 14px;font-size:15px;width:100%}
+  .fadein{animation:fadein .45s ease}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body>
+
+<div class="device"><div class="stage">
+<!-- ===== モード選択 ===== -->
+<section class="screen active" id="scr-mode">
+  <div class="appbar">
+    <span class="title">万博フォトハント</span>
+    <span class="chip chip-gray">👤 旅人4821</span>
+    <button class="iconbtn" onclick="openPanel('panel-help-mode')">❓ 遊び方</button>
+    <button class="iconbtn" onclick="openRanking('mode')">🏆 ランキング</button>
+    <button class="iconbtn" onclick="openSettings('mode')">⚙ 設定</button>
+  </div>
+  <div style="flex:1;display:flex;padding:8px 18px 18px;min-height:0">
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px">
+      <div class="card" style="flex:1;padding:16px;display:flex;gap:14px;align-items:center">
+        <div style="flex:1">
+          <p style="font-size:17px;font-weight:900">自由探索</p>
+          <p class="note" style="margin-top:3px">入場は東ゲート／西ゲートから。入場後は各ゾーンとリング上へテレポートできます。</p>
+        </div>
+        <button class="btn btn-red" onclick="startPlay('自由探索')">開始</button>
+      </div>
+      <div class="card" style="flex:1;padding:16px;display:flex;gap:14px;align-items:center">
+        <div style="flex:1">
+          <p style="font-size:17px;font-weight:900">ゴール周辺探索</p>
+          <p class="note" style="margin-top:3px">撮影地点の近くの、決まった位置から始めます。</p>
+        </div>
+        <button class="btn btn-outlined" onclick="startPlay('ゴール周辺探索')">開始</button>
+      </div>
+    </div>
+  </div>
+  <!-- 準備中 -->
+  <div class="overlay" id="ov-preparing">
+    <div class="dialog" style="max-width:440px;align-items:stretch">
+      <div style="display:flex;gap:13px;align-items:center">
+        <span class="spinner"></span>
+        <p style="font-size:15px;font-weight:800" id="prep-label">準備しています…</p>
+      </div>
+      <div class="prog" style="margin-top:16px"><i id="prep-bar"></i></div>
+      <button class="btn btn-outlined" style="margin-top:16px;align-self:flex-start" onclick="cancelPrepare()">キャンセル</button>
+    </div>
+  </div>
+  <!-- 移動先の選択（自由探索） -->
+  <div class="overlay" id="ov-spots">
+    <div class="dialog" style="max-width:480px">
+      <div class="dialog-head"><h3>移動先を選ぶ</h3><button class="xbtn" onclick="closePanel('ov-spots')">✕</button></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button class="btn btn-tonal" style="min-height:54px" onclick="chooseSpot('東ゲート')">東ゲート</button>
+        <button class="btn btn-tonal" style="min-height:54px" onclick="chooseSpot('西ゲート')">西ゲート</button>
+      </div>
+    </div>
+  </div>
+  <!-- 遊び方（探索のヘルプと同じ） -->
+  <div class="overlay" id="panel-help-mode"></div>
+</section>
+
+<!-- ===== 探索 ===== -->
+<section class="screen" id="scr-explore">
+  <div style="position:absolute;inset:0;background:var(--gray3d)"></div>
+  <div id="shot-frame" style="display:none;position:absolute;left:50%;top:47%;width:400px;height:250px;transform:translate(-50%,-50%);
+    border:2.5px solid rgba(255,255,255,.95);border-radius:4px;box-shadow:0 0 0 1.5px rgba(34,36,38,.3)"></div>
+  <div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;gap:10px;padding:12px 14px;z-index:6">
+    <button class="iconbtn" onclick="openPanel('panel-exit')">← 戻る</button>
+    <span class="chip chip-dark" style="min-height:34px" id="explore-mode">自由探索</span>
+    <span style="flex:1"></span>
+    <button class="iconbtn" onclick="openPanel('panel-help')">❓ 操作方法</button>
+  </div>
+  <div style="position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:6">
+    <button class="iconbtn" style="flex-direction:column;width:64px;height:64px;border-radius:20px;padding:6px" onclick="openPanel('panel-photo')">🖼<span style="font-size:11px">写真</span></button>
+    <button class="iconbtn" style="flex-direction:column;width:64px;height:64px;border-radius:20px;padding:6px" onclick="openPanel('panel-map')">🗺<span style="font-size:11px">マップ</span></button>
+  </div>
+  <div style="position:absolute;left:20px;bottom:18px;z-index:6">
+    <div style="position:relative;width:118px;height:118px;border-radius:50%;background:rgba(255,255,255,.88);border:1.5px solid var(--outline)">
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:#fff;border:1.5px solid var(--mgray)"></div>
+    </div>
+  </div>
+  <div style="position:absolute;right:18px;bottom:16px;z-index:6;display:flex;align-items:flex-end;gap:14px">
+    <button class="btn btn-ghost" id="btn-teleport" style="min-height:52px;display:none" onclick="openPanel('panel-teleport')">📍 テレポート</button>
+    <button class="btn btn-tonal" style="min-height:52px" onclick="openPanel('panel-guide')">💬 この辺りを解説</button>
+    <button onclick="shoot()" aria-label="撮影" style="width:76px;height:76px;border-radius:50%;background:var(--red);border:4px solid #fff;box-shadow:0 2px 10px rgba(34,36,38,.35);cursor:pointer;display:flex;align-items:center;justify-content:center">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M9 3 7.2 5H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.2L15 3H9zm3 15.2A5.7 5.7 0 1 1 12 6.8a5.7 5.7 0 0 1 0 11.4z"/></svg>
+    </button>
+  </div>
+
+  <!-- 写真パネル -->
+  <div class="overlay" id="panel-photo">
+    <div class="dialog">
+      <div class="dialog-head"><h3>お手本写真</h3><button class="xbtn" onclick="closePanel('panel-photo')">✕</button></div>
+      <div class="photo" style="flex:1;min-height:220px">お手本写真</div>
+    </div>
+  </div>
+  <!-- マップパネル -->
+  <div class="overlay" id="panel-map">
+    <div class="dialog">
+      <div class="dialog-head"><h3>会場マップ</h3><button class="xbtn" onclick="closePanel('panel-map')">✕</button></div>
+      <div style="flex:1;position:relative;background:var(--surface-low);border:1.5px solid var(--surface-high);border-radius:16px;min-height:220px">
+        <svg width="100%" height="100%" viewBox="0 0 560 260" preserveAspectRatio="none" style="position:absolute;inset:0">
+          <polygon points="40,225 40,55 210,32 400,44 520,88 520,225" fill="#fff" stroke="#0068B7" stroke-width="3"/>
+          <g fill="#CED3D6"><rect x="90" y="82" width="86" height="44" rx="6"/><rect x="235" y="66" width="110" height="50" rx="6"/><rect x="385" y="96" width="80" height="40" rx="6"/><rect x="150" y="158" width="96" height="44" rx="6"/><rect x="330" y="162" width="120" height="42" rx="6"/></g>
+          <g transform="translate(268,196)"><polygon points="0,-15 10,11 0,5 -10,11" fill="#E60012" stroke="#fff" stroke-width="2.5"/></g>
+        </svg>
+        <span style="position:absolute;right:12px;top:10px;font-weight:900;font-size:13px;text-align:center">↑<br>N</span>
+      </div>
+      <p class="note" style="margin-top:10px">🔺 現在地と向き　━ 探索できる範囲　▦ 障害物　▢ 施設</p>
+    </div>
+  </div>
+  <!-- ヘルプパネル -->
+  <div class="overlay" id="panel-help">
+    <div class="dialog">
+      <div class="dialog-head"><h3>操作方法</h3><button class="xbtn" onclick="closePanel('panel-help')">✕</button></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+        <p><strong>歩く：</strong>左下のパッドを倒す</p>
+        <p><strong>見回す：</strong>画面をドラッグする</p>
+        <p><strong>写真と地図：</strong>右側のボタンで開く。開いている間は歩行が止まる</p>
+        <p><strong>撮影：</strong>赤いシャッターで1回だけ。位置と向きの近さが点数になる</p>
+        <p><strong>通信：</strong>撮影の確定・順位・新しいガイドには通信が必要</p>
+      </div>
+    </div>
+  </div>
+  <!-- ガイドパネル -->
+  <div class="overlay" id="panel-guide" style="justify-content:flex-end;padding:0">
+    <div style="background:var(--surface);width:46%;height:100%;display:flex;flex-direction:column;padding:18px 20px;gap:12px">
+      <div style="display:flex;align-items:center;gap:9px">
+        <p style="font-size:16.5px;font-weight:800;flex:1">この辺りの解説</p>
+        <span class="chip chip-blue">AI生成</span>
+        <button class="xbtn" onclick="closePanel('panel-guide')">✕</button>
+      </div>
+      <p style="font-size:15px;font-weight:800">正面の大きな輪の構造物</p>
+      <p style="font-size:13.5px;line-height:1.7">目の前の輪は、木の梁を組み合わせて作られた大きな屋根の構造物です。柱のない広い空間を支えるため、梁同士をずらしながら重ねる工夫が使われています。</p>
+      <p class="note">出典：出題版に登録された構造物資料</p>
+      <div style="display:flex;gap:9px">
+        <button class="btn btn-filled" id="btn-voice" onclick="toggleVoice()">▶ 音声を再生</button>
+        <button class="btn btn-ghost" onclick="closePanel('panel-guide')">閉じる</button>
+      </div>
+    </div>
+  </div>
+  <!-- テレポート（自由探索） -->
+  <div class="overlay" id="panel-teleport">
+    <div class="dialog" style="max-width:640px">
+      <div class="dialog-head"><h3>テレポート先</h3><button class="xbtn" onclick="closePanel('panel-teleport')">✕</button></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('コネクティングゾーン')">コネクティングゾーン</button>
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('セービングゾーン')">セービングゾーン</button>
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('エンパワーリングゾーン')">エンパワーリングゾーン</button>
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('シグネチャーゾーン')">シグネチャーゾーン</button>
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('静けさの森ゾーン')">静けさの森ゾーン</button>
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('東ゲートゾーン')">東ゲートゾーン</button>
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('西ゲートゾーン')">西ゲートゾーン</button>
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('フューチャーライフゾーン')">フューチャーライフゾーン</button>
+        <button class="btn btn-tonal" style="min-height:50px" onclick="teleportTo('リング上')">リング上</button>
+      </div>
+    </div>
+  </div>
+  <!-- 終了確認 -->
+  <div class="overlay" id="panel-exit">
+    <div class="dialog" style="max-width:420px">
+      <div class="dialog-head"><h3>探索を終了しますか？</h3></div>
+      <p class="note">撮影はまだしていません。このプレイは順位に入りません。</p>
+      <div style="display:flex;gap:9px;margin-top:16px;justify-content:flex-end">
+        <button class="btn btn-ghost" onclick="closePanel('panel-exit')">続ける</button>
+        <button class="btn btn-red" onclick="closePanel('panel-exit');show('mode')">終了する</button>
+      </div>
+    </div>
+  </div>
+  <!-- 撮影送信 -->
+  <div class="overlay" id="ov-submit">
+    <div class="dialog" style="max-width:420px">
+      <div style="display:flex;gap:13px;align-items:center">
+        <span class="spinner"></span>
+        <p style="font-size:15px;font-weight:800">撮影を送信しています…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 結果 ===== -->
+<section class="screen" id="scr-result">
+  <div style="flex:1;display:flex;gap:14px;padding:16px 16px 0;min-height:0">
+    <div style="flex:1.3;display:flex;gap:8px;min-height:0">
+      <div style="flex:1;background:var(--gray3d);border-radius:14px"></div>
+      <div style="display:flex;align-items:center;font-weight:900;color:var(--mgray)">⇄</div>
+      <div class="photo" style="flex:1">実写写真</div>
+    </div>
+    <div style="width:262px;display:flex;flex-direction:column;gap:9px">
+      <div style="display:flex;align-items:flex-end;gap:9px">
+        <span style="font-size:52px;font-weight:900;line-height:1;color:var(--blue)">842</span>
+        <span class="note" style="padding-bottom:7px">/ 1000 点</span>
+        <span class="chip" style="background:#FBD9DC;color:#7A000A;margin-bottom:9px">自己ベスト更新</span>
+      </div>
+      <div class="card" style="padding:11px 13px;display:flex;flex-direction:column;gap:5px;font-size:13px">
+        <p style="display:flex;justify-content:space-between"><span>お手本との距離</span><strong>2.3 m</strong></p>
+        <p style="display:flex;justify-content:space-between"><span>向きのずれ（左右）</span><strong>8°</strong></p>
+        <p style="display:flex;justify-content:space-between"><span>向きのずれ（上下）</span><strong>3°</strong></p>
+        <p style="display:flex;justify-content:space-between;border-top:1px solid var(--surface-mid);padding-top:5px"><span>撮影時の順位</span><strong>12 位</strong></p>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;gap:14px;padding:12px 16px 16px;align-items:flex-end">
+    <div style="flex:1;font-size:13.5px;line-height:1.7">
+      <p><strong>撮影者のエピソード：</strong>開会前の朝、人がいない広場で輪の影が柱の列と重なる瞬間を待って撮られました。</p>
+      <p><strong>建築の見どころ：</strong>木造の梁を組み上げた輪の構造は、下から見上げると継ぎ目のリズムが続いて見えます。</p>
+    </div>
+    <div style="display:flex;gap:9px;flex:none">
+      <button class="btn btn-tonal" onclick="openRanking('result')">🏆 ランキング</button>
+      <button class="btn btn-outlined" onclick="show('mode')">モード選択</button>
+      <button class="btn btn-red" onclick="startPlay(currentMode)">もう一度挑戦</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ランキング ===== -->
+<section class="screen" id="scr-ranking">
+  <div class="appbar">
+    <button class="iconbtn" onclick="backFromSub()">← 戻る</button>
+    <span class="title">ランキング</span>
+    <div class="seg"><button class="on" id="seg-free" onclick="switchRank('free')">自由探索</button><button id="seg-near" onclick="switchRank('near')">ゴール周辺探索</button></div>
+    <button class="iconbtn">↻ 更新</button>
+  </div>
+  <div style="flex:1;display:flex;gap:14px;padding:8px 18px 18px;min-height:0">
+    <div style="flex:1;overflow:hidden;border:1.5px solid var(--surface-high);border-radius:16px">
+      <table class="rank">
+        <tr><th style="width:52px">順位</th><th>ニックネーム</th><th style="width:86px">点数</th><th style="width:130px">達成時刻</th></tr>
+        <tr><td>1</td><td>旅人0931</td><td><strong>978</strong></td><td>11/7 15:22</td></tr>
+        <tr><td>2</td><td>旅人2210</td><td><strong>951</strong></td><td>11/7 16:03</td></tr>
+        <tr><td>3</td><td>旅人7755</td><td><strong>930</strong></td><td>11/8 09:12</td></tr>
+        <tr class="me"><td>12</td><td>旅人4821（あなた）</td><td>842</td><td>11/8 09:38</td></tr>
+        <tr><td>13</td><td>旅人6102</td><td><strong>838</strong></td><td>11/8 09:20</td></tr>
+      </table>
+    </div>
+    <div style="width:208px">
+      <div class="card" style="padding:13px 15px;background:var(--primary-container);border-color:transparent">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--on-primary-container)">あなたの順位</p>
+        <p style="font-size:26px;font-weight:900;margin-top:2px" id="my-rank">12 位 <span style="font-size:14px">／ 842点</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 設定 ===== -->
+<section class="screen" id="scr-settings">
+  <div class="appbar">
+    <button class="iconbtn" onclick="backFromSub()">← 戻る</button>
+    <span class="title">設定</span>
+  </div>
+  <div style="flex:1;display:flex;gap:16px;padding:8px 18px 18px;min-height:0">
+    <div style="flex:1;display:flex;flex-direction:column;gap:9px">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--on-variant)">ニックネーム（ランキングに公開されます）</p>
+      <input class="field" value="旅人4821" maxlength="20">
+      <div><button class="btn btn-filled" id="btn-save" onclick="saveName()">保存</button></div>
+      <p class="note">匿名アカウントのため、アプリを削除すると記録を引き継げません。</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:9px">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--on-variant)">出典</p>
+      <div class="card" style="padding:12px 14px;display:flex;flex-direction:column;gap:8px;font-size:13.5px">
+        <p>お手本写真：撮影者クレジット</p>
+        <p>3Dモデル・会場図：加工モデルとその出典</p>
+        <p>固定解説：エピソード・見どころの出典</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div></div>
+<script>
+  var currentMode = '自由探索';
+  var subFrom = 'mode';
+  var prepTimer = null;
+
+  function show(name){
+    ['mode','explore','result','ranking','settings'].forEach(function(n){
+      document.getElementById('scr-'+n).classList.toggle('active', n===name);
+    });
+    window.scrollTo(0,0);
+  }
+  function startPlay(mode){
+    currentMode = mode;
+    document.getElementById('explore-mode').textContent = mode;
+    document.getElementById('btn-teleport').style.display = (mode === '自由探索') ? 'inline-flex' : 'none';
+    document.getElementById('shot-frame').style.display = (mode === 'ゴール周辺探索') ? 'block' : 'none';
+    show('mode');
+    var ov = document.getElementById('ov-preparing');
+    var bar = document.getElementById('prep-bar');
+    var label = document.getElementById('prep-label');
+    ov.classList.add('open');
+    bar.style.width = '0%';
+    label.textContent = '開始を受け付けています…';
+    var steps = [[30,'開始を受け付けています…'],[70,'素材を取得しています…'],[100,'画面を描画しています…']];
+    var i = 0;
+    clearInterval(prepTimer);
+    prepTimer = setInterval(function(){
+      if(i < steps.length){ bar.style.width = steps[i][0]+'%'; label.textContent = steps[i][1]; i++; }
+      else { clearInterval(prepTimer); ov.classList.remove('open');
+        if(currentMode === '自由探索'){ openPanel('ov-spots'); } else { show('explore'); } }
+    }, 550);
+  }
+  function chooseSpot(name){
+    closePanel('ov-spots');
+    document.getElementById('explore-mode').textContent = currentMode + ' ・ ' + name;
+    show('explore');
+  }
+  function teleportTo(name){
+    closePanel('panel-teleport');
+    document.getElementById('explore-mode').textContent = currentMode + ' ・ ' + name;
+  }
+  function cancelPrepare(){
+    clearInterval(prepTimer);
+    document.getElementById('ov-preparing').classList.remove('open');
+  }
+  function openPanel(id){
+    var el = document.getElementById(id);
+    if(el) el.classList.add('open');
+  }
+  function closePanel(id){
+    var el = document.getElementById(id);
+    if(el) el.classList.remove('open');
+  }
+  function shoot(){
+    var ov = document.getElementById('ov-submit');
+    ov.classList.add('open');
+    setTimeout(function(){
+      ov.classList.remove('open');
+      var r = document.getElementById('scr-result');
+      show('result');
+      r.classList.remove('fadein'); void r.offsetWidth; r.classList.add('fadein');
+    }, 1500);
+  }
+  function toggleVoice(){
+    var b = document.getElementById('btn-voice');
+    b.textContent = (b.textContent.indexOf('再生') >= 0) ? '⏸ 停止' : '▶ 音声を再生';
+  }
+  function openRanking(from){ subFrom = from; show('ranking'); }
+  function openSettings(from){ subFrom = from; show('settings'); }
+  function backFromSub(){ show(subFrom); }
+  function switchRank(m){
+    document.getElementById('seg-free').classList.toggle('on', m==='free');
+    document.getElementById('seg-near').classList.toggle('on', m==='near');
+    document.getElementById('my-rank').innerHTML = (m==='free')
+      ? '12 位 <span style="font-size:14px">／ 842点</span>'
+      : '<span style="font-size:16px">未記録</span>';
+  }
+  function saveName(){
+    var b = document.getElementById('btn-save');
+    b.textContent = '保存しました';
+    setTimeout(function(){ b.textContent = '保存'; }, 1800);
+  }
+  // モード選択の「遊び方」は探索のヘルプと同内容を表示する
+  document.getElementById('panel-help-mode').innerHTML =
+    '<div class="dialog"><div class="dialog-head"><h3>遊び方</h3>' +
+    '<button class="xbtn" onclick="closePanel(\'panel-help-mode\')">✕</button></div>' +
+    '<div style="display:flex;flex-direction:column;gap:10px;font-size:14px">' +
+    '<p><strong>歩く：</strong>左下のパッドを倒す</p>' +
+    '<p><strong>見回す：</strong>画面をドラッグする</p>' +
+    '<p><strong>写真と地図：</strong>右側のボタンで開く。開いている間は歩行が止まる</p>' +
+    '<p><strong>撮影：</strong>赤いシャッターで1回だけ。位置と向きの近さが点数になる</p>' +
+    '<p><strong>通信：</strong>撮影の確定・順位・新しいガイドには通信が必要</p></div></div>';
+</script>
+</body>
+</html>

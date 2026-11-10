@@ -1,0 +1,10 @@
+type: server
+
+# 生成 client の出力先（photohunt_client）
+client_package_path: client
+
+# 公開モデル・enum・例外は shared に置く。生成物は shared/lib/src/generated/
+shared_packages:
+  - ../shared
+
+server_test_tools_path: test/integration/test_tools

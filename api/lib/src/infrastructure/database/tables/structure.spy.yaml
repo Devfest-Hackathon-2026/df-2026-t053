@@ -1,0 +1,15 @@
+### 版に固定したガイド用の構造物資料。
+class: StructureRow
+table: structure
+serverOnly: true
+fields:
+  revisionId: int, column=revision_id, relation(parent=challenge_revision, onDelete=Cascade)
+  pavilionId: int?, column=pavilion_id, relation(parent=pavilion, onDelete=Restrict)
+  name: String
+  posX: double, column=pos_x
+  posZ: double, column=pos_z
+  facts: String
+  fallbackText: String, column=fallback_text
+indexes:
+  structure_revision_idx:
+    fields: revisionId

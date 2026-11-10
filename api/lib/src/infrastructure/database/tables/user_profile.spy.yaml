@@ -1,0 +1,12 @@
+### 認証ユーザーに 1 対 1 のプロフィール。nickname は重複可。
+class: UserProfileRow
+table: user_profile
+serverOnly: true
+fields:
+  authUserId: UuidValue, column=auth_user_id
+  nickname: String
+  createdAt: DateTime, column=created_at
+indexes:
+  user_profile_auth_user_uk:
+    fields: authUserId
+    unique: true

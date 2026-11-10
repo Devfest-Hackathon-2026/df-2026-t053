@@ -1,0 +1,6 @@
+### 素材ファイル。file は revision.yaml と同じディレクトリからの相対パス。
+class: SeedAssetFileInput
+serverOnly: true
+fields:
+  file: String
+  contentType: String

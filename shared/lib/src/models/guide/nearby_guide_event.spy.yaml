@@ -1,0 +1,5 @@
+### guide.explainNearby の stream で流れるイベントの基底。guideId は呼出し単位で全イベントに共通。
+class: NearbyGuideEvent
+sealed: true
+fields:
+  guideId: UuidValue
